@@ -21,8 +21,6 @@ public class SoundEventRegistry {
     public static final RegistrySupplier<SoundEvent> RADIO_HAWAII = create("radio_hawaii");
     public static final RegistrySupplier<SoundEvent> RADIO_TROPICAL = create("radio_tropical");
     public static final RegistrySupplier<SoundEvent> RADIO_BEACHPARTY = create("radio_beachparty");
-    public static final RegistrySupplier<SoundEvent> CABINET_OPEN = create("cabinet_open");
-    public static final RegistrySupplier<SoundEvent> CABINET_CLOSE = create("cabinet_close");
 
     public static final List<RegistrySupplier<SoundEvent>> RADIO_SOUNDS = List.of(RADIO_REGGEA, RADIO_HAWAII, RADIO_TROPICAL, RADIO_BEACHPARTY);
 

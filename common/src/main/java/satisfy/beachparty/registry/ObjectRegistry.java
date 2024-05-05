@@ -1,7 +1,9 @@
 package satisfy.beachparty.registry;
 
 import de.cristelknight.doapi.Util;
+import de.cristelknight.doapi.common.block.CabinetBlock;
 import de.cristelknight.doapi.common.block.ChairBlock;
+import de.cristelknight.doapi.common.registry.DoApiSoundEventRegistry;
 import dev.architectury.registry.fuel.FuelRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
@@ -27,8 +29,10 @@ import satisfy.beachparty.Beachparty;
 import satisfy.beachparty.BeachpartyIdentifier;
 import satisfy.beachparty.block.*;
 import satisfy.beachparty.item.*;
-import satisfy.beachparty.item.armor.*;
-import satisfy.beachparty.block.BeachChairBlock;
+import satisfy.beachparty.item.armor.BeachHatItem;
+import satisfy.beachparty.item.armor.BeachpartyArmorItem;
+import satisfy.beachparty.item.armor.BeachpartyCustomArmorItem;
+import satisfy.beachparty.item.armor.DyeableBeachpartyArmorItem;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -69,7 +73,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> HAMMOCK = registerWithItem("hammock", () -> new HammockBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> TIKI_CHAIR = registerWithItem("tiki_chair", () -> new TikiChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> TIKI_BAR = registerWithItem("tiki_bar", () -> new TikiBarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
-    public static final RegistrySupplier<Block> CABINET = registerWithItem("cabinet", () -> new StorageBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS), SoundEventRegistry.CABINET_OPEN, SoundEventRegistry.CABINET_CLOSE));
+    public static final RegistrySupplier<Block> CABINET = registerWithItem("cabinet", () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS), DoApiSoundEventRegistry.CABINET_OPEN, DoApiSoundEventRegistry.CABINET_CLOSE));
     public static final RegistrySupplier<Block> MINI_FRIDGE = registerWithItem("mini_fridge", () -> new MiniFridgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));
     public static final RegistrySupplier<Block> RADIO = registerWithItem("radio", () -> new RadioBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Item> OVERGROWN_DISC = registerItem("overgrown_disc", () -> new RecordItem(1, SoundEventRegistry.RADIO_BEACHPARTY.get(), getSettings().stacksTo(1), 196));
@@ -90,18 +94,20 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> PUMPKIN_COCKTAIL = registerCocktail("pumpkin_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.FIRE_RESISTANCE);
     public static final RegistrySupplier<Block> HONEY_COCKTAIL = registerCocktail("honey_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.DIG_SPEED);
     public static final RegistrySupplier<Block> MELON_COCKTAIL = registerCocktail("melon_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.LUCK);
-    public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new DrinkItem(getSettings().food(Foods.BAKED_POTATO), 32));
-    public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new DrinkItem(getSettings().food(Foods.BAKED_POTATO), 32));
-    public static final RegistrySupplier<Item> CHOCOLATE_MILKSHAKE = registerItem("chocolate_milkshake", () -> new DrinkItem(getSettings().food(Foods.BAKED_POTATO), 32));
-    public static final RegistrySupplier<Item> SWEETBERRY_ICECREAM = registerItem("sweetberry_icecream", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
-    public static final RegistrySupplier<Item> COCONUT_ICECREAM = registerItem("coconut_icecream", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
-    public static final RegistrySupplier<Item> CHOCOLATE_ICECREAM = registerItem("chocolate_icecream", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
-    public static final RegistrySupplier<Item> REFRESHING_DRINK = registerItem("refreshing_drink", () -> new DrinkItem(getSettings().food(Foods.BAKED_POTATO), 32));
-    public static final RegistrySupplier<Item> ICECREAM_COCONUT = registerItem("icecream_coconut", () -> new Item(getSettings().food(Foods.BAKED_POTATO)));
-    public static final RegistrySupplier<Item> ICECREAM_MELON = registerItem("icecream_melon", () -> new Item(getSettings().food(Foods.BAKED_POTATO)));
-    public static final RegistrySupplier<Item> ICECREAM_CACTUS = registerItem("icecream_cactus", () -> new Item(getSettings().food(Foods.BAKED_POTATO)));
-    public static final RegistrySupplier<Item> ICECREAM_SWEETBERRIES = registerItem("icecream_sweetberries", () -> new Item(getSettings().food(Foods.BAKED_POTATO)));
-    public static final RegistrySupplier<Item> ICECREAM_CHOCOLATE = registerItem("icecream_chocolate", () -> new Item(getSettings().food(Foods.BAKED_POTATO)));
+    public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
+    public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
+    public static final RegistrySupplier<Item> CHOCOLATE_MILKSHAKE = registerItem("chocolate_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
+
+    public static final RegistrySupplier<Item> SWEETBERRY_ICECREAM = registerItem("sweetberry_icecream", () -> new Item(getSettings().food(Foods.SWEET_BERRIES)));
+    public static final RegistrySupplier<Item> COCONUT_ICECREAM = registerItem("coconut_icecream", () -> new Item(getSettings().food(Foods.SWEET_BERRIES)));
+    public static final RegistrySupplier<Item> CHOCOLATE_ICECREAM = registerItem("chocolate_icecream", () -> new Item(getSettings().food(Foods.SWEET_BERRIES)));
+
+    public static final RegistrySupplier<Item> REFRESHING_DRINK = registerItem("refreshing_drink", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
+    public static final RegistrySupplier<Item> ICECREAM_COCONUT = registerItem("icecream_coconut", () -> new Item(getSettings().food(Foods.CARROT)));
+    public static final RegistrySupplier<Item> ICECREAM_MELON = registerItem("icecream_melon", () -> new Item(getSettings().food(Foods.CARROT)));
+    public static final RegistrySupplier<Item> ICECREAM_CACTUS = registerItem("icecream_cactus", () -> new Item(getSettings().food(Foods.CARROT)));
+    public static final RegistrySupplier<Item> ICECREAM_SWEETBERRIES = registerItem("icecream_sweetberries", () -> new Item(getSettings().food(Foods.CARROT)));
+    public static final RegistrySupplier<Item> ICECREAM_CHOCOLATE = registerItem("icecream_chocolate", () -> new Item(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> RAW_MUSSEL_MEAT = registerItem("raw_mussel_meat", () -> new Item(getSettings().food(Foods.BEEF)));
     public static final RegistrySupplier<Item> COOKED_MUSSEL_MEAT = registerItem("cooked_mussel_meat", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Block> BEACH_TOWEL = registerWithItem("beach_towel", () -> new BeachTowelBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));

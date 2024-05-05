@@ -12,7 +12,6 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> SEASHELLS_KEY = registerKey("seashells");
 
 
-
     public static ResourceKey<PlacedFeature> registerKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new BeachpartyIdentifier(name));
     }

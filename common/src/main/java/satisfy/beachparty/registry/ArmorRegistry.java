@@ -2,7 +2,6 @@ package satisfy.beachparty.registry;
 
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.network.chat.Component;

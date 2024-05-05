@@ -1,13 +1,12 @@
 package satisfy.beachparty.block;
 
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -23,13 +22,11 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import satisfy.beachparty.util.BeachpartyUtil;
 import satisfy.beachparty.util.HammockPart;
 
 import java.util.HashMap;
@@ -52,7 +49,7 @@ public class HammockBlock extends HorizontalDirectionalBlock {
 
     public static final Map<Direction, VoxelShape> LEFT_SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            map.put(direction, BeachpartyUtil.rotateShape(Direction.NORTH, direction, leftShapeSupplier.get()));
+            map.put(direction, GeneralUtil.rotateShape(Direction.NORTH, direction, leftShapeSupplier.get()));
         }
     });
 
@@ -65,7 +62,7 @@ public class HammockBlock extends HorizontalDirectionalBlock {
 
     public static final Map<Direction, VoxelShape> MIDDLE_SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            map.put(direction, BeachpartyUtil.rotateShape(Direction.NORTH, direction, middleShapeSupplier.get()));
+            map.put(direction, GeneralUtil.rotateShape(Direction.NORTH, direction, middleShapeSupplier.get()));
         }
     });
 
@@ -80,7 +77,7 @@ public class HammockBlock extends HorizontalDirectionalBlock {
 
     public static final Map<Direction, VoxelShape> RIGHT_SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            map.put(direction, BeachpartyUtil.rotateShape(Direction.NORTH, direction, rightShapeSupplier.get()));
+            map.put(direction, GeneralUtil.rotateShape(Direction.NORTH, direction, rightShapeSupplier.get()));
         }
     });
 

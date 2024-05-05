@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import satisfy.beachparty.Beachparty;
 import satisfy.beachparty.forge.registry.VillagersForge;
 import satisfy.beachparty.registry.ObjectRegistry;
-import satisfy.beachparty.util.BeachpartyVillagerUtil;
 
 import java.util.ArrayList;
 import java.util.List;

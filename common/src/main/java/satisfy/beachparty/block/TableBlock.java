@@ -2,6 +2,8 @@ package satisfy.beachparty.block;
 
 
 
+import de.cristelknight.doapi.common.block.LineConnectingBlock;
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -20,10 +22,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import satisfy.beachparty.util.BeachpartyLineConnectingType;
 
 
-public class TableBlock extends BeachpartyLineConnectingBlock implements SimpleWaterloggedBlock {
+public class TableBlock extends LineConnectingBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED;
     public static final VoxelShape TOP_SHAPE;
     public static final VoxelShape[] LEG_SHAPES;
@@ -36,22 +37,22 @@ public class TableBlock extends BeachpartyLineConnectingBlock implements SimpleW
     @Override
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
-        BeachpartyLineConnectingType type = state.getValue(TYPE);
+        GeneralUtil.LineConnectingType type = state.getValue(TYPE);
 
-        if (type == BeachpartyLineConnectingType.MIDDLE) {
+        if (type == GeneralUtil.LineConnectingType.MIDDLE) {
             return TOP_SHAPE;
         }
 
-        if((direction == Direction.NORTH && type == BeachpartyLineConnectingType.LEFT) || (direction == Direction.SOUTH && type == BeachpartyLineConnectingType.RIGHT)){
+        if((direction == Direction.NORTH && type == GeneralUtil.LineConnectingType.LEFT) || (direction == Direction.SOUTH && type == GeneralUtil.LineConnectingType.RIGHT)){
             return Shapes.or(TOP_SHAPE, LEG_SHAPES[0], LEG_SHAPES[3]);
         }
-        else if((direction == Direction.NORTH && type == BeachpartyLineConnectingType.RIGHT) || (direction == Direction.SOUTH && type == BeachpartyLineConnectingType.LEFT)){
+        else if((direction == Direction.NORTH && type == GeneralUtil.LineConnectingType.RIGHT) || (direction == Direction.SOUTH && type == GeneralUtil.LineConnectingType.LEFT)){
             return Shapes.or(TOP_SHAPE, LEG_SHAPES[1], LEG_SHAPES[2]);
         }
-        else if((direction == Direction.EAST && type == BeachpartyLineConnectingType.LEFT) || (direction == Direction.WEST && type == BeachpartyLineConnectingType.RIGHT)){
+        else if((direction == Direction.EAST && type == GeneralUtil.LineConnectingType.LEFT) || (direction == Direction.WEST && type == GeneralUtil.LineConnectingType.RIGHT)){
             return Shapes.or(TOP_SHAPE, LEG_SHAPES[0], LEG_SHAPES[1]);
         }
-        else if((direction == Direction.EAST && type == BeachpartyLineConnectingType.LEFT.RIGHT) || (direction == Direction.WEST && type == BeachpartyLineConnectingType.LEFT)){
+        else if((direction == Direction.EAST && type == GeneralUtil.LineConnectingType.RIGHT) || (direction == Direction.WEST && type == GeneralUtil.LineConnectingType.LEFT)){
             return Shapes.or(TOP_SHAPE, LEG_SHAPES[2], LEG_SHAPES[3]);
         }
         return Shapes.or(TOP_SHAPE, LEG_SHAPES);

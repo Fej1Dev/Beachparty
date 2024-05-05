@@ -1,6 +1,8 @@
 package satisfy.beachparty.block;
 
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import dev.architectury.networking.NetworkManager;
+import io.netty.buffer.Unpooled;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -35,7 +37,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import satisfy.beachparty.networking.BeachpartyMessages;
 import satisfy.beachparty.registry.SoundEventRegistry;
-import satisfy.beachparty.util.BeachpartyUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +56,7 @@ public class RadioBlock extends Block {
 
     public static final Map<Direction, VoxelShape> SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL.stream().toList()) {
-            map.put(direction, BeachpartyUtil.rotateShape(Direction.NORTH, direction, voxelShapeSupplier.get()));
+            map.put(direction, GeneralUtil.rotateShape(Direction.NORTH, direction, voxelShapeSupplier.get()));
         }
     });
 
@@ -143,12 +144,16 @@ public class RadioBlock extends Block {
 
     private void sendPacket(BlockState state, ServerLevel world, BlockPos pos, boolean on) {
         for (ServerPlayer player : world.players()) {
-            FriendlyByteBuf buffer = BeachpartyUtil.createPacketBuf();
+            FriendlyByteBuf buffer = createPacketBuf();
             buffer.writeBlockPos(pos);
             buffer.writeInt(state.getValue(CHANNEL));
             buffer.writeBoolean(on);
             NetworkManager.sendToPlayer(player, BeachpartyMessages.TURN_RADIO_S2C, buffer);
         }
+    }
+
+    public static FriendlyByteBuf createPacketBuf(){
+        return new FriendlyByteBuf(Unpooled.buffer());
     }
 
     @Override

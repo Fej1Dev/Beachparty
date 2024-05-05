@@ -2,6 +2,7 @@ package satisfy.beachparty.recipe;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -9,15 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import satisfy.beachparty.registry.RecipeRegistry;
-import satisfy.beachparty.util.BeachpartyUtil;
 
 public class TikiBarRecipe implements Recipe<Container> {
     final ResourceLocation id;
@@ -32,7 +28,7 @@ public class TikiBarRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container inventory, Level world) {
-        return BeachpartyUtil.matchesRecipe(inventory, inputs, 1, 2);
+        return GeneralUtil.matchesRecipe(inventory, inputs, 1, 2);
     }
 
     @Override
@@ -79,7 +75,7 @@ public class TikiBarRecipe implements Recipe<Container> {
 
         @Override
         public @NotNull TikiBarRecipe fromJson(ResourceLocation id, JsonObject json) {
-            final var ingredients = BeachpartyUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for TikiBar Recipe");
             } else if (ingredients.size() > 4) {

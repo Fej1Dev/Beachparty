@@ -1,6 +1,7 @@
 package satisfy.beachparty.block;
 
 import de.cristelknight.doapi.common.util.ChairUtil;
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +28,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import satisfy.beachparty.util.BeachpartyUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +50,7 @@ public class BeachChairBlock extends HorizontalDirectionalBlock {
 
 	public static final Map<Direction, VoxelShape> HEAD_SHAPE = Util.make(new HashMap<>(), map -> {
 		for (Direction direction : Direction.Plane.HORIZONTAL) {
-			map.put(direction, BeachpartyUtil.rotateShape(Direction.EAST, direction, headShapeSupplier.get()));
+			map.put(direction, GeneralUtil.rotateShape(Direction.EAST, direction, headShapeSupplier.get()));
 		}
 	});
 
@@ -67,7 +67,7 @@ public class BeachChairBlock extends HorizontalDirectionalBlock {
 
 	public static final Map<Direction, VoxelShape> FOOD_SHAPE = Util.make(new HashMap<>(), map -> {
 		for (Direction direction : Direction.Plane.HORIZONTAL) {
-			map.put(direction, BeachpartyUtil.rotateShape(Direction.EAST, direction, foodShapeSupplier.get()));
+			map.put(direction, GeneralUtil.rotateShape(Direction.EAST, direction, foodShapeSupplier.get()));
 		}
 	});
 

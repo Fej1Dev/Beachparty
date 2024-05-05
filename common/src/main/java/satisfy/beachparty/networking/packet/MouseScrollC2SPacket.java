@@ -8,7 +8,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import satisfy.beachparty.block.RadioBlock;
 import satisfy.beachparty.networking.BeachpartyMessages;
-import satisfy.beachparty.util.BeachpartyUtil;
 
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class MouseScrollC2SPacket implements NetworkManager.NetworkReceiver {
 
                 int channel = radioBlock.tune(serverWorld, blockState, blockPos, scrollValue);
 
-                FriendlyByteBuf buffer = BeachpartyUtil.createPacketBuf();;
+                FriendlyByteBuf buffer = RadioBlock.createPacketBuf();;
                 buffer.writeBlockPos(blockPos);
                 buffer.writeInt(channel);
 

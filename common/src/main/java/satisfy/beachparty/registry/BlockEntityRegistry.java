@@ -5,9 +5,8 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import satisfy.beachparty.Beachparty;
-import satisfy.beachparty.entity.CabinetBlockEntity;
-import satisfy.beachparty.entity.MiniFridgeBlockEntity;
-import satisfy.beachparty.entity.TikiBarBlockEntity;
+import satisfy.beachparty.block.entity.MiniFridgeBlockEntity;
+import satisfy.beachparty.block.entity.TikiBarBlockEntity;
 
 import java.util.function.Supplier;
 
@@ -15,8 +14,6 @@ public class BlockEntityRegistry {
 
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Beachparty.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
-
-    public static final RegistrySupplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY = createBlockEntity("cabinet", () -> BlockEntityType.Builder.of(CabinetBlockEntity::new, ObjectRegistry.CABINET.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<TikiBarBlockEntity>> TIKI_BAR_BLOCK_ENTITY = createBlockEntity("tiki_bar", () -> BlockEntityType.Builder.of(TikiBarBlockEntity::new, ObjectRegistry.TIKI_BAR.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<MiniFridgeBlockEntity>> MINI_FRIDGE_BLOCK_ENTITY = createBlockEntity("mini_fridge", () -> BlockEntityType.Builder.of(MiniFridgeBlockEntity::new, ObjectRegistry.MINI_FRIDGE.get()).build(null));
 

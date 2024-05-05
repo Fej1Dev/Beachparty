@@ -1,6 +1,7 @@
 package satisfy.beachparty.block;
 
 import de.cristelknight.doapi.common.util.ChairUtil;
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -31,7 +32,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import satisfy.beachparty.util.BeachpartyUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class BeachTowelBlock extends HorizontalDirectionalBlock {
 
 	public static final Map<Direction, VoxelShape> SHAPE = Util.make(new HashMap<>(), map -> {
 		for (Direction direction : Direction.Plane.HORIZONTAL.stream().toList()) {
-			map.put(direction, BeachpartyUtil.rotateShape(Direction.EAST, direction, VOXEL_SHAPE));
+			map.put(direction, GeneralUtil.rotateShape(Direction.EAST, direction, VOXEL_SHAPE));
 		}
 	});
 

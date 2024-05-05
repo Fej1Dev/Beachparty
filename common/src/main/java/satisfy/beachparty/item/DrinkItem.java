@@ -21,7 +21,6 @@ public class DrinkItem extends Item {
         this.useDuration = useDuration;
     }
 
-
     @Override
     public int getUseDuration(ItemStack itemStack) {
         return useDuration;

@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.jetbrains.annotations.NotNull;
 import satisfy.beachparty.registry.EntityRegistry;
 import satisfy.beachparty.registry.ObjectRegistry;
 
@@ -27,7 +28,7 @@ public class CoconutEntity extends ThrowableItemProjectile {
     }
 
 
-    protected Item getDefaultItem() {
+    protected @NotNull Item getDefaultItem() {
         return ObjectRegistry.COCONUT.get();
     }
 

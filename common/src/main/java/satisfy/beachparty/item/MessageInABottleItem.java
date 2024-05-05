@@ -1,8 +1,5 @@
 package satisfy.beachparty.item;
 
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Random;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -22,6 +19,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class MessageInABottleItem extends BlockItem {
     public MessageInABottleItem(Block block, Properties settings) {

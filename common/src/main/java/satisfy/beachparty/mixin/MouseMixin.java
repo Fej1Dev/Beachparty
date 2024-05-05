@@ -9,15 +9,14 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import org.spongepowered.asm.mixin.Unique;
-import satisfy.beachparty.block.RadioBlock;
-import satisfy.beachparty.networking.BeachpartyMessages;
-import satisfy.beachparty.registry.ObjectRegistry;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import satisfy.beachparty.util.BeachpartyUtil;
+import satisfy.beachparty.block.RadioBlock;
+import satisfy.beachparty.networking.BeachpartyMessages;
+import satisfy.beachparty.registry.ObjectRegistry;
 
 @Mixin(MouseHandler.class)
 public class MouseMixin {
@@ -52,7 +51,7 @@ public class MouseMixin {
         if (scrollValue == 0) {
             return;
         }
-        FriendlyByteBuf buffer = BeachpartyUtil.createPacketBuf();
+        FriendlyByteBuf buffer = RadioBlock.createPacketBuf();
         buffer.writeBlockPos(blockPos);
         buffer.writeInt(scrollValue);
         NetworkManager.sendToServer(BeachpartyMessages.MOUSE_SCROLL_C2S, buffer);

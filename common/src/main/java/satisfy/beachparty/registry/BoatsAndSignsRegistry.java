@@ -1,6 +1,6 @@
 package satisfy.beachparty.registry;
 
-import de.cristelknight.doapi.DoApiExpectPlatform;
+import de.cristelknight.doapi.DoApiCommonEP;
 import de.cristelknight.doapi.terraform.boat.TerraformBoatType;
 import de.cristelknight.doapi.terraform.boat.item.TerraformBoatItemHelper;
 import de.cristelknight.doapi.terraform.sign.TerraformSignHelper;
@@ -37,7 +37,7 @@ public class BoatsAndSignsRegistry {
     public static RegistrySupplier<Item> FLOATY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ObjectRegistry.ITEMS, "floaty_chest_boat", FLOATY_BOAT_TYPE, true);
 
     public static void init() {
-        DoApiExpectPlatform.registerBoatType(PALM_BOAT_TYPE, new TerraformBoatType.Builder().item(PALM_BOAT).chestItem(PALM_CHEST_BOAT).build());
-        DoApiExpectPlatform.registerBoatType(FLOATY_BOAT_TYPE, new TerraformBoatType.Builder().item(FLOATY).chestItem(FLOATY_CHEST_BOAT).build());
+        DoApiCommonEP.registerBoatType(PALM_BOAT_TYPE, new TerraformBoatType.Builder().item(PALM_BOAT).chestItem(PALM_CHEST_BOAT).build());
+        DoApiCommonEP.registerBoatType(FLOATY_BOAT_TYPE, new TerraformBoatType.Builder().item(FLOATY).chestItem(FLOATY_CHEST_BOAT).build());
     }
 }

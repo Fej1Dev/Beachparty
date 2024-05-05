@@ -1,6 +1,7 @@
 package satisfy.beachparty.client;
 
 
+import de.cristelknight.doapi.common.util.GeneralUtil;
 import de.cristelknight.doapi.terraform.sign.TerraformSignHelper;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
@@ -15,7 +16,6 @@ import satisfy.beachparty.client.gui.MiniFridgeGui;
 import satisfy.beachparty.client.gui.TikiBarGui;
 import satisfy.beachparty.networking.BeachpartyMessages;
 import satisfy.beachparty.registry.*;
-import satisfy.beachparty.util.BeachpartyUtil;
 
 @Environment(EnvType.CLIENT)
 public class BeachPartyClient {
@@ -49,10 +49,10 @@ public class BeachPartyClient {
     }
 
     private static void initColorItems() {
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);
+        GeneralUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
+        GeneralUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
+        GeneralUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
+        GeneralUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);
     }
 
     public static void registerEntityEntityRenderers(){
