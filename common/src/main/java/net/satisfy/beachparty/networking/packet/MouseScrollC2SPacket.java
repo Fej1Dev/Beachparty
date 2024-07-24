@@ -6,8 +6,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.block.RadioBlock;
+import net.satisfy.beachparty.networking.BeachpartyMessages;
 
 import java.util.List;
 

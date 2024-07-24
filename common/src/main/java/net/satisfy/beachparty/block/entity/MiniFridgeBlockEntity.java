@@ -20,11 +20,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.registry.BlockEntityRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInventory, BlockEntityTicker<MiniFridgeBlockEntity>, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};

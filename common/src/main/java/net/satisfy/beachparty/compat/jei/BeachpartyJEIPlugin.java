@@ -15,11 +15,11 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.satisfy.beachparty.BeachpartyIdentifier;
 import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
 import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.compat.jei.categorys.MiniFridgeCategory;
 import net.satisfy.beachparty.compat.jei.categorys.TikiBarCategory;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
 

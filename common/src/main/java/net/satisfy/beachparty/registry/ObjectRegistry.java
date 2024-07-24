@@ -29,12 +29,10 @@ import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.BeachpartyIdentifier;
 import net.satisfy.beachparty.block.*;
 import net.satisfy.beachparty.item.*;
-import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
-import net.satisfy.beachparty.item.armor.DyeableBeachpartyArmorItem;
-import satisfy.beachparty.block.*;
-import satisfy.beachparty.item.*;
 import net.satisfy.beachparty.item.armor.BeachHatItem;
+import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
 import net.satisfy.beachparty.item.armor.BeachpartyCustomArmorItem;
+import net.satisfy.beachparty.item.armor.DyeableBeachpartyArmorItem;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

@@ -10,8 +10,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import org.apache.commons.compress.utils.Lists;
 import net.satisfy.beachparty.registry.SoundEventRegistry;
+import org.apache.commons.compress.utils.Lists;
 
 import java.util.HashMap;
 import java.util.List;

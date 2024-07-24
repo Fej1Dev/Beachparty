@@ -18,8 +18,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.gui.MiniFridgeGui;
 import net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 
 public class MiniFridgeCategory implements IRecipeCategory<MiniFridgeRecipe> {
     public static final RecipeType<MiniFridgeRecipe> MINI_FRIDGE = RecipeType.create(Beachparty.MOD_ID, "mini_fridge_mixing", MiniFridgeRecipe.class);

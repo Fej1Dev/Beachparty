@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Blocks;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 
 import java.util.List;
 

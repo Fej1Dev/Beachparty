@@ -8,10 +8,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.satisfy.beachparty.BeachpartyIdentifier;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import net.satisfy.beachparty.registry.ArmorMaterialRegistry;
 import net.satisfy.beachparty.registry.ArmorRegistry;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 

@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import org.jetbrains.annotations.NotNull;
 import net.satisfy.beachparty.world.ConfiguredFeatures;
+import org.jetbrains.annotations.NotNull;
 
 public class PalmSaplingBlock extends SaplingBlock {
     public PalmSaplingBlock() {

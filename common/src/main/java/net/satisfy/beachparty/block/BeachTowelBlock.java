@@ -75,7 +75,7 @@ public class BeachTowelBlock extends HorizontalDirectionalBlock {
 			return super.updateShape(state, direction, neighborState, world, pos, neighborPos);
 		}
 	}
-	
+
 	private static Direction getDirectionTowardsOtherPart(BedPart part, Direction direction) {
 		return part == BedPart.FOOT ? direction : direction.getOpposite();
 	}
@@ -112,21 +112,32 @@ public class BeachTowelBlock extends HorizontalDirectionalBlock {
 	@Override
 	public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand
 			hand, BlockHitResult hit) {
-		return ChairUtil.onUse(world, player, hand, hit, -0.4);
+		if (!world.isClientSide) {
+			if (state.getValue(PART) == BedPart.FOOT) {
+				return ChairUtil.onUse(world, player, hand, hit, -0.4);
+			} else {
+				BlockPos mainPartPos = pos.relative(state.getValue(FACING).getOpposite());
+				BlockState mainPartState = world.getBlockState(mainPartPos);
+				if (mainPartState.is(this) && mainPartState.getValue(PART) == BedPart.FOOT) {
+					return mainPartState.use(world, player, hand, hit);
+				}
+			}
+		}
+		return InteractionResult.SUCCESS;
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING, PART);
 	}
-	
+
 	private void placeOtherPart(Level world, BlockPos pos, BlockState state) {
 		BlockPos blockPos = pos.relative(state.getValue(FACING));
 		world.setBlock(blockPos, state.setValue(PART, BedPart.HEAD), Block.UPDATE_ALL);
 		world.blockUpdated(pos, Blocks.AIR);
 		state.updateNeighbourShapes(world, pos, Block.UPDATE_ALL);
 	}
-	
+
 	private void removeOtherPart(Level world, BlockPos pos, BlockState state, Player player) {
 		BedPart bedPart = state.getValue(PART);
 		if (bedPart == BedPart.FOOT) {
@@ -139,6 +150,7 @@ public class BeachTowelBlock extends HorizontalDirectionalBlock {
 			}
 		}
 	}
+
 	@Override
 	public void appendHoverText(ItemStack itemStack, BlockGetter world, List<Component> tooltip, TooltipFlag tooltipContext) {
 		tooltip.add(Component.translatable("tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));

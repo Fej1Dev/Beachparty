@@ -23,8 +23,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 import net.satisfy.beachparty.registry.ObjectRegistry;
+import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class SandCastleBlock extends Block {

@@ -13,8 +13,8 @@ import net.satisfy.beachparty.client.model.BeachHatModel;
 import net.satisfy.beachparty.client.model.RubberRingAxolotlModel;
 import net.satisfy.beachparty.client.model.RubberRingModel;
 import net.satisfy.beachparty.client.model.RubberRingPelicanModel;
-import net.satisfy.beachparty.item.IBeachpartyArmorSet;
 import net.satisfy.beachparty.config.BeachpartyConfig;
+import net.satisfy.beachparty.item.IBeachpartyArmorSet;
 
 import java.util.List;
 import java.util.Map;

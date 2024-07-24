@@ -13,8 +13,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.NotNull;
 import net.satisfy.beachparty.registry.ObjectRegistry;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

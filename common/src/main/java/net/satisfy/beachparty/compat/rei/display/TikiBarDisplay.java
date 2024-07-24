@@ -5,8 +5,8 @@ import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.minecraft.resources.ResourceLocation;
-import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.compat.rei.category.TikiBarCategory;
+import net.satisfy.beachparty.recipe.TikiBarRecipe;
 
 import java.util.ArrayList;
 import java.util.Collections;

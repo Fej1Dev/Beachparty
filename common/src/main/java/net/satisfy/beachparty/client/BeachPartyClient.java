@@ -16,7 +16,6 @@ import net.satisfy.beachparty.client.gui.MiniFridgeGui;
 import net.satisfy.beachparty.client.gui.TikiBarGui;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.*;
-import satisfy.beachparty.registry.*;
 
 @Environment(EnvType.CLIENT)
 public class BeachPartyClient {

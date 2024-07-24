@@ -12,8 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
-import org.jetbrains.annotations.Nullable;
 import net.satisfy.beachparty.registry.RecipeRegistry;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 

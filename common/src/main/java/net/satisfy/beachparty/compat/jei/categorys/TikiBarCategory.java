@@ -18,8 +18,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.gui.TikiBarGui;
 import net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 
 public class TikiBarCategory implements IRecipeCategory<TikiBarRecipe> {
     public static final RecipeType<TikiBarRecipe> TIKI_BAR = RecipeType.create(Beachparty.MOD_ID, "tiki_bar_mixing", TikiBarRecipe.class);

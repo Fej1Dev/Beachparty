@@ -35,8 +35,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
-import org.jetbrains.annotations.NotNull;
 import net.satisfy.beachparty.registry.SoundEventRegistry;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.function.Supplier;

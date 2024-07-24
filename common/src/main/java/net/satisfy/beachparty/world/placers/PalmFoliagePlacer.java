@@ -11,9 +11,9 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import org.jetbrains.annotations.NotNull;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.registry.PlacerTypesRegistry;
+import org.jetbrains.annotations.NotNull;
 
 public class PalmFoliagePlacer extends FoliagePlacer {
     public static final Codec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.create((placer) -> foliagePlacerParts(placer).apply(placer, PalmFoliagePlacer::new));

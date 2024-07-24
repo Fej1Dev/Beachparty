@@ -23,11 +23,11 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.BlockEntityRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 

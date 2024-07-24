@@ -9,14 +9,14 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.satisfy.beachparty.block.RadioBlock;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import net.satisfy.beachparty.block.RadioBlock;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 
 @Mixin(MouseHandler.class)
 public class MouseMixin {
