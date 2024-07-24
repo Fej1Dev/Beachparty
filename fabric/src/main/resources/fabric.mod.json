@@ -5,7 +5,7 @@
   "name": "[Let's Do] Beachparty",
   "description": "Take a break - build sandcastles, drink cocktails and enjoy your life.",
   "authors": [
-    "Satisfy", "BaumeisterJo", "Cristelknight"
+    "Satisfy"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/lets-do-beachparty",
@@ -16,22 +16,22 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "satisfy.beachparty.fabric.BeachpartyFabric"
+      "net.satisfy.beachparty.fabric.BeachpartyFabric"
     ],
     "client": [
-      "satisfy.beachparty.fabric.client.BeachpartyFabricClient"
+      "net.satisfy.beachparty.fabric.client.BeachpartyFabricClient"
     ],
     "doapi": [
-      "satisfy.beachparty.util.api.BeachPartyDoAPI"
+      "net.satisfy.beachparty.util.api.BeachPartyDoAPI"
     ],
     "rei_client": [
-      "satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
+      "net.satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
     ],
     "jei_mod_plugin": [
-      "satisfy.beachparty.compat.jei.BeachpartyJEIPlugin"
+      "net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin"
     ],
     "modmenu": [
-      "satisfy.beachparty.fabric.client.ModMenuConfig"
+      "net.satisfy.beachparty.fabric.client.ModMenuConfig"
     ]
   },
   "custom": {
