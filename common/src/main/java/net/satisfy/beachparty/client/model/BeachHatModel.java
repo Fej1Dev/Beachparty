@@ -16,7 +16,7 @@ public class BeachHatModel<T extends Entity> extends EntityModel<T> {
     private final ModelPart beach_hat;
 
     public BeachHatModel(ModelPart root) {
-        this.beach_hat = root.getChild("top_part");
+        this.beach_hat = root.getChild("beach_hat");
     }
 
     @SuppressWarnings("unused")
@@ -35,7 +35,8 @@ public class BeachHatModel<T extends Entity> extends EntityModel<T> {
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         poseStack.pushPose();
-        poseStack.scale(1.05F, 1.05F, 1.05F);
+        poseStack.scale(1F, 1F, 1F);
+        poseStack.translate(0F, -0.5F, 0F);
         beach_hat.render(poseStack, buffer, packedLight, packedOverlay);
         poseStack.popPose();
     }

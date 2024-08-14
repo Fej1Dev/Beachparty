@@ -6,7 +6,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.forge.registry.VillagersForge;
 import net.satisfy.beachparty.registry.CompostablesRegistry;
 
 @Mod(Beachparty.MOD_ID)
@@ -15,7 +14,6 @@ public class BeachpartyForge {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(Beachparty.MOD_ID, modEventBus);
         Beachparty.init();
-        VillagersForge.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
     }
 
@@ -23,6 +21,4 @@ public class BeachpartyForge {
         event.enqueueWork(CompostablesRegistry::init);
         Beachparty.commonSetup();
     }
-
-
 }

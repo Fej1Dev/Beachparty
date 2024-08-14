@@ -24,7 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.satisfy.beachparty.client.entity.ChairEntity;
+import net.satisfy.beachparty.entity.ChairEntity;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
 import org.jetbrains.annotations.NotNull;

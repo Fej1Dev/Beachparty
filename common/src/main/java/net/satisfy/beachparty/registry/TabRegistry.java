@@ -90,10 +90,14 @@ public class TabRegistry {
                 //out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
                 out.accept(ObjectRegistry.POOL_NOODLE.get());
                 out.accept(ObjectRegistry.BEACH_PARASOL.get());
+                out.accept(ObjectRegistry.FLOATY_BOAT.get());
+                out.accept(ObjectRegistry.PALM_BOAT.get());
+                out.accept(ObjectRegistry.PALM_CHEST_BOAT.get());
+
             })
             .build());
 
-    static {
+    public static void init() {
         BEACHPARTY_TABS.register();
     }
 }

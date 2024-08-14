@@ -2,9 +2,11 @@ package net.satisfy.beachparty.registry;
 
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.satisfy.beachparty.client.model.BeachHatModel;
 import net.satisfy.beachparty.client.model.RubberRingAxolotlModel;
@@ -23,15 +25,15 @@ public class ArmorRegistry {
         EntityModelLayerRegistry.register(RubberRingModel.LAYER_LOCATION, RubberRingModel::getTexturedModelData);
     }
 
-    /*
-    public static <T extends LivingEntity> void registerHatModels(Map<Item, EntityModel<T>> models, EntityModelSet modelLoader) {
+
+    public static <T extends LivingEntity> void registerModels(Map<Item, EntityModel<T>> models, EntityModelSet modelLoader) {
         models.put(ObjectRegistry.RUBBER_RING_PELICAN.get(), new RubberRingPelicanModel<>(modelLoader.bakeLayer(RubberRingPelicanModel.LAYER_LOCATION)));
         models.put(ObjectRegistry.RUBBER_RING_AXOLOTL.get(), new RubberRingAxolotlModel<>(modelLoader.bakeLayer(RubberRingAxolotlModel.LAYER_LOCATION)));
         models.put(ObjectRegistry.RUBBER_RING_BLUE.get(), new RubberRingModel<>(modelLoader.bakeLayer(RubberRingModel.LAYER_LOCATION)));
         models.put(ObjectRegistry.RUBBER_RING_PINK.get(), new RubberRingModel<>(modelLoader.bakeLayer(RubberRingModel.LAYER_LOCATION)));
         models.put(ObjectRegistry.RUBBER_RING_STRIPPED.get(), new RubberRingModel<>(modelLoader.bakeLayer(RubberRingModel.LAYER_LOCATION)));
     }
-    */
+
 
     public static Model getHatModel(Item item, ModelPart baseHead) {
         EntityModelSet modelSet = Minecraft.getInstance().getEntityModels();

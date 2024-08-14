@@ -32,10 +32,3 @@ mandatory = true
 versionRange = "[9.0.8,)"
 ordering = "AFTER"
 side = "BOTH"
-
-[[dependencies.beachparty]]
-modId = "doapi"
-mandatory = true
-versionRange = "[1.2.9,)"
-ordering = "AFTER"
-side = "BOTH"

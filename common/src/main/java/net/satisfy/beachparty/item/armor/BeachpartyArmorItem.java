@@ -1,17 +1,18 @@
 package net.satisfy.beachparty.item.armor;
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 
 public class BeachpartyArmorItem extends ArmorItem {
+    private final ResourceLocation texture;
 
-
-    public BeachpartyArmorItem(ArmorMaterial material, Type slot, Properties settings) {
+    public BeachpartyArmorItem(ArmorMaterial material, Type slot, Properties settings, ResourceLocation texture) {
         super(material, slot, settings);
+        this.texture = texture;
     }
 
+    public ResourceLocation getTexture() {
+        return this.texture;
+    }
 }

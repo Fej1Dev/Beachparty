@@ -1,4 +1,4 @@
-package net.satisfy.beachparty.client.entity;
+package net.satisfy.beachparty.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

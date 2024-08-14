@@ -1,6 +1,5 @@
 package net.satisfy.beachparty.forge;
 
-import de.cristelknight.doapi.common.util.VillagerUtil;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -35,10 +34,10 @@ public class BeachpartyEvents {
 
     private static void addBarkeeperTrades(Map<Integer, List<VillagerTrades.ItemListing>> trades){
         List<VillagerTrades.ItemListing> barkeeperTrades = trades.getOrDefault(1, new ArrayList<>());
-        barkeeperTrades.add(new VillagerUtil.SellItemFactory(Blocks.ICE, 1, 2, 5));
-        barkeeperTrades.add(new VillagerUtil.SellItemFactory(Items.SNOWBALL, 1, 8, 5));
-        barkeeperTrades.add(new VillagerUtil.BuyForOneEmeraldFactory(Items.WATER_BUCKET, 12, 1, 5));
-        barkeeperTrades.add(new VillagerUtil.BuyForOneEmeraldFactory(Items.POWDER_SNOW_BUCKET, 12, 1, 5));
+        barkeeperTrades.add(new BeachpartyVillagerUtil.SellItemFactory(Blocks.ICE, 1, 2, 5));
+        barkeeperTrades.add(new BeachpartyVillagerUtil.SellItemFactory(Items.SNOWBALL, 1, 8, 5));
+        barkeeperTrades.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.WATER_BUCKET, 12, 1, 5));
+        barkeeperTrades.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.POWDER_SNOW_BUCKET, 12, 1, 5));
         trades.put(1, barkeeperTrades);
         trades.put(2, new ArrayList<>());
         trades.put(3, new ArrayList<>());
@@ -48,10 +47,10 @@ public class BeachpartyEvents {
 
     private static void addBeachGuyTrades(Map<Integer, List<VillagerTrades.ItemListing>> trades){
         List<VillagerTrades.ItemListing> beachGuyTrades = trades.getOrDefault(1, new ArrayList<>());
-        beachGuyTrades.add(new VillagerUtil.SellItemFactory(ObjectRegistry.SUNGLASSES.get(), 18, 1, 5));
-        beachGuyTrades.add(new VillagerUtil.SellItemFactory(ObjectRegistry.BIKINI.get(), 12, 1, 5));
-        beachGuyTrades.add(new VillagerUtil.SellItemFactory(ObjectRegistry.TRUNKS.get(), 8, 1, 5));
-        beachGuyTrades.add(new VillagerUtil.SellItemFactory(ObjectRegistry.SWIM_WINGS.get(), 5, 1, 5));
+        beachGuyTrades.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SUNGLASSES.get(), 18, 1, 5));
+        beachGuyTrades.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.BIKINI.get(), 12, 1, 5));
+        beachGuyTrades.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.TRUNKS.get(), 8, 1, 5));
+        beachGuyTrades.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SWIM_WINGS.get(), 5, 1, 5));
         trades.put(1, beachGuyTrades);
         trades.put(2, new ArrayList<>());
         trades.put(3, new ArrayList<>());

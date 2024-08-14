@@ -8,6 +8,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.satisfy.beachparty.client.model.BeachHatModel;
+import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.ArmorRegistry;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
@@ -34,23 +35,20 @@ public class BeachPartyClient {
 
         BeachpartyMessages.registerS2CPackets();
 
-        initColorItems();
-    }
-
-    public static void preInitClient() {
-        registerEntityEntityRenderers();
-        registerEntityModelLayers();
-    }
-
-    private static void initColorItems() {
         BeachpartyUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
         BeachpartyUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
         BeachpartyUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);
+        BeachpartyUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);    }
+
+    public static void preInitClient() {
+        registerEntityRenderers();
+        registerEntityModelLayers();
     }
 
-    public static void registerEntityEntityRenderers() {
+    public static void registerEntityRenderers() {
         EntityRendererRegistry.register(EntityTypeRegistry.COCONUT, ThrownItemRenderer::new);
+        EntityRendererRegistry.register(EntityTypeRegistry.BOAT, context -> new BeachpartyBoatRenderer<>(context, false));
+        EntityRendererRegistry.register(EntityTypeRegistry.CHEST_BOAT, context -> new BeachpartyBoatRenderer<>(context, true));
     }
 
     public static void registerEntityModelLayers() {

@@ -1,6 +1,5 @@
 package net.satisfy.beachparty;
 
-import com.google.common.reflect.Reflection;
 import dev.architectury.hooks.item.tool.AxeItemHooks;
 import net.satisfy.beachparty.event.CommonEvents;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
@@ -10,15 +9,12 @@ import org.apache.logging.log4j.Logger;
 
 public class Beachparty {
     public static final String MOD_ID = "beachparty";
-    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    //TODO
     public static void init() {
-        Reflection.initialize(
-                ObjectRegistry.class,
-                EntityTypeRegistry.class,
-                TabRegistry.class
-        );
+        ObjectRegistry.init();
+        EntityTypeRegistry.init();
+        TabRegistry.init();
         SoundEventRegistry.init();
         ScreenHandlerTypesRegistry.init();
         PlacerTypesRegistry.init();

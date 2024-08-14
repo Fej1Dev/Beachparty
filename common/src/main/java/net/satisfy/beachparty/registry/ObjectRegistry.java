@@ -25,6 +25,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.*;
+import net.satisfy.beachparty.entity.BeachpartyBoat;
 import net.satisfy.beachparty.item.*;
 import net.satisfy.beachparty.item.armor.BeachHatItem;
 import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
@@ -109,16 +110,16 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> COOKED_MUSSEL_MEAT = registerItem("cooked_mussel_meat", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Block> BEACH_TOWEL = registerWithItem("beach_towel", () -> new BeachTowelBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));
     public static final RegistrySupplier<Item> BEACH_HAT = registerItem("beach_hat", () -> new BeachHatItem(ArmorMaterialRegistry.BEACH_HAT, ArmorItem.Type.HELMET, getSettings().rarity(Rarity.EPIC), new BeachpartyIdentifier("textures/models/armor/beach_hat.png")));
-    public static final RegistrySupplier<Item> SUNGLASSES = registerItem("sunglasses", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.SUNGLASSES, ArmorItem.Type.HELMET, getSettings()));
+    public static final RegistrySupplier<Item> SUNGLASSES = registerItem("sunglasses", () -> new ArmorItem(ArmorMaterialRegistry.SUNGLASSES, ArmorItem.Type.HELMET, getSettings()));
     public static final RegistrySupplier<Item> TRUNKS = registerItem("trunks", () -> new DyeableBeachpartyArmorItem(ArmorMaterialRegistry.TRUNKS, ArmorItem.Type.LEGGINGS, 16715535, getSettings().rarity(Rarity.COMMON)));
     public static final RegistrySupplier<Item> BIKINI = registerItem("bikini", () -> new DyeableBeachpartyArmorItem(ArmorMaterialRegistry.BIKINI, ArmorItem.Type.LEGGINGS, 987135, getSettings().rarity(Rarity.COMMON)));
     public static final RegistrySupplier<Item> CROCS = registerItem("crocs", () -> new DyeableBeachpartyArmorItem(ArmorMaterialRegistry.CROCS, ArmorItem.Type.BOOTS, 1048335, getSettings().rarity(Rarity.UNCOMMON)));
-    public static final RegistrySupplier<Item> SWIM_WINGS = registerItem("swim_wings", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.SWIM_WINGS, ArmorItem.Type.CHESTPLATE, getSettings()));
-    //public static final RegistrySupplier<Item> RUBBER_RING_BLUE = registerItem("rubber_ring_blue", () -> new BeachpartyCustomArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_blue.png")));
-    //public static final RegistrySupplier<Item> RUBBER_RING_PINK = registerItem("rubber_ring_pink", () -> new BeachpartyCustomArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_pink.png")));
-    //public static final RegistrySupplier<Item> RUBBER_RING_STRIPPED = registerItem("rubber_ring_stripped", () -> new BeachpartyCustomArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_stripped.png")));
-    //public static final RegistrySupplier<Item> RUBBER_RING_PELICAN = registerItem("rubber_ring_pelican", () -> new BeachpartyCustomArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_pelican.png")));
-    //public static final RegistrySupplier<Item> RUBBER_RING_AXOLOTL = registerItem("rubber_ring_axolotl", () -> new BeachpartyCustomArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_axolotl.png")));
+    public static final RegistrySupplier<Item> SWIM_WINGS = registerItem("swim_wings", () -> new ArmorItem(ArmorMaterialRegistry.SWIM_WINGS, ArmorItem.Type.CHESTPLATE, getSettings()));
+    public static final RegistrySupplier<Item> RUBBER_RING_BLUE = registerItem("rubber_ring_blue", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_blue.png")));
+    public static final RegistrySupplier<Item> RUBBER_RING_PINK = registerItem("rubber_ring_pink", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_pink.png")));
+    public static final RegistrySupplier<Item> RUBBER_RING_STRIPPED = registerItem("rubber_ring_stripped", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.COMMON), new BeachpartyIdentifier("textures/entity/rubber_ring_stripped.png")));
+    public static final RegistrySupplier<Item> RUBBER_RING_PELICAN = registerItem("rubber_ring_pelican", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_pelican.png")));
+    public static final RegistrySupplier<Item> RUBBER_RING_AXOLOTL = registerItem("rubber_ring_axolotl", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_axolotl.png")));
     public static final RegistrySupplier<Item> POOL_NOODLE = registerItem("pool_noodle", () -> new PoolNoodleItem(Tiers.WOOD, 1, -1.4F, getSettings()));
     public static final RegistrySupplier<Block> BEACH_PARASOL = registerWithItem("beach_parasol", () -> new ParasolBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> PALM_TORCH = registerWithoutItem("palm_torch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
@@ -129,6 +130,9 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> COCONUT_HANGING = registerWithoutItem("coconut_hanging", () -> new HangingCoconutBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
     public static final RegistrySupplier<Block> SANDWAVES = registerWithItem("sandwaves", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
     public static final RegistrySupplier<Block> SAND_SEASTARS = registerWithoutItem("sand_seastars", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
+    public static final Supplier<Item> PALM_BOAT = registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
+    public static final Supplier<Item> PALM_CHEST_BOAT = registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
+    public static final Supplier<Item> FLOATY_BOAT = registerItem("floaty_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.FLOATY, getSettings().stacksTo(1)));
 
     private static RegistrySupplier<Block> registerLog(String path) {
         return registerWithItem(path, () -> new RotatedPillarBlock(getLogBlockSettings()));

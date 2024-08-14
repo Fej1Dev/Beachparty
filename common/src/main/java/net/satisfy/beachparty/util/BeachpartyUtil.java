@@ -29,7 +29,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.satisfy.beachparty.client.entity.ChairEntity;
+import net.satisfy.beachparty.entity.ChairEntity;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import org.jetbrains.annotations.NotNull;
 

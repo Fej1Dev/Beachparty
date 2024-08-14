@@ -1,16 +1,21 @@
 package net.satisfy.beachparty.registry;
 
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.entity.CabinetBlockEntity;
-import net.satisfy.beachparty.client.entity.ChairEntity;
-import net.satisfy.beachparty.client.entity.CoconutEntity;
+import net.satisfy.beachparty.entity.BeachpartyBoat;
+import net.satisfy.beachparty.entity.BeachpartyChestBoat;
+import net.satisfy.beachparty.entity.ChairEntity;
+import net.satisfy.beachparty.entity.CoconutEntity;
+import net.satisfy.beachparty.platform.PlatformHelper;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 import java.util.function.Supplier;
@@ -25,6 +30,8 @@ public final class EntityTypeRegistry {
 
     public static final RegistrySupplier<EntityType<ChairEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new BeachpartyIdentifier("chair").toString()));
     public static final RegistrySupplier<EntityType<CoconutEntity>> COCONUT = registerEntity("coconut", () -> EntityType.Builder.<CoconutEntity>of(CoconutEntity::new, MobCategory.MISC).sized(0.25f, 0.25f).build(new BeachpartyIdentifier("coconut").toString()));
+    public static final Supplier<EntityType<BeachpartyBoat>> BOAT = PlatformHelper.registerBoatType("boat", BeachpartyBoat::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
+    public static final Supplier<EntityType<BeachpartyChestBoat>> CHEST_BOAT = PlatformHelper.registerBoatType("chest_boat", BeachpartyChestBoat::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
 
     private static <T extends BlockEntityType<?>> RegistrySupplier<T> registerBlockEntity(final String path, final Supplier<T> type) {
         return BLOCK_ENTITY_TYPES.register(new BeachpartyIdentifier(path), type);
@@ -34,11 +41,7 @@ public final class EntityTypeRegistry {
         return ENTITY_TYPES.register(path, type);
     }
 
-    public static void registerAttributes() {
-    }
-
-    static {
+    public static void init() {
         ENTITY_TYPES.register();
-        registerAttributes();
     }
 }

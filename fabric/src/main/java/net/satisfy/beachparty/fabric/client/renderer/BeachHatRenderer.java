@@ -1,4 +1,4 @@
-package net.satisfy.beachparty.fabric.client;
+package net.satisfy.beachparty.fabric.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;

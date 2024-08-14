@@ -1,4 +1,4 @@
-package net.satisfy.beachparty.client.entity;
+package net.satisfy.beachparty.entity;
 
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
