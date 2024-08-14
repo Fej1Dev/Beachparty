@@ -30,18 +30,13 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PALM_FENCE.get());
                 out.accept(ObjectRegistry.PALM_FENCE_GATE.get());
                 out.accept(ObjectRegistry.PALM_BUTTON.get());
-                out.accept(BoatsAndSignsRegistry.PALM_BOAT.get());
-                out.accept(BoatsAndSignsRegistry.PALM_CHEST_BOAT.get());
-                out.accept(BoatsAndSignsRegistry.PALM_SIGN_ITEM.get());
-                out.accept(BoatsAndSignsRegistry.PALM_HANGING_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.CABINET.get());
-                out.accept(ObjectRegistry.TIKI_BAR.get());
+                //out.accept(ObjectRegistry.TIKI_BAR.get());
                 out.accept(ObjectRegistry.LOUNGE_CHAIR.get());
                 out.accept(ObjectRegistry.CHAIR.get());
                 out.accept(ObjectRegistry.TABLE.get());
                 out.accept(ObjectRegistry.BEACH_CHAIR.get());
                 out.accept(ObjectRegistry.DECK_CHAIR.get());
-                out.accept(ObjectRegistry.HAMMOCK.get());
                 out.accept(ObjectRegistry.TIKI_CHAIR.get());
                 out.accept(ObjectRegistry.PALM_FLOORBOARD.get());
                 out.accept(ObjectRegistry.DRIED_WHEAT_BLOCK.get());
@@ -52,7 +47,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PALM_SAPLING.get());
                 out.accept(ObjectRegistry.PALM_TORCH.get());
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
-                out.accept(ObjectRegistry.MINI_FRIDGE.get());
+                //out.accept(ObjectRegistry.MINI_FRIDGE.get());
                 out.accept(ObjectRegistry.RADIO.get());
                 out.accept(ObjectRegistry.OVERGROWN_DISC.get());
                 out.accept(ObjectRegistry.MESSAGE_IN_A_BOTTLE.get());
@@ -88,18 +83,17 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.BIKINI.get());
                 out.accept(ObjectRegistry.CROCS.get());
                 out.accept(ObjectRegistry.SWIM_WINGS.get());
-                out.accept(ObjectRegistry.RUBBER_RING_BLUE.get());
-                out.accept(ObjectRegistry.RUBBER_RING_PINK.get());
-                out.accept(ObjectRegistry.RUBBER_RING_STRIPPED.get());
-                out.accept(ObjectRegistry.RUBBER_RING_AXOLOTL.get());
-                out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
+                //out.accept(ObjectRegistry.RUBBER_RING_BLUE.get());
+                //out.accept(ObjectRegistry.RUBBER_RING_PINK.get());
+                //out.accept(ObjectRegistry.RUBBER_RING_STRIPPED.get());
+                //out.accept(ObjectRegistry.RUBBER_RING_AXOLOTL.get());
+                //out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
                 out.accept(ObjectRegistry.POOL_NOODLE.get());
-                out.accept(BoatsAndSignsRegistry.FLOATY.get());
                 out.accept(ObjectRegistry.BEACH_PARASOL.get());
             })
             .build());
 
-    public static void init() {
+    static {
         BEACHPARTY_TABS.register();
     }
 }

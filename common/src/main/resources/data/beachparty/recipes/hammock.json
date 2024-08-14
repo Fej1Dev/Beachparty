@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "W W",
-        "OWO",
-        "O O"
-    ],
-    "key": {
-        "W": {
-            "tag": "minecraft:wool"
-        },
-        "O": {
-            "tag": "beachparty:palm_planks"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "OWO",
+    "O O"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:wool"
     },
-    "result": {
-        "item": "beachparty:hammock",
-        "count": 1
+    "O": {
+      "tag": "beachparty:palm_planks"
     }
+  },
+  "result": {
+    "item": "beachparty:hammock",
+    "count": 1
+  }
 }

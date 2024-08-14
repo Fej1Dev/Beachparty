@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MessageInABottleBlock extends Block {
     protected final VoxelShape SHAPE;
+
     public MessageInABottleBlock(Properties settings, VoxelShape shape) {
         super(settings);
         SHAPE = shape;

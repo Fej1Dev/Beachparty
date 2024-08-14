@@ -2,10 +2,10 @@ package net.satisfy.beachparty.networking;
 
 import dev.architectury.networking.NetworkManager;
 import net.minecraft.resources.ResourceLocation;
-import net.satisfy.beachparty.BeachpartyIdentifier;
 import net.satisfy.beachparty.networking.packet.MouseScrollC2SPacket;
 import net.satisfy.beachparty.networking.packet.TuneRadioS2CPacket;
 import net.satisfy.beachparty.networking.packet.TurnRadioS2CPacket;
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 public class BeachpartyMessages {
     public static final ResourceLocation MOUSE_SCROLL_C2S = new BeachpartyIdentifier("mouse_scroll");

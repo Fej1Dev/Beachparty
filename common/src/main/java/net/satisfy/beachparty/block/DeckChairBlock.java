@@ -1,7 +1,5 @@
 package net.satisfy.beachparty.block;
 
-import de.cristelknight.doapi.common.util.ChairUtil;
-import de.cristelknight.doapi.common.util.GeneralUtil;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +16,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.satisfy.beachparty.util.BeachpartyUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,10 +39,9 @@ public class DeckChairBlock extends BeachChairBlock {
 
     public static final Map<Direction, VoxelShape> BOTTOM_SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            map.put(direction, GeneralUtil.rotateShape(Direction.EAST, direction, bottomShapeSupplier.get()));
+            map.put(direction, BeachpartyUtil.rotateShape(Direction.EAST, direction, bottomShapeSupplier.get()));
         }
     });
-
 
 
     private static final Supplier<VoxelShape> topShapeSupplier = () -> {
@@ -58,7 +57,7 @@ public class DeckChairBlock extends BeachChairBlock {
 
     public static final Map<Direction, VoxelShape> TOP_SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            map.put(direction, GeneralUtil.rotateShape(Direction.EAST, direction, topShapeSupplier.get()));
+            map.put(direction, BeachpartyUtil.rotateShape(Direction.EAST, direction, topShapeSupplier.get()));
         }
     });
 
@@ -66,16 +65,16 @@ public class DeckChairBlock extends BeachChairBlock {
         super(settings);
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
         return state.getValue(PART) == BedPart.HEAD ? TOP_SHAPE.get(direction) : BOTTOM_SHAPE.get(direction);
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         Direction clickedFace = hit.getDirection();
         if (state.getValue(FACING) == clickedFace && state.getValue(PART) == BedPart.FOOT) {
-            return ChairUtil.onUse(world, player, hand, hit, 0.1);
+            return BeachpartyUtil.onUse(world, player, hand, hit, 0.1);
         } else {
             return InteractionResult.PASS;
         }

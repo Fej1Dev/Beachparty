@@ -64,8 +64,8 @@ public class SandBucketItem extends BlockItem {
                     ItemStack sandBucket = new ItemStack(ObjectRegistry.SAND_BUCKET.get());
                     ItemStack returnStack = exchangeStack(itemStack, user, sandBucket);
                     return InteractionResultHolder.sidedSuccess(returnStack, world.isClientSide());
-                } else if (this == ObjectRegistry.SAND_BUCKET.get() && user.mayUseItemAt(offsetPos, direction, itemStack)){
-                    if (world.getBlockState(offsetPos).isAir() && ObjectRegistry.SANDCASTLE.get().defaultBlockState().canSurvive(world, offsetPos)){
+                } else if (this == ObjectRegistry.SAND_BUCKET.get() && user.mayUseItemAt(offsetPos, direction, itemStack)) {
+                    if (world.getBlockState(offsetPos).isAir() && ObjectRegistry.SANDCASTLE.get().defaultBlockState().canSurvive(world, offsetPos)) {
                         world.setBlock(offsetPos, ObjectRegistry.SANDCASTLE.get().defaultBlockState(), 3);
                         ItemStack returnStack = exchangeStack(itemStack, user, getEmptiedStack(itemStack, user));
                         return InteractionResultHolder.sidedSuccess(returnStack, world.isClientSide());
@@ -87,7 +87,7 @@ public class SandBucketItem extends BlockItem {
         Inventory inventory = player.getInventory();
         int slot = inventory.findSlotMatchingItem(handStack);
         handStack.shrink(1);
-        if(player.getInventory().getItem(slot).isEmpty()) {
+        if (player.getInventory().getItem(slot).isEmpty()) {
             if (!inventory.add(slot, returnStack)) {
                 player.drop(returnStack, false);
             }
@@ -105,7 +105,7 @@ public class SandBucketItem extends BlockItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, @NotNull List<Component> tooltip, TooltipFlag context) {
-        tooltip.add(Component.translatable(  "tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
 
     }
 }

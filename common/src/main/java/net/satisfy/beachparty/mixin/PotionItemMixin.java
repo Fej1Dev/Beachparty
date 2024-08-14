@@ -36,7 +36,7 @@ public class PotionItemMixin {
         ItemStack itemStack = context.getItemInHand();
         BlockState blockState = world.getBlockState(blockPos);
         if (context.getClickedFace() != Direction.DOWN && (blockState.getBlock() == Blocks.SAND || blockState.getBlock() == Blocks.GRAVEL) && PotionUtils.getPotion(itemStack) == Potions.WATER) {
-            world.playSound( null, blockPos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0F, 1.0F);
+            world.playSound(null, blockPos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0F, 1.0F);
             playerEntity.setItemInHand(context.getHand(), ItemUtils.createFilledResult(itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
             playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
             if (!world.isClientSide) {
@@ -47,8 +47,8 @@ public class PotionItemMixin {
                 }
             }
 
-            world.playSound( null, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-            world.gameEvent( null, GameEvent.FLUID_PLACE, blockPos);
+            world.playSound(null, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+            world.gameEvent(null, GameEvent.FLUID_PLACE, blockPos);
             world.setBlockAndUpdate(blockPos, blockState.getBlock() == Blocks.GRAVEL ? Blocks.SAND.defaultBlockState() : ObjectRegistry.SANDWAVES.get().defaultBlockState());
             cir.setReturnValue(InteractionResult.sidedSuccess(world.isClientSide));
         }

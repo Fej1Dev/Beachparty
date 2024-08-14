@@ -3,7 +3,7 @@ package net.satisfy.beachparty.world;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.satisfy.beachparty.BeachpartyIdentifier;
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 public class PlacedFeatures {
 

@@ -1,7 +1,16 @@
 {
-    "variants": {
-        "axis=y": { "model": "beachparty:block/dried_wheat_block" },
-        "axis=z": { "model": "beachparty:block/dried_wheat_block", "x": 90 },
-        "axis=x": { "model": "beachparty:block/dried_wheat_block", "x": 90, "y": 90 }
+  "variants": {
+    "axis=y": {
+      "model": "beachparty:block/dried_wheat_block"
+    },
+    "axis=z": {
+      "model": "beachparty:block/dried_wheat_block",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "beachparty:block/dried_wheat_block",
+      "x": 90,
+      "y": 90
     }
+  }
 }

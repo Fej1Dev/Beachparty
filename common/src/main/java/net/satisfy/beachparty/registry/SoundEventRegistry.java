@@ -7,7 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.BeachpartyIdentifier;
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 import java.util.List;
 

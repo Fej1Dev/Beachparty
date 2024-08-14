@@ -17,8 +17,9 @@ public class BeachpartyREIClientPlugin {
         registry.add(new MiniFridgeCategory());
         registry.add(new TikiBarCategory());
 
-        registry.addWorkstations(MiniFridgeCategory.MINE_FRIDGE_DISPLAY, EntryStacks.of(ObjectRegistry.MINI_FRIDGE.get()));
-        registry.addWorkstations(TikiBarCategory.TIKI_BAR_DISPLAY, EntryStacks.of(ObjectRegistry.TIKI_BAR.get()));
+        //TODO Change ObjectRegistry.
+        registry.addWorkstations(MiniFridgeCategory.MINE_FRIDGE_DISPLAY, EntryStacks.of(ObjectRegistry.BEACH_HAT.get()));
+        registry.addWorkstations(TikiBarCategory.TIKI_BAR_DISPLAY, EntryStacks.of(ObjectRegistry.BEACH_HAT.get()));
     }
 
 

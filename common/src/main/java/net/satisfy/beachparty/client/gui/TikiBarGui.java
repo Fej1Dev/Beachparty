@@ -1,14 +1,11 @@
 package net.satisfy.beachparty.client.gui;
 
-import de.cristelknight.doapi.client.recipebook.screen.AbstractRecipeBookGUIScreen;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.satisfy.beachparty.BeachpartyIdentifier;
-import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
-import net.satisfy.beachparty.client.recipebook.TikiBarRecipeBook;
-
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
+/*
 public class TikiBarGui extends AbstractRecipeBookGUIScreen<TikiBarGuiHandler> {
     public static final ResourceLocation BG = new BeachpartyIdentifier("textures/gui/tiki_bar_gui.png");
 
@@ -38,4 +35,5 @@ public class TikiBarGui extends AbstractRecipeBookGUIScreen<TikiBarGuiHandler> {
         guiGraphics.blit(BG, leftPos + SHAKE_X, topPos + SHAKE_Y - progressY, 179, 22 - progressY, 15, progressY);
     }
 }
+ */
 

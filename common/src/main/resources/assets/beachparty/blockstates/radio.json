@@ -16,7 +16,6 @@
       "model": "beachparty:block/radio_antenna-on_button-pressed",
       "y": 270
     },
-
     "facing=north,on=false,searching=true": {
       "model": "beachparty:block/radio_antenna-off_button-pressed",
       "y": 0
@@ -33,8 +32,6 @@
       "model": "beachparty:block/radio_antenna-off_button-pressed",
       "y": 270
     },
-
-
     "facing=north,on=true,searching=false": {
       "model": "beachparty:block/radio_antenna-on_button-normal",
       "y": 0
@@ -51,7 +48,6 @@
       "model": "beachparty:block/radio_antenna-on_button-normal",
       "y": 270
     },
-
     "facing=north,on=false,searching=false": {
       "model": "beachparty:block/radio_antenna-off_button-normal",
       "y": 0

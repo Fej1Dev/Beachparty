@@ -83,7 +83,7 @@ public class PalmLeavesBlock extends LeavesBlock {
         int i = 9;
         BlockPos.MutableBlockPos blockpos$autocloseable = new BlockPos.MutableBlockPos();
 
-        for(Direction direction : Direction.values()) {
+        for (Direction direction : Direction.values()) {
             blockpos$autocloseable.setWithOffset(pPos, direction);
             i = Math.min(i, getDistanceAt(pLevel.getBlockState(blockpos$autocloseable)) + 1);
             if (i == 1) {

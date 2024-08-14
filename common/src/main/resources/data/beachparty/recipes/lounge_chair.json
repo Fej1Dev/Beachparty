@@ -1,23 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " #",
-        "#/",
-        "/O"
-    ],
-    "key": {
-        "#": {
-            "tag": "minecraft:wool"
-        },
-        "/": {
-            "item": "minecraft:stick"
-        },
-        "O": {
-            "tag": "beachparty:palm_planks"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #",
+    "#/",
+    "/O"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:wool"
     },
-    "result": {
-        "item": "beachparty:lounge_chair",
-        "count": 1
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "tag": "beachparty:palm_planks"
     }
+  },
+  "result": {
+    "item": "beachparty:lounge_chair",
+    "count": 1
+  }
 }

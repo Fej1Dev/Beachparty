@@ -20,14 +20,18 @@ public class ArmorMaterialRegistry {
             @Override
             public int getDurabilityForType(ArmorItem.Type type) {
                 return switch (type) {
-                    case HELMET -> 128; case CHESTPLATE -> 144; case LEGGINGS -> 136; case BOOTS -> 112;
+                    case HELMET -> 128;
+                    case CHESTPLATE -> 144;
+                    case LEGGINGS -> 136;
+                    case BOOTS -> 112;
                 };
             }
 
             @Override
             public int getDefenseForType(ArmorItem.Type type) {
                 return switch (type) {
-                    case HELMET, LEGGINGS, BOOTS -> 1; case CHESTPLATE -> 1;
+                    case HELMET, LEGGINGS, BOOTS -> 1;
+                    case CHESTPLATE -> 1;
                 };
             }
 

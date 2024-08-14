@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "WWW",
-        " / ",
-        " / "
-    ],
-    "key": {
-        "/": {
-            "item": "minecraft:stick"
-        },
-        "W": {
-            "tag": "minecraft:wool"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    " / ",
+    " / "
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
     },
-    "result": {
-        "item": "beachparty:beach_parasol",
-        "count": 3
+    "W": {
+      "tag": "minecraft:wool"
     }
+  },
+  "result": {
+    "item": "beachparty:beach_parasol",
+    "count": 3
+  }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/slab_top",
-    "textures": {
+  "textures": {
     "particle": "block/sand",
     "bottom": "block/sand",
     "top": "block/sand",

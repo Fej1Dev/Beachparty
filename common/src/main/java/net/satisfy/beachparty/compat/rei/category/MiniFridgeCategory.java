@@ -31,7 +31,8 @@ public class MiniFridgeCategory implements DisplayCategory<MiniFridgeDisplay> {
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(ObjectRegistry.MINI_FRIDGE.get());
+        //TODO
+        return EntryStacks.of(ObjectRegistry.BEACH_HAT.get());
     }
 
     @Override
@@ -54,11 +55,15 @@ public class MiniFridgeCategory implements DisplayCategory<MiniFridgeDisplay> {
         widgets.add(Widgets.createResultSlotBackground(new Point(startPoint.x + 88, startPoint.y + 9)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 88, startPoint.y + 9)).entries(display.getOutputEntries().get(0)).disableBackground().markOutput());
 
-        if (display.getInputEntries().size() < 1) widgets.add(Widgets.createSlotBackground(new Point(startPoint.x + 32, startPoint.y)));
-        else widgets.add(Widgets.createSlot(new Point(startPoint.x + 32, startPoint.y)).entries(display.getInputEntries().get(0)).markInput());
+        if (display.getInputEntries().size() < 1)
+            widgets.add(Widgets.createSlotBackground(new Point(startPoint.x + 32, startPoint.y)));
+        else
+            widgets.add(Widgets.createSlot(new Point(startPoint.x + 32, startPoint.y)).entries(display.getInputEntries().get(0)).markInput());
 
-        if (display.getInputEntries().size() < 2) widgets.add(Widgets.createSlotBackground(new Point(startPoint.x + 32, startPoint.y + 20)));
-        else widgets.add(Widgets.createSlot(new Point(startPoint.x + 32, startPoint.y + 20)).entries(display.getInputEntries().get(1)).markInput());
+        if (display.getInputEntries().size() < 2)
+            widgets.add(Widgets.createSlotBackground(new Point(startPoint.x + 32, startPoint.y + 20)));
+        else
+            widgets.add(Widgets.createSlot(new Point(startPoint.x + 32, startPoint.y + 20)).entries(display.getInputEntries().get(1)).markInput());
 
         return widgets;
     }

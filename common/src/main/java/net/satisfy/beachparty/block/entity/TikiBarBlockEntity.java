@@ -1,6 +1,5 @@
 package net.satisfy.beachparty.block.entity;
 
-import de.cristelknight.doapi.common.world.ImplementedInventory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -10,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -22,16 +22,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
-import net.satisfy.beachparty.registry.BlockEntityRegistry;
+import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-
-public class TikiBarBlockEntity extends BlockEntity implements ImplementedInventory, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
+/*
+public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};
     private static final int[] SLOTS_FOR_UP = new int[]{1};
     private static final int[] SLOTS_FOR_DOWN = new int[]{0};
@@ -68,7 +67,7 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
     };
 
     public TikiBarBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.TIKI_BAR_BLOCK_ENTITY.get(), pos, state);
+        super(EntityTypeRegistry.TIKI_BAR_BLOCK_ENTITY.get(), pos, state);
         this.inventory = NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
     }
 
@@ -171,7 +170,7 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
                     } else if (slotItem.isEmpty()) {
                         this.setItem(i, ItemStack.EMPTY);
                     }
-                    break; 
+                    break;
                 }
             }
         }
@@ -191,9 +190,9 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
 
     @Override
     public int @NotNull [] getSlotsForFace(Direction side) {
-        if(side.equals(Direction.UP)){
+        if (side.equals(Direction.UP)) {
             return SLOTS_FOR_UP;
-        } else if (side.equals(Direction.DOWN)){
+        } else if (side.equals(Direction.DOWN)) {
             return SLOTS_FOR_DOWN;
         } else return SLOTS_FOR_SIDE;
     }
@@ -221,7 +220,7 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
         if (this.level.getBlockEntity(this.worldPosition) != this) {
             return false;
         } else {
-            return player.distanceToSqr((double)this.worldPosition.getX() + 0.5, (double)this.worldPosition.getY() + 0.5, (double)this.worldPosition.getZ() + 0.5) <= 64.0;
+            return player.distanceToSqr((double) this.worldPosition.getX() + 0.5, (double) this.worldPosition.getY() + 0.5, (double) this.worldPosition.getZ() + 0.5) <= 64.0;
         }
     }
 
@@ -236,3 +235,4 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
         return new TikiBarGuiHandler(syncId, inv, this, this.propertyDelegate);
     }
 }
+ */

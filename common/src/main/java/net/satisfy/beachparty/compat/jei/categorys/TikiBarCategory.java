@@ -16,11 +16,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.client.gui.TikiBarGui;
-import net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.ObjectRegistry;
-
+/*
 public class TikiBarCategory implements IRecipeCategory<TikiBarRecipe> {
     public static final RecipeType<TikiBarRecipe> TIKI_BAR = RecipeType.create(Beachparty.MOD_ID, "tiki_bar_mixing", TikiBarRecipe.class);
     public static final int WIDTH = 124;
@@ -76,9 +74,10 @@ public class TikiBarCategory implements IRecipeCategory<TikiBarRecipe> {
         NonNullList<Ingredient> ingredients = recipe.getIngredients();
         int s = ingredients.size();
 
-        if(s > 0) BeachpartyJEIPlugin.addSlot(builder, 55 - WIDTH_OF, 26 - HEIGHT_OF, ingredients.get(0));
-        if(s > 1) BeachpartyJEIPlugin.addSlot(builder, 55 - WIDTH_OF, 44 - HEIGHT_OF, ingredients.get(1));
+        if (s > 0) BeachpartyJEIPlugin.addSlot(builder, 55 - WIDTH_OF, 26 - HEIGHT_OF, ingredients.get(0));
+        if (s > 1) BeachpartyJEIPlugin.addSlot(builder, 55 - WIDTH_OF, 44 - HEIGHT_OF, ingredients.get(1));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 128 - WIDTH_OF,  35 - HEIGHT_OF).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 128 - WIDTH_OF, 35 - HEIGHT_OF).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
     }
 }
+ */

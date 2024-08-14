@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.biome.v1.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.satisfy.beachparty.BeachpartyIdentifier;
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
 import net.satisfy.beachparty.world.PlacedFeatures;
 
 import java.util.function.Predicate;

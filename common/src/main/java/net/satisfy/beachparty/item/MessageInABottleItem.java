@@ -45,7 +45,7 @@ public class MessageInABottleItem extends BlockItem {
         } else {
             itemStack = getRandomMap(user);
         }
-        if(itemStack == null) itemStack = new ItemStack(Items.PAPER);
+        if (itemStack == null) itemStack = new ItemStack(Items.PAPER);
 
         ItemEntity entity = new ItemEntity(world, user.getX(), user.getY(), user.getZ(), itemStack);
         world.addFreshEntity(entity);
@@ -60,7 +60,7 @@ public class MessageInABottleItem extends BlockItem {
     }
 
 
-    public static @Nullable ItemStack getRandomMap(Entity entity){
+    public static @Nullable ItemStack getRandomMap(Entity entity) {
         int lootChest = entity.level().getRandom().nextInt(4);
 
         ItemStack map = null;
@@ -79,19 +79,19 @@ public class MessageInABottleItem extends BlockItem {
     }
 
 
-    public static ItemStack createMonumentMap(Entity entity){
+    public static ItemStack createMonumentMap(Entity entity) {
         return createMap(entity, StructureTags.ON_OCEAN_EXPLORER_MAPS, "filled_map.monument", MapDecoration.Type.MONUMENT);
     }
 
-    public static ItemStack createMansionMap(Entity entity){
+    public static ItemStack createMansionMap(Entity entity) {
         return createMap(entity, StructureTags.ON_WOODLAND_EXPLORER_MAPS, "filled_map.mansion", MapDecoration.Type.MANSION);
     }
 
-    public static ItemStack createShipwreckMap(Entity entity){
+    public static ItemStack createShipwreckMap(Entity entity) {
         return createMap(entity, StructureTags.SHIPWRECK, "filled_map.shipwreck", MapDecoration.Type.RED_X);
     }
 
-    public static ItemStack createTreasureMap(Entity entity){
+    public static ItemStack createTreasureMap(Entity entity) {
         return createMap(entity, StructureTags.ON_TREASURE_MAPS, "filled_map.treasure", MapDecoration.Type.RED_X);
     }
 
@@ -102,7 +102,7 @@ public class MessageInABottleItem extends BlockItem {
         }
         BlockPos blockPos = serverWorld.findNearestMapStructure(structure, entity.blockPosition(), 100, true);
         if (blockPos != null) {
-            ItemStack itemStack = MapItem.create(serverWorld, blockPos.getX(), blockPos.getZ(), (byte)2, true, true);
+            ItemStack itemStack = MapItem.create(serverWorld, blockPos.getX(), blockPos.getZ(), (byte) 2, true, true);
             MapItem.renderBiomePreviewMap(serverWorld, itemStack);
             MapItemSavedData.addTargetDecoration(itemStack, blockPos, "+", iconType);
             itemStack.setHoverName(Component.translatable(nameKey));

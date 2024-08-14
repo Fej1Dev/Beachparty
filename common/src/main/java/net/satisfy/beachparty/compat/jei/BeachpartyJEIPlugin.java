@@ -12,21 +12,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.satisfy.beachparty.BeachpartyIdentifier;
-import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
-import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
-import net.satisfy.beachparty.compat.jei.categorys.MiniFridgeCategory;
-import net.satisfy.beachparty.compat.jei.categorys.TikiBarCategory;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 import java.util.List;
 import java.util.Objects;
 
-
+/*
 @JeiPlugin
 public class BeachpartyJEIPlugin implements IModPlugin {
 
@@ -65,7 +61,8 @@ public class BeachpartyJEIPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(TikiBarGuiHandler.class, ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), TikiBarCategory.TIKI_BAR, 1, 2, 3, 36);
     }
 
-    public static void addSlot(IRecipeLayoutBuilder builder, int x, int y, Ingredient ingredient){
+    public static void addSlot(IRecipeLayoutBuilder builder, int x, int y, Ingredient ingredient) {
         builder.addSlot(RecipeIngredientRole.INPUT, x, y).addIngredients(ingredient);
     }
 }
+ */

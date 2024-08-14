@@ -25,7 +25,7 @@ public class MouseMixin {
     private void MouseScrollOnRadio(long window, double horizontal, double vertical, CallbackInfo ci) {
         if (window == Minecraft.getInstance().getWindow().getWindow()) {
             Minecraft client = Minecraft.getInstance();
-            if(client.hitResult instanceof BlockHitResult blockHitResult){
+            if (client.hitResult instanceof BlockHitResult blockHitResult) {
 
                 if (blockHitResult.getType() != HitResult.Type.BLOCK) return;
 

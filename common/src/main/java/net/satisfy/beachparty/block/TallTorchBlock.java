@@ -88,9 +88,9 @@ public class TallTorchBlock extends TorchBlock {
 
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-            double d = (double)pos.getX() + 0.5;
-            double e = (double)pos.getY() + 0.6;
-            double f = (double)pos.getZ() + 0.5;
+            double d = (double) pos.getX() + 0.5;
+            double e = (double) pos.getY() + 0.6;
+            double f = (double) pos.getZ() + 0.5;
             world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0, 0.0, 0.0);
             world.addParticle(this.flameParticle, d, e, f, 0.0, 0.0, 0.0);
         }

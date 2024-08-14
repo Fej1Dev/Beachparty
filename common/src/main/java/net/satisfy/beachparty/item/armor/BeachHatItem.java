@@ -1,41 +1,27 @@
 package net.satisfy.beachparty.item.armor;
 
-import de.cristelknight.doapi.common.item.CustomHatItem;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import net.satisfy.beachparty.BeachpartyIdentifier;
-import net.satisfy.beachparty.registry.ArmorMaterialRegistry;
-import net.satisfy.beachparty.registry.ArmorRegistry;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+public class BeachHatItem extends ArmorItem {
+    private final ResourceLocation hatTexture;
 
-public class BeachHatItem extends CustomHatItem {
+    public BeachHatItem(ArmorMaterial armorMaterial, Type type, Properties properties, ResourceLocation hatTexture) {
+        super(armorMaterial, type, properties);
+        this.hatTexture = hatTexture;
+    }
 
 
-    public BeachHatItem(Item.Properties settings) {
-        super(ArmorMaterialRegistry.BEACH_HAT, Type.HELMET, settings);
+    public ResourceLocation getHatTexture()
+    {
+        return hatTexture;
     }
 
     @Override
-    public ResourceLocation getTexture() {
-        return new BeachpartyIdentifier("textures/entity/beach_hat.png");
-    }
-
-    @Override
-    public Float getOffset() {
-        return -1.8f;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, @NotNull List<Component> tooltip, TooltipFlag context) {
-        if (world != null && world.isClientSide()) {
-            ArmorRegistry.appendTooltip(tooltip);
-        }
+    public @NotNull EquipmentSlot getEquipmentSlot() {
+        return this.type.getSlot();
     }
 }

@@ -1,12 +1,9 @@
 package net.satisfy.beachparty.client.gui.handler.slot;
 
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.satisfy.beachparty.block.entity.TikiBarBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class TikiBarOutputSlot extends Slot {
@@ -48,12 +45,14 @@ public class TikiBarOutputSlot extends Slot {
         this.checkTakeAchievements(stack);
     }
 
+    /*
     @Override
     protected void checkTakeAchievements(ItemStack stack) {
         stack.onCraftedBy(this.player.level(), this.player, this.amount);
         if (this.player instanceof ServerPlayer && this.container instanceof TikiBarBlockEntity && player.level() instanceof ServerLevel) {
-            ((TikiBarBlockEntity)this.container).dropExperience((ServerLevel) this.player.level(), player.position());
+            ((TikiBarBlockEntity) this.container).dropExperience((ServerLevel) this.player.level(), player.position());
         }
         this.amount = 0;
     }
+    */
 }

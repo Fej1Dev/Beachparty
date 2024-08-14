@@ -1,14 +1,11 @@
 package net.satisfy.beachparty.client.gui;
 
-import de.cristelknight.doapi.client.recipebook.screen.AbstractRecipeBookGUIScreen;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.satisfy.beachparty.BeachpartyIdentifier;
-import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
-import net.satisfy.beachparty.client.recipebook.MiniFridgeRecipeBook;
-
+import net.satisfy.beachparty.util.BeachpartyIdentifier;
+/*
 public class MiniFridgeGui extends AbstractRecipeBookGUIScreen<MiniFridgeGuiHandler> {
     public static final ResourceLocation BG = new BeachpartyIdentifier("textures/gui/freezer.png");
 
@@ -31,4 +28,5 @@ public class MiniFridgeGui extends AbstractRecipeBookGUIScreen<MiniFridgeGuiHand
         guiGraphics.blit(BG, leftPos + ARROW_X, topPos + ARROW_Y, 177, 26, progressX, 10);
     }
 }
+ */
 

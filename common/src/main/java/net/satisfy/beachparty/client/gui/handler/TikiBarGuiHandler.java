@@ -1,7 +1,5 @@
 package net.satisfy.beachparty.client.gui.handler;
 
-import de.cristelknight.doapi.client.recipebook.IRecipeBookGroup;
-import de.cristelknight.doapi.client.recipebook.handler.AbstractRecipeBookGUIScreenHandler;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -12,17 +10,16 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.satisfy.beachparty.client.gui.handler.slot.IceSlot;
 import net.satisfy.beachparty.client.gui.handler.slot.TikiBarOutputSlot;
-import net.satisfy.beachparty.client.recipebook.group.TikiBarRecipeBookGroup;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
 
-import java.util.List;
-
+/*
 public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
 
     public TikiBarGuiHandler(int syncId, Inventory playerInventory) {
         this(syncId, playerInventory, new SimpleContainer(3), new SimpleContainerData(2));
     }
+
     public TikiBarGuiHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {
         super(ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), syncId, 2, playerInventory, inventory, propertyDelegate);
 
@@ -31,7 +28,7 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
     }
 
     private void buildBlockEntityContainer(Inventory playerInventory, Container inventory) {
-        this.addSlot(new TikiBarOutputSlot(playerInventory.player, inventory, 0, 128,  35));
+        this.addSlot(new TikiBarOutputSlot(playerInventory.player, inventory, 0, 128, 35));
         this.addSlot(new Slot(inventory, 1, 55, 26));
         this.addSlot(new IceSlot(inventory, 2, 55, 44));
     }
@@ -96,3 +93,4 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         return 2;
     }
 }
+ */

@@ -9,7 +9,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -24,7 +24,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -38,12 +38,8 @@
           "name": "beachparty:rubber_ring_pelican"
         },
         {
-          "type": "minecraft:empty",
-          "weight": 2
-        },
-        {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -58,7 +54,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 5
         }
       ]
     }

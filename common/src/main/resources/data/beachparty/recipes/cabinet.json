@@ -7,12 +7,12 @@
   ],
   "key": {
     "#": {
-	  "item": "beachparty:palm_planks"
+      "item": "beachparty:palm_planks"
     },
     "V": {
- 	  "item": "beachparty:palm_slab"
+      "item": "beachparty:palm_slab"
     }
-},
+  },
   "result": {
     "item": "beachparty:cabinet"
   }

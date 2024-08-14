@@ -29,7 +29,8 @@ public class MouseScrollC2SPacket implements NetworkManager.NetworkReceiver {
 
                 int channel = radioBlock.tune(serverWorld, blockState, blockPos, scrollValue);
 
-                FriendlyByteBuf buffer = RadioBlock.createPacketBuf();;
+                FriendlyByteBuf buffer = RadioBlock.createPacketBuf();
+                ;
                 buffer.writeBlockPos(blockPos);
                 buffer.writeInt(channel);
 

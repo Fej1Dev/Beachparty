@@ -1,6 +1,5 @@
 package net.satisfy.beachparty.block;
 
-import de.cristelknight.doapi.common.util.GeneralUtil;
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
 import net.minecraft.ChatFormatting;
@@ -36,6 +35,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.SoundEventRegistry;
+import net.satisfy.beachparty.util.BeachpartyUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -55,7 +55,7 @@ public class RadioBlock extends Block {
 
     public static final Map<Direction, VoxelShape> SHAPE = Util.make(new HashMap<>(), map -> {
         for (Direction direction : Direction.Plane.HORIZONTAL.stream().toList()) {
-            map.put(direction, GeneralUtil.rotateShape(Direction.NORTH, direction, voxelShapeSupplier.get()));
+            map.put(direction, BeachpartyUtil.rotateShape(Direction.NORTH, direction, voxelShapeSupplier.get()));
         }
     });
 
@@ -151,7 +151,7 @@ public class RadioBlock extends Block {
         }
     }
 
-    public static FriendlyByteBuf createPacketBuf(){
+    public static FriendlyByteBuf createPacketBuf() {
         return new FriendlyByteBuf(Unpooled.buffer());
     }
 
@@ -172,7 +172,7 @@ public class RadioBlock extends Block {
     public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean moved) {
         if (!world.isClientSide) {
             RADIO_BLOCKS.remove(pos);
-            stopMusic(state, world, pos); // Musik stoppen, wenn der Block entfernt wird
+            stopMusic(state, world, pos);
         }
         super.onRemove(state, world, pos, newState, moved);
     }

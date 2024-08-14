@@ -16,11 +16,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.client.gui.MiniFridgeGui;
-import net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.registry.ObjectRegistry;
-
+/*
 public class MiniFridgeCategory implements IRecipeCategory<MiniFridgeRecipe> {
     public static final RecipeType<MiniFridgeRecipe> MINI_FRIDGE = RecipeType.create(Beachparty.MOD_ID, "mini_fridge_mixing", MiniFridgeRecipe.class);
     public static final int WIDTH = 124;
@@ -71,9 +69,10 @@ public class MiniFridgeCategory implements IRecipeCategory<MiniFridgeRecipe> {
         NonNullList<Ingredient> ingredients = recipe.getIngredients();
         int s = ingredients.size();
 
-        if(s > 0) BeachpartyJEIPlugin.addSlot(builder, 46 - WIDTH_OF, 27 - HEIGHT_OF, ingredients.get(0));
-        if(s > 1) BeachpartyJEIPlugin.addSlot(builder, 59 - WIDTH_OF, 43 - HEIGHT_OF, ingredients.get(1));
+        if (s > 0) BeachpartyJEIPlugin.addSlot(builder, 46 - WIDTH_OF, 27 - HEIGHT_OF, ingredients.get(0));
+        if (s > 1) BeachpartyJEIPlugin.addSlot(builder, 59 - WIDTH_OF, 43 - HEIGHT_OF, ingredients.get(1));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 128 - WIDTH_OF,  42 - HEIGHT_OF).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 128 - WIDTH_OF, 42 - HEIGHT_OF).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
     }
 }
+ */

@@ -1,6 +1,5 @@
 package net.satisfy.beachparty.block.entity;
 
-import de.cristelknight.doapi.common.world.ImplementedInventory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -19,13 +18,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
-import net.satisfy.beachparty.registry.BlockEntityRegistry;
+import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/*
 public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInventory, BlockEntityTicker<MiniFridgeBlockEntity>, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};
     private static final int[] SLOTS_FOR_UP = new int[]{1};
@@ -65,7 +64,7 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
     };
 
     public MiniFridgeBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.MINI_FRIDGE_BLOCK_ENTITY.get(), pos, state);
+        super(EntityTypeRegistry.MINI_FRIDGE_BLOCK_ENTITY.get(), pos, state);
         this.inventory = NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
     }
 
@@ -166,9 +165,9 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
 
     @Override
     public int @NotNull [] getSlotsForFace(Direction side) {
-        if(side.equals(Direction.UP)){
+        if (side.equals(Direction.UP)) {
             return SLOTS_FOR_UP;
-        } else if (side.equals(Direction.DOWN)){
+        } else if (side.equals(Direction.DOWN)) {
             return SLOTS_FOR_DOWN;
         } else return SLOTS_FOR_SIDE;
     }
@@ -189,13 +188,14 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
             }
         }
     }
+
     @Override
     public boolean stillValid(Player player) {
         assert this.level != null;
         if (this.level.getBlockEntity(this.worldPosition) != this) {
             return false;
         } else {
-            return player.distanceToSqr((double)this.worldPosition.getX() + 0.5, (double)this.worldPosition.getY() + 0.5, (double)this.worldPosition.getZ() + 0.5) <= 64.0;
+            return player.distanceToSqr((double) this.worldPosition.getX() + 0.5, (double) this.worldPosition.getY() + 0.5, (double) this.worldPosition.getZ() + 0.5) <= 64.0;
         }
     }
 
@@ -211,3 +211,4 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
         return new MiniFridgeGuiHandler(syncId, inv, this, this.propertyDelegate);
     }
 }
+ */

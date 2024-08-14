@@ -21,17 +21,10 @@
     "client": [
       "net.satisfy.beachparty.fabric.client.BeachpartyFabricClient"
     ],
-    "doapi": [
-      "net.satisfy.beachparty.util.api.BeachPartyDoAPI"
-    ],
     "rei_client": [
       "net.satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
     ],
     "jei_mod_plugin": [
-      "net.satisfy.beachparty.compat.jei.BeachpartyJEIPlugin"
-    ],
-    "modmenu": [
-      "net.satisfy.beachparty.fabric.client.ModMenuConfig"
     ]
   },
   "custom": {
@@ -47,7 +40,6 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.20",
-    "architectury": ">=9.0.8",
-    "doapi": ">=1.2.9"
+    "architectury": ">=9.0.8"
   }
 }

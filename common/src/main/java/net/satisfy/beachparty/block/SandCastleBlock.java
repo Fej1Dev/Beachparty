@@ -72,8 +72,7 @@ public class SandCastleBlock extends Block {
                 exchangeStack(handStack, player, new ItemStack(ObjectRegistry.EMPTY_SAND_BUCKET.get()));
                 return InteractionResult.sidedSuccess(world.isClientSide);
             }
-        }
-        else if (handStack.getItem() == ObjectRegistry.EMPTY_SAND_BUCKET.get()) {
+        } else if (handStack.getItem() == ObjectRegistry.EMPTY_SAND_BUCKET.get()) {
             if (hasNoTowers(state)) {
                 world.destroyBlock(pos, false);
                 exchangeStack(handStack, player, new ItemStack(ObjectRegistry.SAND_BUCKET.get()));
@@ -107,7 +106,7 @@ public class SandCastleBlock extends Block {
         Inventory inventory = player.getInventory();
         int slot = inventory.findSlotMatchingItem(handStack);
         handStack.shrink(1);
-        if(player.getInventory().getItem(slot).isEmpty()) {
+        if (player.getInventory().getItem(slot).isEmpty()) {
             if (!inventory.add(slot, returnStack)) {
                 player.drop(returnStack, false);
             }
