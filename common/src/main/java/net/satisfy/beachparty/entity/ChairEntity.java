@@ -21,7 +21,6 @@ public class ChairEntity extends Entity {
 
     @Override
     protected void defineSynchedData() {
-
     }
 
     @Override
@@ -33,8 +32,6 @@ public class ChairEntity extends Entity {
                 return new Vec3(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
             }
         }
-
-
         discard();
         return super.getDismountLocationForPassenger(passenger);
     }

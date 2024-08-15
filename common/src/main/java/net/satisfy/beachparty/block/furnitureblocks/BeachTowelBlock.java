@@ -1,4 +1,4 @@
-package net.satisfy.beachparty.block;
+package net.satisfy.beachparty.block.furnitureblocks;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;

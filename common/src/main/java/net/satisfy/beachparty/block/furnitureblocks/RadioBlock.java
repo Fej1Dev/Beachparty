@@ -1,4 +1,4 @@
-package net.satisfy.beachparty.block;
+package net.satisfy.beachparty.block.furnitureblocks;
 
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;

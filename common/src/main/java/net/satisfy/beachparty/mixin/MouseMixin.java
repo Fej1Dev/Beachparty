@@ -9,7 +9,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.satisfy.beachparty.block.RadioBlock;
+import net.satisfy.beachparty.block.furnitureblocks.RadioBlock;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.spongepowered.asm.mixin.Mixin;

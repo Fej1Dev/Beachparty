@@ -12,7 +12,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.block.RadioBlock;
+import net.satisfy.beachparty.block.furnitureblocks.RadioBlock;
 import org.jetbrains.annotations.Nullable;
 
 public class CommonEvents {

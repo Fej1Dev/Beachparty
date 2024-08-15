@@ -7,7 +7,6 @@
     "MouseMixin"
   ],
   "mixins": [
-    "AbstractBlockMixin",
     "PotionItemMixin"
   ],
   "injectors": {

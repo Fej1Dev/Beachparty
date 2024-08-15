@@ -62,10 +62,10 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PUMPKIN_COCKTAIL.get());
                 out.accept(ObjectRegistry.MELON_COCKTAIL.get());
                 out.accept(ObjectRegistry.HONEY_COCKTAIL.get());
-                out.accept(ObjectRegistry.SWEETBERRY_MILKSHAKE.get());
-                out.accept(ObjectRegistry.COCONUT_MILKSHAKE.get());
-                out.accept(ObjectRegistry.CHOCOLATE_MILKSHAKE.get());
-                out.accept(ObjectRegistry.REFRESHING_DRINK.get());
+                //out.accept(ObjectRegistry.SWEETBERRY_MILKSHAKE.get());
+                //out.accept(ObjectRegistry.COCONUT_MILKSHAKE.get());
+                //out.accept(ObjectRegistry.CHOCOLATE_MILKSHAKE.get());
+                //out.accept(ObjectRegistry.REFRESHING_DRINK.get());
                 out.accept(ObjectRegistry.SWEETBERRY_ICECREAM.get());
                 out.accept(ObjectRegistry.COCONUT_ICECREAM.get());
                 out.accept(ObjectRegistry.CHOCOLATE_ICECREAM.get());

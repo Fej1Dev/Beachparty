@@ -19,10 +19,10 @@ public class CompostablesRegistry {
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.CHOCOLATE_ICECREAM.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.COCONUT_ICECREAM.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SWEETBERRY_ICECREAM.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.REFRESHING_DRINK.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.CHOCOLATE_MILKSHAKE.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SWEETBERRY_MILKSHAKE.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.COCONUT_MILKSHAKE.get(), 0.3F);
+        //ComposterBlock.COMPOSTABLES.put(ObjectRegistry.REFRESHING_DRINK.get(), 0.3F);
+        //ComposterBlock.COMPOSTABLES.put(ObjectRegistry.CHOCOLATE_MILKSHAKE.get(), 0.3F);
+        //ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SWEETBERRY_MILKSHAKE.get(), 0.3F);
+        //ComposterBlock.COMPOSTABLES.put(ObjectRegistry.COCONUT_MILKSHAKE.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.COCONUT_COCKTAIL.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SWEETBERRIES_COCKTAIL.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.COCOA_COCKTAIL.get().asItem(), 0.3F);

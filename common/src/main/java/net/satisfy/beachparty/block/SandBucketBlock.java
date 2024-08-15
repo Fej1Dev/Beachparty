@@ -52,11 +52,15 @@ public class SandBucketBlock extends HorizontalDirectionalBlock {
     @Override
     public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getItemInHand(hand);
-        if (state.getBlock() == ObjectRegistry.EMPTY_SAND_BUCKET_BLOCK && itemStack.getItem() == Items.SAND) {
+        Block emptySandBucketBlock = ObjectRegistry.EMPTY_SAND_BUCKET_BLOCK.get();
+        Block sandBucketBlock = ObjectRegistry.SAND_BUCKET_BLOCK.get();
+
+        if (state.getBlock() == emptySandBucketBlock && itemStack.getItem() == Items.SAND) {
             itemStack.shrink(1);
-            world.setBlockAndUpdate(pos, ObjectRegistry.SAND_BUCKET_BLOCK.get().defaultBlockState().setValue(FACING, state.getValue(FACING)));
+            world.setBlockAndUpdate(pos, sandBucketBlock.defaultBlockState().setValue(FACING, state.getValue(FACING)));
             return InteractionResult.SUCCESS;
         }
+
         return super.use(state, world, pos, player, hand, hit);
     }
 }
