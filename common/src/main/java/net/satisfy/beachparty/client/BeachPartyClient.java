@@ -2,14 +2,18 @@ package net.satisfy.beachparty.client;
 
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.satisfy.beachparty.block.properties.BeachpartyWoodType;
 import net.satisfy.beachparty.client.model.BeachHatModel;
 import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
+import net.satisfy.beachparty.platform.PlatformHelper;
 import net.satisfy.beachparty.registry.ArmorRegistry;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.ObjectRegistry;
@@ -49,6 +53,8 @@ public class BeachPartyClient {
         EntityRendererRegistry.register(EntityTypeRegistry.COCONUT, ThrownItemRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.BOAT, context -> new BeachpartyBoatRenderer<>(context, false));
         EntityRendererRegistry.register(EntityTypeRegistry.CHEST_BOAT, context -> new BeachpartyBoatRenderer<>(context, true));
+        BlockEntityRendererRegistry.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
+
     }
 
     public static void registerEntityModelLayers() {

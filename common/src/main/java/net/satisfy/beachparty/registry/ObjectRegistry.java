@@ -31,11 +31,14 @@ import net.satisfy.beachparty.item.*;
 import net.satisfy.beachparty.item.armor.BeachHatItem;
 import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
 import net.satisfy.beachparty.item.armor.DyeableBeachpartyArmorItem;
+import net.satisfy.beachparty.platform.PlatformHelper;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 import net.satisfy.beachparty.util.BeachpartyUtil;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
+import static net.satisfy.beachparty.block.properties.BeachpartyWoodType.PALM;
 
 @SuppressWarnings("unused")
 public class ObjectRegistry {
@@ -135,6 +138,12 @@ public class ObjectRegistry {
     public static final Supplier<Item> PALM_BOAT = registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
     public static final Supplier<Item> PALM_CHEST_BOAT = registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
     public static final Supplier<Item> FLOATY_BOAT = registerItem("floaty_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.FLOATY, getSettings().stacksTo(1)));
+    public static final Supplier<BeachpartyStandingSignBlock> PALM_SIGN = registerWithoutItem("palm_sign", () -> new BeachpartyStandingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
+    public static final Supplier<BeachpartyWallSignBlock> PALM_WALL_SIGN = registerWithoutItem("palm_wall_sign", () -> new BeachpartyWallSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_SIGN.get()), PALM));
+    public static final Supplier<BeachpartyCeilingHangingSignBlock> PALM_HANGING_SIGN = registerWithoutItem("palm_hanging_sign", () -> new BeachpartyCeilingHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
+    public static final Supplier<BeachpartyWallHangingSignBlock> PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign", () -> new BeachpartyWallHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_HANGING_SIGN.get()), PALM));
+    public static final Supplier<Item> PALM_SIGN_ITEM = registerItem("palm_sign", () -> new SignItem(new Item.Properties().stacksTo(16), PALM_SIGN.get(), PALM_WALL_SIGN.get()));
+    public static final Supplier<Item> PALM_HANGING_SIGN_ITEM = registerItem("palm_hanging_sign", () -> new HangingSignItem(PALM_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     private static RegistrySupplier<Block> registerLog(String path) {
         return registerWithItem(path, () -> new RotatedPillarBlock(getLogBlockSettings()));
@@ -147,6 +156,8 @@ public class ObjectRegistry {
     private static BlockBehaviour.Properties getSlabSettings() {
         return getLogBlockSettings().explosionResistance(3.0F);
     }
+
+
 
 
     private static Item.Properties getSettings(Consumer<Item.Properties> consumer) {

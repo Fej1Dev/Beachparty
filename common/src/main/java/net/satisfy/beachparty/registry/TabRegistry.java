@@ -93,6 +93,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.FLOATY_BOAT.get());
                 out.accept(ObjectRegistry.PALM_BOAT.get());
                 out.accept(ObjectRegistry.PALM_CHEST_BOAT.get());
+                out.accept(ObjectRegistry.PALM_SIGN_ITEM.get());
+                out.accept(ObjectRegistry.PALM_HANGING_SIGN_ITEM.get());
 
             })
             .build());

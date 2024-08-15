@@ -1,15 +1,19 @@
 package net.satisfy.beachparty.fabric.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.BeachPartyClient;
 import net.satisfy.beachparty.entity.BeachpartyBoat;
-import net.satisfy.beachparty.fabric.client.renderer.BeachpartyArmorRenderer;
+import net.satisfy.beachparty.fabric.client.renderer.BeachHatRenderer;
+import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 
 public class BeachpartyFabricClient implements ClientModInitializer {
@@ -20,7 +24,9 @@ public class BeachpartyFabricClient implements ClientModInitializer {
 
         registerBoatModels();
 
-        net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer.register(new BeachpartyArmorRenderer(), ObjectRegistry.BEACH_HAT.get());
+        ArmorRenderer.register(new BeachHatRenderer(), ObjectRegistry.BEACH_HAT.get());
+        BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
+
     }
 
     private void registerBoatModels() {
@@ -29,5 +35,6 @@ public class BeachpartyFabricClient implements ClientModInitializer {
             EntityModelLayerRegistry.registerModelLayer(new ModelLayerLocation(new ResourceLocation(modId, type.getModelLocation()), "main"), BoatModel::createBodyModel);
             EntityModelLayerRegistry.registerModelLayer(new ModelLayerLocation(new ResourceLocation(modId, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
         }
+
     }
 }
