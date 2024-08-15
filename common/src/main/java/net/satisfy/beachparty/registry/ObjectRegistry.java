@@ -40,7 +40,6 @@ import java.util.function.Supplier;
 
 import static net.satisfy.beachparty.block.properties.BeachpartyWoodType.PALM;
 
-@SuppressWarnings("unused")
 public class ObjectRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Beachparty.MOD_ID, Registries.ITEM);
     public static final Registrar<Item> ITEM_REGISTRAR = ITEMS.getRegistrar();
@@ -50,15 +49,15 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> PALM_LEAVES = registerWithItem("palm_leaves", () -> new PalmLeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     public static final Supplier<SaplingBlock> PALM_SAPLING = registerWithItem("palm_sapling", PalmSaplingBlock::new);
     public static final RegistrySupplier<Block> SAND_PILE = registerWithoutItem("sand_pile", () -> new SandPileBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND)));
-    public static final RegistrySupplier<Block> STRIPPED_PALM_LOG = registerLog("stripped_palm_log");
-    public static final RegistrySupplier<Block> PALM_LOG = registerLog("palm_log");
-    public static final RegistrySupplier<Block> STRIPPED_PALM_WOOD = registerLog("stripped_palm_wood");
-    public static final RegistrySupplier<Block> PALM_WOOD = registerLog("palm_wood");
-    public static final RegistrySupplier<Block> PALM_BEAM = registerLog("palm_beam");
+    public static final RegistrySupplier<Block> STRIPPED_PALM_LOG = registerWithItem("stripped_palm_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> PALM_LOG = registerWithItem("palm_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> STRIPPED_PALM_WOOD = registerWithItem("stripped_palm_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> PALM_WOOD = registerWithItem("palm_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> PALM_BEAM = registerWithItem("palm_beam", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD)));
     public static final RegistrySupplier<Block> PALM_PLANKS = registerWithItem("palm_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> PALM_FLOORBOARD = registerWithItem("palm_floorboard", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> PALM_STAIRS = registerWithItem("palm_stairs", () -> new StairBlock(PALM_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(PALM_PLANKS.get())));
-    public static final RegistrySupplier<Block> PALM_SLAB = registerWithItem("palm_slab", () -> new SlabBlock(getSlabSettings()));
+    public static final RegistrySupplier<Block> PALM_SLAB = registerWithItem("palm_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD).explosionResistance(3.0F)));
     public static final RegistrySupplier<Block> PALM_FENCE = registerWithItem("palm_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));
     public static final RegistrySupplier<Block> PALM_FENCE_GATE = registerWithItem("palm_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE), WoodType.BAMBOO));
     public static final RegistrySupplier<Block> PALM_BUTTON = registerWithItem("palm_button", () -> woodenButton(FeatureFlags.VANILLA));
@@ -67,7 +66,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> PALM_TRAPDOOR = registerWithItem("palm_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR), BlockSetType.BAMBOO));
     public static final RegistrySupplier<Block> DRIED_WHEAT_BLOCK = registerWithItem("dried_wheat_block", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
     public static final RegistrySupplier<Block> DRIED_WHEAT_STAIRS = registerWithItem("dried_wheat_stairs", () -> new StairBlock(PALM_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(PALM_PLANKS.get()).sound(SoundType.GRASS)));
-    public static final RegistrySupplier<Block> DRIED_WHEAT_SLAB = registerWithItem("dried_wheat_slab", () -> new SlabBlock(getSlabSettings().sound(SoundType.GRASS)));
+    public static final RegistrySupplier<Block> DRIED_WHEAT_SLAB = registerWithItem("dried_wheat_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).strength(2.0F).sound(SoundType.WOOD).explosionResistance(3.0F)));
     public static final RegistrySupplier<Block> LOUNGE_CHAIR = registerWithItem("lounge_chair", () -> new LoungeChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> CHAIR = registerWithItem("chair", () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).pushReaction(PushReaction.IGNORE)));
     public static final RegistrySupplier<Block> TABLE = registerWithItem("table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
@@ -90,12 +89,12 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> COCONUT_BLOCK = registerWithoutItem("coconut_block", () -> new CoconutBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
     public static final RegistrySupplier<Item> COCONUT = registerItem("coconut", () -> new CoconutItem(COCONUT_BLOCK.get(), getSettings()));
     public static final RegistrySupplier<Item> COCONUT_OPEN = registerItem("coconut_open", () -> new Item(getSettings().food(Foods.CARROT)));
-    public static final RegistrySupplier<Block> COCONUT_COCKTAIL = registerCocktail("coconut_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.DAMAGE_BOOST);
-    public static final RegistrySupplier<Block> SWEETBERRIES_COCKTAIL = registerCocktail("sweetberries_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.ABSORPTION);
-    public static final RegistrySupplier<Block> COCOA_COCKTAIL = registerCocktail("cocoa_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.REGENERATION);
-    public static final RegistrySupplier<Block> PUMPKIN_COCKTAIL = registerCocktail("pumpkin_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.FIRE_RESISTANCE);
-    public static final RegistrySupplier<Block> HONEY_COCKTAIL = registerCocktail("honey_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.DIG_SPEED);
-    public static final RegistrySupplier<Block> MELON_COCKTAIL = registerCocktail("melon_cocktail", () -> new CocktailBlock(getCocktailSettings()), MobEffects.LUCK);
+    public static final RegistrySupplier<Block> COCONUT_COCKTAIL = registerCocktail("coconut_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
+    public static final RegistrySupplier<Block> SWEETBERRIES_COCKTAIL = registerCocktail("sweetberries_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.ABSORPTION);
+    public static final RegistrySupplier<Block> COCOA_COCKTAIL = registerCocktail("cocoa_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.REGENERATION);
+    public static final RegistrySupplier<Block> PUMPKIN_COCKTAIL = registerCocktail("pumpkin_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.FIRE_RESISTANCE);
+    public static final RegistrySupplier<Block> HONEY_COCKTAIL = registerCocktail("honey_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DIG_SPEED);
+    public static final RegistrySupplier<Block> MELON_COCKTAIL = registerCocktail("melon_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.LUCK);
     //TODO: Add a 3D Model, then register as Cocktail & Cocktailblock
     //public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
     //public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
@@ -134,31 +133,25 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> SANDCASTLE = registerWithoutItem("sandcastle", () -> new SandCastleBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistrySupplier<Block> COCONUT_HANGING = registerWithoutItem("coconut_hanging", () -> new HangingCoconutBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
     public static final RegistrySupplier<Block> SANDWAVES = registerWithItem("sandwaves", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
-    public static final RegistrySupplier<Block> SAND_SEASTARS = registerWithoutItem("sand_seastars", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
-    public static final Supplier<Item> PALM_BOAT = registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
-    public static final Supplier<Item> PALM_CHEST_BOAT = registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoat.Type.PALM, getSettings().stacksTo(1)));
-    public static final Supplier<Item> FLOATY_BOAT = registerItem("floaty_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.FLOATY, getSettings().stacksTo(1)));
-    public static final Supplier<BeachpartyStandingSignBlock> PALM_SIGN = registerWithoutItem("palm_sign", () -> new BeachpartyStandingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
-    public static final Supplier<BeachpartyWallSignBlock> PALM_WALL_SIGN = registerWithoutItem("palm_wall_sign", () -> new BeachpartyWallSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_SIGN.get()), PALM));
-    public static final Supplier<BeachpartyCeilingHangingSignBlock> PALM_HANGING_SIGN = registerWithoutItem("palm_hanging_sign", () -> new BeachpartyCeilingHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
-    public static final Supplier<BeachpartyWallHangingSignBlock> PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign", () -> new BeachpartyWallHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_HANGING_SIGN.get()), PALM));
-    public static final Supplier<Item> PALM_SIGN_ITEM = registerItem("palm_sign", () -> new SignItem(new Item.Properties().stacksTo(16), PALM_SIGN.get(), PALM_WALL_SIGN.get()));
-    public static final Supplier<Item> PALM_HANGING_SIGN_ITEM = registerItem("palm_hanging_sign", () -> new HangingSignItem(PALM_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
-    private static RegistrySupplier<Block> registerLog(String path) {
-        return registerWithItem(path, () -> new RotatedPillarBlock(getLogBlockSettings()));
+    public static final Supplier<BeachpartyStandingSignBlock> PALM_SIGN = PlatformHelper.registerBlock("palm_sign", () -> new BeachpartyStandingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
+    public static final Supplier<BeachpartyWallSignBlock> PALM_WALL_SIGN = PlatformHelper.registerBlock("palm_wall_sign", () -> new BeachpartyWallSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_SIGN.get()), PALM));
+    public static final Supplier<BeachpartyCeilingHangingSignBlock> PALM_HANGING_SIGN = PlatformHelper.registerBlock("palm_hanging_sign", () -> new BeachpartyCeilingHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD), PALM));
+    public static final Supplier<BeachpartyWallHangingSignBlock> PALM_WALL_HANGING_SIGN = PlatformHelper.registerBlock("palm_wall_hanging_sign", () -> new BeachpartyWallHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_HANGING_SIGN.get()), PALM));
+    public static final Supplier<Item> PALM_SIGN_ITEM = PlatformHelper.registerItem("palm_sign", () -> new SignItem(new Item.Properties().stacksTo(16), PALM_SIGN.get(), PALM_WALL_SIGN.get()));
+    public static final Supplier<Item> PALM_HANGING_SIGN_ITEM = PlatformHelper.registerItem("palm_hanging_sign", () -> new HangingSignItem(PALM_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final Supplier<Item> PALM_BOAT = PlatformHelper.registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.PALM, new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> PALM_CHEST_BOAT = PlatformHelper.registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoat.Type.PALM, new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> FLOATY_BOAT = PlatformHelper.registerItem("floaty_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.FLOATY, new Item.Properties().stacksTo(1)));
+
+
+
+
+
+    static Item.Properties getSettings() {
+        return getSettings(settings -> {
+        });
     }
-
-    private static BlockBehaviour.Properties getLogBlockSettings() {
-        return BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).strength(2.0F).sound(SoundType.WOOD);
-    }
-
-    private static BlockBehaviour.Properties getSlabSettings() {
-        return getLogBlockSettings().explosionResistance(3.0F);
-    }
-
-
-
 
     private static Item.Properties getSettings(Consumer<Item.Properties> consumer) {
         Item.Properties settings = new Item.Properties();
@@ -172,16 +165,9 @@ public class ObjectRegistry {
         if (effect != null) component.effect(new MobEffectInstance(effect, 45 * 20), 1.0f);
         return component.build();
     }
-
-    private static BlockBehaviour.Properties getCocktailSettings() {
-        return BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak();
-    }
+    
 
 
-    static Item.Properties getSettings() {
-        return getSettings(settings -> {
-        });
-    }
 
 
     public static void init() {
@@ -189,10 +175,6 @@ public class ObjectRegistry {
         BLOCKS.register();
     }
 
-    public static void commonInit() {
-        FuelRegistry.register(300, PALM_FENCE.get(), PALM_FENCE_GATE.get(), PALM_PLANKS.get(), PALM_LOG.get(), PALM_WOOD.get(), STRIPPED_PALM_LOG.get(), STRIPPED_PALM_WOOD.get());
-
-    }
 
     private static ButtonBlock woodenButton(FeatureFlag... featureFlags) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of().noCollission().strength(0.5F).pushReaction(PushReaction.DESTROY);

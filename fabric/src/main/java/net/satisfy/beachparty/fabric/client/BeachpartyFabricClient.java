@@ -8,6 +8,7 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.BeachPartyClient;
@@ -26,7 +27,7 @@ public class BeachpartyFabricClient implements ClientModInitializer {
 
         ArmorRenderer.register(new BeachHatRenderer(), ObjectRegistry.BEACH_HAT.get());
         BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
-
+        BlockEntityRenderers.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }
 
     private void registerBoatModels() {

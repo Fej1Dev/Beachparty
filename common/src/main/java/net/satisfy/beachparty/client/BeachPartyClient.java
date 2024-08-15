@@ -21,8 +21,6 @@ import net.satisfy.beachparty.util.BeachpartyUtil;
 
 @Environment(EnvType.CLIENT)
 public class BeachPartyClient {
-
-
     public static void initClient() {
         RenderTypeRegistry.register(RenderType.cutout(), ObjectRegistry.TABLE.get(), ObjectRegistry.CHAIR.get(),
                 ObjectRegistry.TIKI_CHAIR.get(), ObjectRegistry.PALM_TRAPDOOR.get(), ObjectRegistry.PALM_DOOR.get(),
@@ -53,7 +51,6 @@ public class BeachPartyClient {
         EntityRendererRegistry.register(EntityTypeRegistry.COCONUT, ThrownItemRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.BOAT, context -> new BeachpartyBoatRenderer<>(context, false));
         EntityRendererRegistry.register(EntityTypeRegistry.CHEST_BOAT, context -> new BeachpartyBoatRenderer<>(context, true));
-        BlockEntityRendererRegistry.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }
 
     public static void registerEntityModelLayers() {

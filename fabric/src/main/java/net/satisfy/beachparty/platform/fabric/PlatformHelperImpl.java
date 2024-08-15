@@ -9,6 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -21,6 +22,16 @@ import net.satisfy.beachparty.platform.PlatformHelper;
 import java.util.function.Supplier;
 
 public class PlatformHelperImpl {
+    public static <T extends Block> Supplier<T> registerBlock(String name, Supplier<T> block) {
+        T registry = Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(Beachparty.MOD_ID, name), block.get());
+        return () -> registry;
+    }
+
+    public static <T extends Item> Supplier<T> registerItem(String name, Supplier<T> item) {
+        T registry = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Beachparty.MOD_ID, name), item.get());
+        return () -> registry;
+    }
+
     public static <T extends Entity> Supplier<EntityType<T>> registerBoatType(String name, EntityType.EntityFactory<T> factory, MobCategory category, float width, float height, int clientTrackingRange) {
         EntityType<T> registry = Registry.register(BuiltInRegistries.ENTITY_TYPE, new ResourceLocation(Beachparty.MOD_ID, name), FabricEntityTypeBuilder.create(category, factory).dimensions(EntityDimensions.scalable(width, height)).trackRangeChunks(clientTrackingRange).build());
         return () -> registry;

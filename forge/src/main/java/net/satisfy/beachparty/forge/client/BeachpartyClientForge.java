@@ -5,6 +5,7 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -37,5 +38,6 @@ public class BeachpartyClientForge {
             event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(Beachparty.MOD_ID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
         }
         BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
+        BlockEntityRenderers.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }
 }

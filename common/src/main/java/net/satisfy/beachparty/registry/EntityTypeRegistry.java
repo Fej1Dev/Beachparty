@@ -1,11 +1,9 @@
 package net.satisfy.beachparty.registry;
 
-import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -33,6 +31,7 @@ public final class EntityTypeRegistry {
     //public static final RegistrySupplier<BlockEntityType<TikiBarBlockEntity>> TIKI_BAR_BLOCK_ENTITY = registerBlockEntity("tiki_bar", () -> BlockEntityType.Builder.of(TikiBarBlockEntity::new, TIKI_BAR.get()).build(null));
     //public static final RegistrySupplier<BlockEntityType<MiniFridgeBlockEntity>> MINI_FRIDGE_BLOCK_ENTITY = registerBlockEntity("mini_fridge", () -> BlockEntityType.Builder.of(MiniFridgeBlockEntity::new, MINI_FRIDGE.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY = registerBlockEntity("cabinet", () -> BlockEntityType.Builder.of(CabinetBlockEntity::new, CABINET.get()).build(null));
+
     public static final Supplier<BlockEntityType<SignBlockEntity>> SIGN = PlatformHelper.registerBlockEntityType("sign", () -> PlatformHelper.createBlockEntityType(BeachpartySignBlockEntity::new, PALM_SIGN.get(), PALM_WALL_SIGN.get()));
 
     public static final Supplier<BlockEntityType<HangingSignBlockEntity>> HANGING_SIGN = PlatformHelper.registerBlockEntityType("hanging_sign", () -> PlatformHelper.createBlockEntityType(BeachpartyHangingSignBlockEntity::new, PALM_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get()));

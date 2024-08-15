@@ -14,10 +14,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
+
+import static net.satisfy.beachparty.registry.ObjectRegistry.*;
 
 public class BeachpartyBoat extends Boat {
 
@@ -74,8 +75,8 @@ public class BeachpartyBoat extends Boat {
     }
 
     public enum Type {
-        PALM("palm", () -> ObjectRegistry.PALM_BOAT.get(), () -> ObjectRegistry.PALM_CHEST_BOAT.get()),
-        FLOATY("floaty", () -> ObjectRegistry.PALM_BOAT.get(), () -> ObjectRegistry.PALM_CHEST_BOAT.get());
+        PALM("palm", () -> PALM_BOAT.get(), () -> PALM_CHEST_BOAT.get()),
+        FLOATY("floaty", () -> PALM_BOAT.get(), () -> PALM_CHEST_BOAT.get());
 
 
         private final String name;

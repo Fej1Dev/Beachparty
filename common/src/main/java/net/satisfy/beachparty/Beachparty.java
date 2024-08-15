@@ -25,7 +25,6 @@ public class Beachparty {
     }
 
     public static void commonSetup() {
-        ObjectRegistry.commonInit();
         PlatformHelper.registerWoodType(BeachpartyWoodType.PALM);
 
         AxeItemHooks.addStrippable(ObjectRegistry.PALM_LOG.get(), ObjectRegistry.STRIPPED_PALM_LOG.get());

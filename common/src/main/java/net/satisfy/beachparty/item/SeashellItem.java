@@ -1,19 +1,22 @@
 package net.satisfy.beachparty.item;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.RandomSource;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.satisfy.beachparty.registry.ObjectRegistry;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.satisfy.beachparty.platform.PlatformHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -24,49 +27,28 @@ public class SeashellItem extends BlockItem {
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level world, @NotNull Player player, @NotNull InteractionHand hand) {
+        InteractionResultHolder<ItemStack> resultHolder = super.use(world, player, hand);
+        ItemStack stack = resultHolder.getObject();
+        player.swing(hand);
         if (!world.isClientSide) {
-            if (user.isCrouching()) {
-                return super.use(world, user, hand);
-            } else {
-                ItemStack itemStack = user.getItemInHand(hand);
-                RandomSource random = world.random;
-                int randomNumber = random.nextInt(100);
-                ItemStack spawnedItem;
-
-                if (randomNumber < 2) {
-                    spawnedItem = new ItemStack(Items.DIAMOND);
-                } else if (randomNumber < 7) {
-                    spawnedItem = new ItemStack(Items.REDSTONE);
-                } else if (randomNumber < 17) {
-                    spawnedItem = new ItemStack(Items.EMERALD);
-                } else if (randomNumber < 47) {
-                    spawnedItem = new ItemStack(Items.GOLD_NUGGET);
-                } else if (randomNumber < 97) {
-                    spawnedItem = new ItemStack(Items.LAPIS_LAZULI);
-                } else {
-                    spawnedItem = new ItemStack(Items.FLINT);
-                }
-
-                ItemEntity entity = new ItemEntity(world, user.getX(), user.getY(), user.getZ(), spawnedItem);
-                world.addFreshEntity(entity);
-
-                ItemStack musselMeatStack = new ItemStack(ObjectRegistry.RAW_MUSSEL_MEAT.get(), 1);
-                ItemEntity musselMeatEntity = new ItemEntity(world, user.getX(), user.getY(), user.getZ(), musselMeatStack);
-                world.addFreshEntity(musselMeatEntity);
-
-                if (!user.isCreative()) {
-                    itemStack.shrink(1);
-                }
-
-                return InteractionResultHolder.sidedSuccess(itemStack, world.isClientSide());
+            world.playSound(player, player.blockPosition().above(),
+                    SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.PLAYERS, 1, 1);
+            final MinecraftServer minecraftServer = player.level().getServer();
+            if (minecraftServer != null && player.level() instanceof ServerLevel server) {
+                LootParams lootContext = new LootParams.Builder(server)
+                        .withParameter(LootContextParams.THIS_ENTITY, player)
+                        .withParameter(LootContextParams.ORIGIN, player.position())
+                        .create(LootContextParamSets.GIFT);
+                PlatformHelper.onUseSeashell(world, player, lootContext, stack);
             }
         }
-        return InteractionResultHolder.pass(user.getItemInHand(hand));
+        stack.shrink(1);
+        return resultHolder;
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, Level world, List<Component> tooltip, TooltipFlag tooltipContext) {
-        tooltip.add(Component.translatable("tooltip.beachparty.message").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
+    public void appendHoverText(@NotNull ItemStack itemStack, Level world, List<Component> tooltip, @NotNull TooltipFlag tooltipContext) {
+        PlatformHelper.addSeashellTooltip(itemStack, world, tooltip, tooltipContext);
     }
 }

@@ -45,7 +45,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.SANDWAVES.get());
                 out.accept(ObjectRegistry.PALM_LEAVES.get());
                 out.accept(ObjectRegistry.PALM_SAPLING.get());
-                out.accept(ObjectRegistry.PALM_TORCH.get());
+                out.accept(ObjectRegistry.PALM_TORCH_ITEM.get());
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
                 //out.accept(ObjectRegistry.MINI_FRIDGE.get());
                 out.accept(ObjectRegistry.RADIO.get());
