@@ -54,7 +54,6 @@ public class BeachPartyClient {
         EntityRendererRegistry.register(EntityTypeRegistry.BOAT, context -> new BeachpartyBoatRenderer<>(context, false));
         EntityRendererRegistry.register(EntityTypeRegistry.CHEST_BOAT, context -> new BeachpartyBoatRenderer<>(context, true));
         BlockEntityRendererRegistry.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
-
     }
 
     public static void registerEntityModelLayers() {
