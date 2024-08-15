@@ -48,7 +48,7 @@ public class SeashellItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, Level world, List<Component> tooltip, @NotNull TooltipFlag tooltipContext) {
+    public void appendHoverText(@NotNull ItemStack itemStack, Level world, @NotNull List<Component> tooltip, @NotNull TooltipFlag tooltipContext) {
         PlatformHelper.addSeashellTooltip(itemStack, world, tooltip, tooltipContext);
     }
 }

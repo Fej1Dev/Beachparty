@@ -25,14 +25,10 @@
       "net.satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
     ],
     "jei_mod_plugin": [
+    ],
+    "modmenu": [
+      "net.satisfy.beachparty.fabric.config.ModMenu"
     ]
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/Vqu6wYZwdZ"
-      }
-    }
   },
   "mixins": [
     "beachparty-common.mixins.json",
