@@ -1,6 +1,7 @@
 package net.satisfy.beachparty.fabric;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.*;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +18,7 @@ import java.util.function.Predicate;
 public class BeachpartyFabric implements ModInitializer {
     @Override
     public void onInitialize() {
+        AutoConfig.register(ConfigFabric.class, GsonConfigSerializer::new);
         Beachparty.init();
         CompostablesRegistry.init();
         Beachparty.commonSetup();
@@ -42,6 +44,11 @@ public class BeachpartyFabric implements ModInitializer {
             world.add(ModificationPhase.ADDITIONS, beachBiomes, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SEASHELLS_KEY));
         } else {
             world.add(ModificationPhase.REMOVALS, beachBiomes, ctx -> ctx.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SEASHELLS_KEY));
+        }
+        if (config.spawnMessageInABottle) {
+            world.add(ModificationPhase.ADDITIONS, beachBiomes, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MESSAGE_IN_A_BOTTLE_KEY));
+        } else {
+            world.add(ModificationPhase.REMOVALS, beachBiomes, ctx -> ctx.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MESSAGE_IN_A_BOTTLE_KEY));
         }
     }
 

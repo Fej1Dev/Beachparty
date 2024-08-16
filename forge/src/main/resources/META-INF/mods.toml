@@ -6,9 +6,9 @@ license = "Custom"
 modId = "beachparty"
 version = "${version}"
 displayName = "[Let's Do] Beachparty"
-authors = "Satisfy, BaumeisterJo, Cristelknight"
+authors = "Satisfy, Jason13"
 description = '''
-Take a break - build sandcastles, drink cocktails and enjoy your life.
+Take a break - build sandcastles, drink cocktails and enjoy your Minecraft Session.
 '''
 logoFile = "pack.png"
 

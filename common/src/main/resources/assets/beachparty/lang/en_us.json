@@ -121,5 +121,20 @@
   "tooltip.beachparty.swimwearhelmet": "Swimwear Helmet",
   "tooltip.beachparty.swimwearleggings": "Swimwear Leggings",
   "tooltip.beachparty.swimwearline1": "When Wearing:",
-  "tooltip.beachparty.swimwearline2": "+Swim Speed"
+  "tooltip.beachparty.swimwearline2": "+Swim Speed",
+
+  "_comment": "New Entries:",
+  "text.autoconfig.beachparty.title": "Beachparty Config",
+  "text.autoconfig.beachparty.category.worldgen": "World Generation",
+  "text.autoconfig.beachparty.category.default": "Gameplay",
+  "text.autoconfig.beachparty.option.spawnPalms": "Generate Palm Trees",
+  "text.autoconfig.beachparty.option.spawnSeashells": "Generate Seashells",
+  "text.autoconfig.beachparty.option.spawnSandwaves": "Generate Sandwaves",
+  "text.autoconfig.beachparty.option.spawnMessageInABottle": "Generate Messages in Bottles",
+  "text.autoconfig.beachparty.option.destroySandcastle": "Sandcastle Behaviour",
+  "text.autoconfig.beachparty.option.destroySandcastle.@Tooltip": "Should the Sand Castle be destroyed upon contact?",
+  "text.autoconfig.beachparty.option.destroySandcastle.@PrefixText": "Miscellaneous"
+
+
+
 }

@@ -3,6 +3,7 @@ package net.satisfy.beachparty.platform;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -65,12 +66,7 @@ public class PlatformHelper {
     }
 
     @ExpectPlatform
-    public static void onUseSeashell(Level world, Player player, LootParams lootParams, ItemStack stack) {
-        throw new AssertionError();
-    }
-
-    @ExpectPlatform
-    public static void addSeashellTooltip(ItemStack itemStack, Level world, List<Component> tooltip, TooltipFlag tooltipContext) {
+    public static void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
         throw new AssertionError();
     }
 }

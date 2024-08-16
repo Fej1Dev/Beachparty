@@ -1,5 +1,6 @@
 package net.satisfy.beachparty.block;
 
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -23,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.satisfy.beachparty.platform.PlatformHelper;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.jetbrains.annotations.NotNull;
 
@@ -92,8 +94,9 @@ public class SandCastleBlock extends Block {
 
     @Override
     public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
-        world.setBlock(pos, ObjectRegistry.SAND_PILE.get().defaultBlockState(), 3);
+        PlatformHelper.stepOn(world, pos, state, entity);
     }
+
 
     private void exchangeStack(ItemStack handStack, Player player, ItemStack possibleReturnStack) {
         ItemStack returnStack = !player.getAbilities().instabuild ? possibleReturnStack : handStack;
