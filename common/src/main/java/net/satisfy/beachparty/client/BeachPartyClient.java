@@ -2,19 +2,17 @@ package net.satisfy.beachparty.client;
 
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.satisfy.beachparty.block.properties.BeachpartyWoodType;
 import net.satisfy.beachparty.client.model.BeachHatModel;
+import net.satisfy.beachparty.client.model.RubberRingAxolotlModel;
+import net.satisfy.beachparty.client.model.RubberRingColoredModel;
+import net.satisfy.beachparty.client.model.RubberRingPelicanModel;
 import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
-import net.satisfy.beachparty.platform.PlatformHelper;
-import net.satisfy.beachparty.registry.ArmorRegistry;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
@@ -55,6 +53,9 @@ public class BeachPartyClient {
 
     public static void registerEntityModelLayers() {
         EntityModelLayerRegistry.register(BeachHatModel.LAYER_LOCATION, BeachHatModel::createBodyLayer);
-        ArmorRegistry.registerCustomArmorLayers();
+        EntityModelLayerRegistry.register(RubberRingColoredModel.LAYER_LOCATION, RubberRingColoredModel::createBodyLayer);
+        EntityModelLayerRegistry.register(RubberRingAxolotlModel.LAYER_LOCATION, RubberRingAxolotlModel::createBodyLayer);
+        EntityModelLayerRegistry.register(RubberRingPelicanModel.LAYER_LOCATION, RubberRingPelicanModel::createBodyLayer);
+
     }
 }

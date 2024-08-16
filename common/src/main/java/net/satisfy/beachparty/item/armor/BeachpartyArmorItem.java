@@ -1,18 +1,25 @@
 package net.satisfy.beachparty.item.armor;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import org.jetbrains.annotations.NotNull;
 
 public class BeachpartyArmorItem extends ArmorItem {
-    private final ResourceLocation texture;
+    private final ResourceLocation getTexture;
 
-    public BeachpartyArmorItem(ArmorMaterial material, Type slot, Properties settings, ResourceLocation texture) {
-        super(material, slot, settings);
-        this.texture = texture;
+    public BeachpartyArmorItem(ArmorMaterial armorMaterial, Type type, Properties properties, ResourceLocation getTexture) {
+        super(armorMaterial, type, properties);
+        this.getTexture = getTexture;
     }
 
     public ResourceLocation getTexture() {
-        return this.texture;
+        return getTexture;
+    }
+
+    @Override
+    public @NotNull EquipmentSlot getEquipmentSlot() {
+        return this.type.getSlot();
     }
 }

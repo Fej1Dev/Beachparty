@@ -12,13 +12,13 @@ import net.minecraft.world.item.ItemStack;
 import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
 import net.satisfy.beachparty.registry.ArmorRegistry;
 
-public class BeachHatRenderer implements ArmorRenderer {
+public class RubberRingRenderer implements ArmorRenderer {
     @Override
     public void render(PoseStack matrices, MultiBufferSource vertexConsumers, ItemStack stack, LivingEntity entity, EquipmentSlot slot, int light, HumanoidModel<LivingEntity> contextModel) {
-        BeachpartyArmorItem hat = (BeachpartyArmorItem) stack.getItem();
+        BeachpartyArmorItem rubber_ring = (BeachpartyArmorItem) stack.getItem();
 
-        Model model = ArmorRegistry.getHatModel(hat, contextModel.getHead());
+        Model model = ArmorRegistry.getBodyModel(rubber_ring, contextModel.body);
 
-        model.renderToBuffer(matrices, vertexConsumers.getBuffer(model.renderType(hat.getTexture())), light, OverlayTexture.NO_OVERLAY, 1F, 1F, 1F, 1F);
+        model.renderToBuffer(matrices, vertexConsumers.getBuffer(model.renderType(rubber_ring.getTexture())), light, OverlayTexture.NO_OVERLAY, 1F, 1F, 1F, 1F);
     }
 }

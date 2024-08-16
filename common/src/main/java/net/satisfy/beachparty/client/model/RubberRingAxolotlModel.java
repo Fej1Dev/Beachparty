@@ -11,32 +11,32 @@ import net.minecraft.world.entity.Entity;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 @SuppressWarnings("unused")
-public class RubberRingAxolotlModel<T extends Entity> extends EntityModel<T> {
+public class RubberRingAxolotlModel<T extends Entity> extends EntityModel<T> implements RubberRingModel {
 
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BeachpartyIdentifier("rubber_ring_axolotl"), "main");
 
-    private final ModelPart group;
-    private final ModelPart bone;
+    private final ModelPart rubber_ring;
 
     public RubberRingAxolotlModel(ModelPart root) {
-        this.group = root.getChild("group");
-        this.bone = root.getChild("bone");
+        this.rubber_ring = root.getChild("rubber_ring");
     }
 
-    public static LayerDefinition getTexturedModelData() {
-        MeshDefinition modelData = new MeshDefinition();
-        PartDefinition modelPartData = modelData.getRoot();
-        PartDefinition group = modelPartData.addOrReplaceChild("group", CubeListBuilder.create().texOffs(8, 0).addBox(-5.5F, -2.5F, -15.5F, 14.0F, 4.0F, 14.0F, new CubeDeformation(0.0F))
-                .texOffs(40, 26).addBox(5.5F, 1.5F, -4.5F, -8.0F, -4.0F, -8.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 22.5F, 8.5F));
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition bone = modelPartData.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(0, -10).addBox(0.0F, -4.0F, 5.0F, 0.0F, 10.0F, 10.0F, new CubeDeformation(0.0F))
-                .texOffs(24, 26).addBox(-8.0F, -8.0F, -6.0F, 16.0F, 6.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(24, 18).addBox(-4.0F, -5.0F, -9.0F, 8.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        PartDefinition rubber_ring = partdefinition.addOrReplaceChild("rubber_ring", CubeListBuilder.create().texOffs(32, 18).addBox(-10.0F, -4.0F, 2.0F, 8.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(8, 0).addBox(-13.0F, -4.0F, -1.0F, 14.0F, 4.0F, 14.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 18).addBox(-10.0F, -5.0F, -5.0F, 8.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 18).mirror().addBox(-6.0F, -3.0F, 10.0F, 0.0F, 10.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+                .texOffs(6, 8).addBox(-13.0F, -8.0F, -2.0F, 5.0F, 6.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(6, 8).mirror().addBox(-4.0F, -8.0F, -2.0F, 5.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(6.0F, 24.0F, -6.0F));
 
-        PartDefinition cube_r1 = bone.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(9, 27).addBox(5.5F, -5.0F, -13.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-12.5F, 1.5F, 7.0F, 0.0F, 0.0F, 0.3927F));
+        PartDefinition right_foot_r1 = rubber_ring.addOrReplaceChild("right_foot_r1", CubeListBuilder.create().texOffs(5, 0).addBox(-2.0F, -5.0F, -1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 3.0F, -2.0F, 0.0F, 0.0F, -0.4363F));
 
-        PartDefinition cube_r2 = bone.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(9, 27).addBox(6.5F, 1.2F, -13.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.5F, 1.5F, 7.0F, 0.0F, 0.0F, -0.3927F));
-        return LayerDefinition.create(modelData, 64, 64);
+        PartDefinition left_foot_r1 = rubber_ring.addOrReplaceChild("left_foot_r1", CubeListBuilder.create().texOffs(5, 0).addBox(-2.0F, -5.0F, -1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-11.0F, 3.0F, -2.0F, 0.0F, 0.0F, 0.5236F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
     @Override
@@ -44,8 +44,15 @@ public class RubberRingAxolotlModel<T extends Entity> extends EntityModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-        group.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        bone.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        poseStack.pushPose();
+        poseStack.translate(0.4F, 0.7F, -0.4F);
+        rubber_ring.render(poseStack, buffer, packedLight, packedOverlay);
+        poseStack.popPose();
+    }
+
+    @Override
+    public void copyBody(ModelPart model) {
+        rubber_ring.copyFrom(model);
     }
 }

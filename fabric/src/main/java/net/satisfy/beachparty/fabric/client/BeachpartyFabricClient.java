@@ -14,8 +14,10 @@ import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.BeachPartyClient;
 import net.satisfy.beachparty.entity.BeachpartyBoat;
 import net.satisfy.beachparty.fabric.client.renderer.BeachHatRenderer;
+import net.satisfy.beachparty.fabric.client.renderer.RubberRingRenderer;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
-import net.satisfy.beachparty.registry.ObjectRegistry;
+
+import static net.satisfy.beachparty.registry.ObjectRegistry.*;
 
 public class BeachpartyFabricClient implements ClientModInitializer {
     @Override
@@ -25,7 +27,9 @@ public class BeachpartyFabricClient implements ClientModInitializer {
 
         registerBoatModels();
 
-        ArmorRenderer.register(new BeachHatRenderer(), ObjectRegistry.BEACH_HAT.get());
+        ArmorRenderer.register(new BeachHatRenderer(), BEACH_HAT.get());
+        ArmorRenderer.register(new RubberRingRenderer(), RUBBER_RING_PINK.get(), RUBBER_RING_BLUE.get(), RUBBER_RING_STRIPPED.get(), RUBBER_RING_AXOLOTL.get(), RUBBER_RING_PELICAN.get());
+
         BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
         BlockEntityRenderers.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }

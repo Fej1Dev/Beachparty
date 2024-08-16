@@ -83,11 +83,11 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.BIKINI.get());
                 out.accept(ObjectRegistry.CROCS.get());
                 out.accept(ObjectRegistry.SWIM_WINGS.get());
-                //out.accept(ObjectRegistry.RUBBER_RING_BLUE.get());
-                //out.accept(ObjectRegistry.RUBBER_RING_PINK.get());
-                //out.accept(ObjectRegistry.RUBBER_RING_STRIPPED.get());
-                //out.accept(ObjectRegistry.RUBBER_RING_AXOLOTL.get());
-                //out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
+                out.accept(ObjectRegistry.RUBBER_RING_BLUE.get());
+                out.accept(ObjectRegistry.RUBBER_RING_PINK.get());
+                out.accept(ObjectRegistry.RUBBER_RING_STRIPPED.get());
+                out.accept(ObjectRegistry.RUBBER_RING_AXOLOTL.get());
+                out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
                 out.accept(ObjectRegistry.POOL_NOODLE.get());
                 out.accept(ObjectRegistry.BEACH_PARASOL.get());
                 out.accept(ObjectRegistry.FLOATY_BOAT.get());
