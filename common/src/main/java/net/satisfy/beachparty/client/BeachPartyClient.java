@@ -3,10 +3,13 @@ package net.satisfy.beachparty.client;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
+import dev.architectury.registry.menu.MenuRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.satisfy.beachparty.client.gui.MiniFridgeGui;
+import net.satisfy.beachparty.client.gui.TikiBarGui;
 import net.satisfy.beachparty.client.model.BeachHatModel;
 import net.satisfy.beachparty.client.model.RubberRingAxolotlModel;
 import net.satisfy.beachparty.client.model.RubberRingColoredModel;
@@ -15,6 +18,7 @@ import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.ObjectRegistry;
+import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
 
 @Environment(EnvType.CLIENT)
@@ -29,8 +33,8 @@ public class BeachPartyClient {
                 ObjectRegistry.DECK_CHAIR.get(), ObjectRegistry.PALM_SAPLING.get(), ObjectRegistry.SEASHELL_BLOCK.get()
         );
 
-        //MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), TikiBarGui::new);
-        //MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.MINI_FRIDGE_GUI_HANDLER.get(), MiniFridgeGui::new);
+        MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), TikiBarGui::new);
+        MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.MINI_FRIDGE_GUI_HANDLER.get(), MiniFridgeGui::new);
 
 
         BeachpartyMessages.registerS2CPackets();
