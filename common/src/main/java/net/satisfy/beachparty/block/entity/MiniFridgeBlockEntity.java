@@ -18,13 +18,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
+import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
+import net.satisfy.beachparty.world.ImplementedInventory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/*
+
 public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInventory, BlockEntityTicker<MiniFridgeBlockEntity>, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};
     private static final int[] SLOTS_FOR_UP = new int[]{1};
@@ -211,4 +213,3 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
         return new MiniFridgeGuiHandler(syncId, inv, this, this.propertyDelegate);
     }
 }
- */

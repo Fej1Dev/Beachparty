@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.RecipeRegistry;
@@ -29,7 +30,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-/*
+import java.util.function.Predicate;
+
 public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};
     private static final int[] SLOTS_FOR_UP = new int[]{1};
@@ -183,10 +185,10 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
         return ItemStack.EMPTY;
     }
 
-    @Override
-    public NonNullList<ItemStack> getItems() {
-        return inventory;
-    }
+//    @Override
+//    public NonNullList<ItemStack> getItems() {
+//        return inventory;
+//    }
 
     @Override
     public int @NotNull [] getSlotsForFace(Direction side) {
@@ -196,6 +198,54 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
             return SLOTS_FOR_DOWN;
         } else return SLOTS_FOR_SIDE;
     }
+
+
+
+
+
+
+    @Override
+    public boolean canPlaceItemThroughFace(int i, ItemStack itemStack, @Nullable Direction direction) {
+        return false;
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int i, ItemStack itemStack, Direction direction) {
+        return false;
+    }
+    // todo: @satisfy from jason - what was the original implementation?
+
+
+    @Override
+    public int getContainerSize() {
+        return CAPACITY;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.inventory.stream().allMatch(Predicate.isEqual(ItemStack.EMPTY));
+    }
+
+    @Override
+    public ItemStack getItem(int i) {
+        return this.inventory.get(i);
+    }
+
+    @Override
+    public ItemStack removeItem(int i, int j) {
+        return ContainerHelper.removeItem(this.inventory, i, j);
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int i) {
+        return this.inventory.remove(i);
+    }
+
+
+
+
+
+
 
     @Override
     public void setItem(int slot, ItemStack stack) {
@@ -234,5 +284,9 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
     public AbstractContainerMenu createMenu(int syncId, Inventory inv, Player player) {
         return new TikiBarGuiHandler(syncId, inv, this, this.propertyDelegate);
     }
+
+    @Override
+    public void clearContent() {
+
+    }
 }
- */

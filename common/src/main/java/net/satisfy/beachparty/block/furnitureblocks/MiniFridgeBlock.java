@@ -27,6 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.satisfy.beachparty.block.entity.MiniFridgeBlockEntity;
 import net.satisfy.beachparty.util.BeachpartyUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -35,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-/*
+
 @SuppressWarnings("deprecation")
 public class MiniFridgeBlock extends BaseEntityBlock implements EntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -120,12 +121,13 @@ public class MiniFridgeBlock extends BaseEntityBlock implements EntityBlock {
         return new MiniFridgeBlockEntity(pos, state);
     }
 
+    @SuppressWarnings("unchecked")
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
         return (theWorld, pos, theState, blockEntity) -> {
             if (blockEntity instanceof BlockEntityTicker<?>) {
-                ((BlockEntityTicker) blockEntity).tick(theWorld, pos, theState, blockEntity);
+                ((BlockEntityTicker<MiniFridgeBlockEntity>) blockEntity).tick(theWorld, pos, theState, (MiniFridgeBlockEntity) blockEntity);
             }
         };
     }
@@ -135,5 +137,3 @@ public class MiniFridgeBlock extends BaseEntityBlock implements EntityBlock {
         tooltip.add(Component.translatable("tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
     }
 }
- */
-

@@ -10,9 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.block.entity.BeachpartyHangingSignBlockEntity;
-import net.satisfy.beachparty.block.entity.BeachpartySignBlockEntity;
-import net.satisfy.beachparty.block.entity.CabinetBlockEntity;
+import net.satisfy.beachparty.block.entity.*;
 import net.satisfy.beachparty.entity.BeachpartyBoat;
 import net.satisfy.beachparty.entity.BeachpartyChestBoat;
 import net.satisfy.beachparty.entity.ChairEntity;
@@ -28,8 +26,8 @@ public final class EntityTypeRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Beachparty.MOD_ID, Registries.ENTITY_TYPE);
     private static final Registrar<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Beachparty.MOD_ID, Registries.BLOCK_ENTITY_TYPE).getRegistrar();
 
-    //public static final RegistrySupplier<BlockEntityType<TikiBarBlockEntity>> TIKI_BAR_BLOCK_ENTITY = registerBlockEntity("tiki_bar", () -> BlockEntityType.Builder.of(TikiBarBlockEntity::new, TIKI_BAR.get()).build(null));
-    //public static final RegistrySupplier<BlockEntityType<MiniFridgeBlockEntity>> MINI_FRIDGE_BLOCK_ENTITY = registerBlockEntity("mini_fridge", () -> BlockEntityType.Builder.of(MiniFridgeBlockEntity::new, MINI_FRIDGE.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<TikiBarBlockEntity>> TIKI_BAR_BLOCK_ENTITY = registerBlockEntity("tiki_bar", () -> BlockEntityType.Builder.of(TikiBarBlockEntity::new, ObjectRegistry.TIKI_BAR.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<MiniFridgeBlockEntity>> MINI_FRIDGE_BLOCK_ENTITY = registerBlockEntity("mini_fridge", () -> BlockEntityType.Builder.of(MiniFridgeBlockEntity::new, ObjectRegistry.MINI_FRIDGE.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY = registerBlockEntity("cabinet", () -> BlockEntityType.Builder.of(CabinetBlockEntity::new, CABINET.get()).build(null));
 
     public static final Supplier<BlockEntityType<SignBlockEntity>> SIGN = PlatformHelper.registerBlockEntityType("sign", () -> PlatformHelper.createBlockEntityType(BeachpartySignBlockEntity::new, PALM_SIGN.get(), PALM_WALL_SIGN.get()));

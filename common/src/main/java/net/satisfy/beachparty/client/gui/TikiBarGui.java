@@ -4,8 +4,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
-/*
+
 public class TikiBarGui extends AbstractRecipeBookGUIScreen<TikiBarGuiHandler> {
     public static final ResourceLocation BG = new BeachpartyIdentifier("textures/gui/tiki_bar_gui.png");
 
@@ -16,7 +17,7 @@ public class TikiBarGui extends AbstractRecipeBookGUIScreen<TikiBarGuiHandler> {
     public static final int SHAKE_X = 96;
 
     public TikiBarGui(TikiBarGuiHandler handler, Inventory inventory, Component title) {
-        super(handler, inventory, title, new TikiBarRecipeBook(), BG);
+        super(handler, inventory, title, BG);
     }
 
     @Override
@@ -35,5 +36,3 @@ public class TikiBarGui extends AbstractRecipeBookGUIScreen<TikiBarGuiHandler> {
         guiGraphics.blit(BG, leftPos + SHAKE_X, topPos + SHAKE_Y - progressY, 179, 22 - progressY, 15, progressY);
     }
 }
- */
-

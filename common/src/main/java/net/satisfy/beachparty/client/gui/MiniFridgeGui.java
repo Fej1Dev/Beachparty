@@ -4,8 +4,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.satisfy.beachparty.client.gui.handler.MiniFridgeGuiHandler;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
-/*
+
 public class MiniFridgeGui extends AbstractRecipeBookGUIScreen<MiniFridgeGuiHandler> {
     public static final ResourceLocation BG = new BeachpartyIdentifier("textures/gui/freezer.png");
 
@@ -13,7 +14,7 @@ public class MiniFridgeGui extends AbstractRecipeBookGUIScreen<MiniFridgeGuiHand
     public static final int ARROW_X = 94;
 
     public MiniFridgeGui(MiniFridgeGuiHandler handler, Inventory inventory, Component title) {
-        super(handler, inventory, title, new MiniFridgeRecipeBook(), BG);
+        super(handler, inventory, title, BG);
     }
 
     @Override
@@ -28,5 +29,3 @@ public class MiniFridgeGui extends AbstractRecipeBookGUIScreen<MiniFridgeGuiHand
         guiGraphics.blit(BG, leftPos + ARROW_X, topPos + ARROW_Y, 177, 26, progressX, 10);
     }
 }
- */
-

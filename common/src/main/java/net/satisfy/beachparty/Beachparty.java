@@ -22,6 +22,7 @@ public class Beachparty {
         PlacerTypesRegistry.init();
         CommonEvents.init();
         BeachpartyMessages.registerC2SPackets();
+        RecipeRegistry.init();
     }
 
     public static void commonSetup() {

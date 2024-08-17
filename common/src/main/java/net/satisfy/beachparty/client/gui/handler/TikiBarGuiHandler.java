@@ -13,7 +13,7 @@ import net.satisfy.beachparty.client.gui.handler.slot.TikiBarOutputSlot;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
 
-/*
+
 public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
 
     public TikiBarGuiHandler(int syncId, Inventory playerInventory) {
@@ -63,10 +63,10 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         return progress * 20 / totalProgress + 1;
     }
 
-    @Override
-    public List<IRecipeBookGroup> getGroups() {
-        return TikiBarRecipeBookGroup.TIKI_GROUPS;
-    }
+//    @Override
+//    public List<IRecipeBookGroup> getGroups() {
+//        return TikiBarRecipeBookGroup.TIKI_GROUPS;
+//    }
 
     @Override
     public boolean hasIngredient(Recipe<?> recipe) {
@@ -93,4 +93,3 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         return 2;
     }
 }
- */

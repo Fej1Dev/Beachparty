@@ -12,7 +12,7 @@ import net.satisfy.beachparty.client.gui.handler.slot.IceSlot;
 import net.satisfy.beachparty.client.gui.handler.slot.TikiBarOutputSlot;
 import net.satisfy.beachparty.recipe.MiniFridgeRecipe;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
-/*
+
 public class MiniFridgeGuiHandler extends AbstractRecipeBookGUIScreenHandler {
 
     public MiniFridgeGuiHandler(int syncId, Inventory playerInventory) {
@@ -55,10 +55,10 @@ public class MiniFridgeGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         }
     }
 
-    @Override
-    public List<IRecipeBookGroup> getGroups() {
-        return MiniFridgeRecipeBookGroup.FRIDGE_GROUPS;
-    }
+//    @Override
+//    public List<IRecipeBookGroup> getGroups() {
+//        return MiniFridgeRecipeBookGroup.FRIDGE_GROUPS;
+//    }
 
     @Override
     public boolean hasIngredient(Recipe<?> recipe) {
@@ -85,4 +85,3 @@ public class MiniFridgeGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         return 2;
     }
 }
- */
