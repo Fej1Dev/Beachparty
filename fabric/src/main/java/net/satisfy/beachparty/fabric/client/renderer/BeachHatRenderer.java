@@ -19,6 +19,7 @@ public class BeachHatRenderer implements ArmorRenderer {
 
         Model model = ArmorRegistry.getHatModel(hat, contextModel.getHead());
 
+        assert model != null;
         model.renderToBuffer(matrices, vertexConsumers.getBuffer(model.renderType(hat.getTexture())), light, OverlayTexture.NO_OVERLAY, 1F, 1F, 1F, 1F);
     }
 }

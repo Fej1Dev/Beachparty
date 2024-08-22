@@ -25,7 +25,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.*;
 import net.satisfy.beachparty.block.furnitureblocks.*;
-import net.satisfy.beachparty.entity.BeachpartyBoat;
+import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
 import net.satisfy.beachparty.item.*;
 import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
 import net.satisfy.beachparty.item.armor.DyeableBeachpartyArmorItem;
@@ -87,6 +87,8 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> COCONUT_BLOCK = registerWithoutItem("coconut_block", () -> new CoconutBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
     public static final RegistrySupplier<Item> COCONUT = registerItem("coconut", () -> new CoconutItem(COCONUT_BLOCK.get(), getSettings()));
     public static final RegistrySupplier<Item> COCONUT_OPEN = registerItem("coconut_open", () -> new Item(getSettings().food(Foods.CARROT)));
+
+
     public static final RegistrySupplier<Block> COCONUT_COCKTAIL = registerCocktail("coconut_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
     public static final RegistrySupplier<Block> SWEETBERRIES_COCKTAIL = registerCocktail("sweetberries_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.ABSORPTION);
     public static final RegistrySupplier<Block> COCOA_COCKTAIL = registerCocktail("cocoa_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.REGENERATION);
@@ -94,10 +96,10 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> HONEY_COCKTAIL = registerCocktail("honey_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DIG_SPEED);
     public static final RegistrySupplier<Block> MELON_COCKTAIL = registerCocktail("melon_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.LUCK);
     //TODO: Add a 3D Model, then register as Cocktail & Cocktailblock
-    //public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
-    //public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
-    //public static final RegistrySupplier<Item> CHOCOLATE_MILKSHAKE = registerItem("chocolate_milkshake", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
-    //public static final RegistrySupplier<Item> REFRESHING_DRINK = registerItem("refreshing_drink", () -> new DrinkItem(getSettings().food(Foods.CARROT), 32));
+    public static final RegistrySupplier<Block> SWEETBERRY_MILKSHAKE = registerCocktail("sweetberry_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
+    public static final RegistrySupplier<Block> COCONUT_MILKSHAKE = registerCocktail("coconut_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
+    public static final RegistrySupplier<Block> CHOCOLATE_MILKSHAKE = registerCocktail("chocolate_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
+    public static final RegistrySupplier<Block> REFRESHING_DRINK = registerCocktail("refreshing_drink", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
     //TODO: Idea for making it useful? Actually theres no real reason why to craft & eat Icedream
     public static final RegistrySupplier<Item> SWEETBERRY_ICECREAM = registerItem("sweetberry_icecream", () -> new Item(getSettings().food(Foods.SWEET_BERRIES)));
     public static final RegistrySupplier<Item> COCONUT_ICECREAM = registerItem("coconut_icecream", () -> new Item(getSettings().food(Foods.SWEET_BERRIES)));
@@ -110,7 +112,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> ICECREAM_CHOCOLATE = registerItem("icecream_chocolate", () -> new Item(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> RAW_MUSSEL_MEAT = registerItem("raw_mussel_meat", () -> new Item(getSettings().food(Foods.BEEF)));
     public static final RegistrySupplier<Item> COOKED_MUSSEL_MEAT = registerItem("cooked_mussel_meat", () -> new Item(getSettings().food(Foods.COOKED_BEEF)));
-    public static final RegistrySupplier<Block> BEACH_TOWEL = registerWithItem("beach_towel", () -> new BeachTowelBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));
+    public static final RegistrySupplier<Block> BEACH_TOWEL = registerWithItem("beach_towel", () -> new BeachTowelBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.IGNORE).instabreak().mapColor(DyeColor.WHITE)));
     public static final RegistrySupplier<Item> BEACH_HAT = registerItem("beach_hat", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.BEACH_HAT, ArmorItem.Type.HELMET, getSettings().rarity(Rarity.EPIC), new BeachpartyIdentifier("textures/models/armor/beach_hat.png")));
     public static final RegistrySupplier<Item> SUNGLASSES = registerItem("sunglasses", () -> new ArmorItem(ArmorMaterialRegistry.SUNGLASSES, ArmorItem.Type.HELMET, getSettings()));
     public static final RegistrySupplier<Item> TRUNKS = registerItem("trunks", () -> new DyeableBeachpartyArmorItem(ArmorMaterialRegistry.TRUNKS, ArmorItem.Type.LEGGINGS, 16715535, getSettings().rarity(Rarity.COMMON)));
@@ -138,9 +140,9 @@ public class ObjectRegistry {
     public static final Supplier<BeachpartyWallHangingSignBlock> PALM_WALL_HANGING_SIGN = PlatformHelper.registerBlock("palm_wall_hanging_sign", () -> new BeachpartyWallHangingSignBlock(BlockBehaviour.Properties.of().noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(PALM_HANGING_SIGN.get()), PALM));
     public static final Supplier<Item> PALM_SIGN_ITEM = PlatformHelper.registerItem("palm_sign", () -> new SignItem(new Item.Properties().stacksTo(16), PALM_SIGN.get(), PALM_WALL_SIGN.get()));
     public static final Supplier<Item> PALM_HANGING_SIGN_ITEM = PlatformHelper.registerItem("palm_hanging_sign", () -> new HangingSignItem(PALM_HANGING_SIGN.get(), PALM_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    public static final Supplier<Item> PALM_BOAT = PlatformHelper.registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.PALM, new Item.Properties().stacksTo(1)));
-    public static final Supplier<Item> PALM_CHEST_BOAT = PlatformHelper.registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoat.Type.PALM, new Item.Properties().stacksTo(1)));
-    public static final Supplier<Item> FLOATY_BOAT = PlatformHelper.registerItem("floaty_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoat.Type.FLOATY, new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> PALM_BOAT = PlatformHelper.registerItem("palm_boat", () -> new BeachpartyBoatItem(false, BeachpartyBoatEntity.Type.PALM, new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> PALM_CHEST_BOAT = PlatformHelper.registerItem("palm_chest_boat", () -> new BeachpartyBoatItem(true, BeachpartyBoatEntity.Type.PALM, new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> FLOATY = PlatformHelper.registerItem("floaty", () -> new BeachpartyBoatItem(false, BeachpartyBoatEntity.Type.FLOATY, new Item.Properties().stacksTo(1)));
 
 
 
@@ -159,7 +161,7 @@ public class ObjectRegistry {
 
 
     private static FoodProperties cocktailFoodComponent(MobEffect effect) {
-        FoodProperties.Builder component = new FoodProperties.Builder().nutrition(2).saturationMod(1);
+        FoodProperties.Builder component = new FoodProperties.Builder().nutrition(1).saturationMod(1);
         if (effect != null) component.effect(new MobEffectInstance(effect, 45 * 20), 1.0f);
         return component.build();
     }

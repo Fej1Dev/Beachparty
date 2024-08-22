@@ -4,10 +4,13 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.*;
+import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.satisfy.beachparty.Beachparty;
+import net.satisfy.beachparty.block.furnitureblocks.BeachTowelBlock;
 import net.satisfy.beachparty.fabric.config.ConfigFabric;
 import net.satisfy.beachparty.registry.CompostablesRegistry;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
@@ -23,6 +26,12 @@ public class BeachpartyFabric implements ModInitializer {
         CompostablesRegistry.init();
         Beachparty.commonSetup();
         addBiomeModification();
+        EntitySleepEvents.ALLOW_SETTING_SPAWN.register((player, sleepingPos) -> {
+            boolean onClient = player.level().isClientSide;
+            BlockState blockState = player.level().getBlockState(sleepingPos);
+            return !(!onClient && blockState.getBlock() instanceof BeachTowelBlock);
+        });
+
     }
 
     void addBiomeModification() {
@@ -55,5 +64,7 @@ public class BeachpartyFabric implements ModInitializer {
     private static Predicate<BiomeSelectionContext> getBeachpartySelector() {
         return BiomeSelectors.tag(TagKey.create(Registries.BIOME, new BeachpartyIdentifier("beach")));
     }
+
+
 
 }

@@ -10,7 +10,6 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
-@SuppressWarnings("unused")
 public class BeachHatModel<T extends Entity> extends EntityModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BeachpartyIdentifier("beach_hat"), "main");
     private final ModelPart beach_hat;
@@ -21,22 +20,20 @@ public class BeachHatModel<T extends Entity> extends EntityModel<T> {
 
     @SuppressWarnings("unused")
     public static LayerDefinition createBodyLayer() {
-        MeshDefinition modelData = new MeshDefinition();
-        PartDefinition modelPartData = modelData.getRoot();
-        PartDefinition beach_hat = modelPartData.addOrReplaceChild("beach_hat", CubeListBuilder.create().texOffs(-22, 15).addBox(-11.0F, 0.0F, -11.0F, 22.0F, 0.0F, 22.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(-5.0F, -5.01F, -5.0F, 10.0F, 5.0F, 10.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 39).addBox(-5.25F, -5.6F, -5.25F, 10.0F, 5.0F, 10.0F, new CubeDeformation(0.0F))
-                .texOffs(42, 6).addBox(1.1F, -0.25F, -11.0F, 2.0F, 0.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(49, 14).addBox(1.1F, -0.25F, -11.0F, 2.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
-        return LayerDefinition.create(modelData, 64, 64);
-    }
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
 
+        PartDefinition beach_hat = partdefinition.addOrReplaceChild("beach_hat", CubeListBuilder.create().texOffs(-18, 12).addBox(-9.0F, -1.0F, -9.0F, 18.0F, 0.0F, 18.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 0).addBox(-4.0F, -5.0F, -4.0F, 8.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(24, -2).addBox(9.0F, -1.0F, 0.0F, 0.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 21.0F, 0.0F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
+    }
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         poseStack.pushPose();
-        poseStack.scale(1F, 1F, 1F);
-        poseStack.translate(0F, -0.5F, 0F);
+        poseStack.scale(1.05F, 1.05F, 1.05F);
         beach_hat.render(poseStack, buffer, packedLight, packedOverlay);
         poseStack.popPose();
     }
