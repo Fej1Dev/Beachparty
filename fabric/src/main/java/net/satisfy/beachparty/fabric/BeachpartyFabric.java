@@ -24,7 +24,6 @@ public class BeachpartyFabric implements ModInitializer {
         AutoConfig.register(ConfigFabric.class, GsonConfigSerializer::new);
         Beachparty.init();
         CompostablesRegistry.init();
-        Beachparty.commonSetup();
         addBiomeModification();
         EntitySleepEvents.ALLOW_SETTING_SPAWN.register((player, sleepingPos) -> {
             boolean onClient = player.level().isClientSide;
@@ -39,11 +38,6 @@ public class BeachpartyFabric implements ModInitializer {
         BiomeModification world = BiomeModifications.create(new BeachpartyIdentifier("world_features"));
         Predicate<BiomeSelectionContext> beachBiomes = getBeachpartySelector();
 
-        if (config.spawnPalms) {
-            world.add(ModificationPhase.ADDITIONS, beachBiomes, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PALM_TREE_KEY));
-        } else {
-            world.add(ModificationPhase.REMOVALS, beachBiomes, ctx -> ctx.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PALM_TREE_KEY));
-        }
         if (config.spawnSandwaves) {
             world.add(ModificationPhase.ADDITIONS, beachBiomes, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SANDWAVES_KEY));
         } else {
@@ -64,7 +58,4 @@ public class BeachpartyFabric implements ModInitializer {
     private static Predicate<BiomeSelectionContext> getBeachpartySelector() {
         return BiomeSelectors.tag(TagKey.create(Registries.BIOME, new BeachpartyIdentifier("beach")));
     }
-
-
-
 }

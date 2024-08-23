@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.registry.PlacerTypesRegistry;
 import org.jetbrains.annotations.NotNull;
-
+/*
 public class PalmFoliagePlacer extends FoliagePlacer {
     public static final Codec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.create((placer) -> foliagePlacerParts(placer).apply(placer, PalmFoliagePlacer::new));
 
@@ -85,4 +85,4 @@ public class PalmFoliagePlacer extends FoliagePlacer {
             pos.move(Direction.DOWN);
         }
     }
-}
+}*/

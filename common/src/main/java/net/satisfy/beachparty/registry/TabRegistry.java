@@ -16,20 +16,7 @@ public class TabRegistry {
             .icon(() -> new ItemStack(ObjectRegistry.COCONUT_COCKTAIL.get()))
             .title(Component.translatable("creativetab.beachparty.tab"))
             .displayItems((parameters, out) -> {
-                out.accept(ObjectRegistry.PALM_LOG.get());
-                out.accept(ObjectRegistry.PALM_WOOD.get());
-                out.accept(ObjectRegistry.STRIPPED_PALM_LOG.get());
-                out.accept(ObjectRegistry.STRIPPED_PALM_WOOD.get());
-                out.accept(ObjectRegistry.PALM_BEAM.get());
-                out.accept(ObjectRegistry.PALM_PLANKS.get());
-                out.accept(ObjectRegistry.PALM_STAIRS.get());
-                out.accept(ObjectRegistry.PALM_SLAB.get());
-                out.accept(ObjectRegistry.PALM_FENCE.get());
-                out.accept(ObjectRegistry.PALM_FENCE_GATE.get());
-                out.accept(ObjectRegistry.PALM_DOOR.get());
-                out.accept(ObjectRegistry.PALM_TRAPDOOR.get());
-                out.accept(ObjectRegistry.PALM_PRESSURE_PLATE.get());
-                out.accept(ObjectRegistry.PALM_BUTTON.get());
+
                 out.accept(ObjectRegistry.CABINET.get());
                 //out.accept(ObjectRegistry.TIKI_BAR.get());
                 out.accept(ObjectRegistry.LOUNGE_CHAIR.get());
@@ -38,22 +25,14 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.BEACH_CHAIR.get());
                 out.accept(ObjectRegistry.DECK_CHAIR.get());
                 out.accept(ObjectRegistry.TIKI_CHAIR.get());
-                out.accept(ObjectRegistry.PALM_FLOORBOARD.get());
                 out.accept(ObjectRegistry.DRIED_WHEAT_BLOCK.get());
                 out.accept(ObjectRegistry.DRIED_WHEAT_STAIRS.get());
                 out.accept(ObjectRegistry.DRIED_WHEAT_SLAB.get());
                 out.accept(ObjectRegistry.SANDWAVES.get());
-                out.accept(ObjectRegistry.PALM_LEAVES.get());
-                out.accept(ObjectRegistry.PALM_SAPLING.get());
-                out.accept(ObjectRegistry.PALM_SIGN_ITEM.get());
-                out.accept(ObjectRegistry.PALM_HANGING_SIGN_ITEM.get());
-                out.accept(ObjectRegistry.PALM_BOAT.get());
-                out.accept(ObjectRegistry.PALM_CHEST_BOAT.get());
                 out.accept(ObjectRegistry.FLOATY.get());
                 out.accept(ObjectRegistry.BEACH_PARASOL.get());
                 out.accept(ObjectRegistry.PALM_TORCH_ITEM.get());
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
-                //out.accept(ObjectRegistry.MINI_FRIDGE.get());
                 out.accept(ObjectRegistry.RADIO.get());
                 out.accept(ObjectRegistry.OVERGROWN_DISC.get());
                 out.accept(ObjectRegistry.MESSAGE_IN_A_BOTTLE.get());
@@ -95,8 +74,6 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.RUBBER_RING_AXOLOTL.get());
                 out.accept(ObjectRegistry.RUBBER_RING_PELICAN.get());
                 out.accept(ObjectRegistry.POOL_NOODLE.get());
-
-
             })
             .build());
 
