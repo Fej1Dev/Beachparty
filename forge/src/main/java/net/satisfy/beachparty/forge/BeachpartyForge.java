@@ -36,7 +36,6 @@ public class BeachpartyForge {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(CompostablesRegistry::init);
-        Beachparty.commonSetup();
     }
 
     @SubscribeEvent
