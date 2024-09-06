@@ -7,10 +7,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
-import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.entity.CabinetBlockEntity;
+import net.satisfy.beachparty.block.entity.NewRadioBlockEntity;
 import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
 import net.satisfy.beachparty.entity.BeachpartyChestBoatEntity;
 import net.satisfy.beachparty.entity.ChairEntity;
@@ -29,6 +28,7 @@ public final class EntityTypeRegistry {
     //public static final RegistrySupplier<BlockEntityType<TikiBarBlockEntity>> TIKI_BAR_BLOCK_ENTITY = registerBlockEntity("tiki_bar", () -> BlockEntityType.Builder.of(TikiBarBlockEntity::new, TIKI_BAR.get()).build(null));
     //public static final RegistrySupplier<BlockEntityType<MiniFridgeBlockEntity>> MINI_FRIDGE_BLOCK_ENTITY = registerBlockEntity("mini_fridge", () -> BlockEntityType.Builder.of(MiniFridgeBlockEntity::new, MINI_FRIDGE.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY = registerBlockEntity("cabinet", () -> BlockEntityType.Builder.of(CabinetBlockEntity::new, CABINET.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<NewRadioBlockEntity>> NEW_RADIO_BLOCK_ENTITY = registerBlockEntity("radio", () -> BlockEntityType.Builder.of(NewRadioBlockEntity::new, RADIO.get()).build(null));
 
     public static final RegistrySupplier<EntityType<ChairEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new BeachpartyIdentifier("chair").toString()));
     public static final RegistrySupplier<EntityType<CoconutEntity>> COCONUT = registerEntity("coconut", () -> EntityType.Builder.<CoconutEntity>of(CoconutEntity::new, MobCategory.MISC).sized(0.25f, 0.25f).build(new BeachpartyIdentifier("coconut").toString()));

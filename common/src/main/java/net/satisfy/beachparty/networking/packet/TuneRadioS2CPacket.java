@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.satisfy.beachparty.util.RadioHelper;
 
+@Deprecated
 public class TuneRadioS2CPacket implements NetworkManager.NetworkReceiver {
 
     @Override
