@@ -32,11 +32,13 @@ import net.satisfy.beachparty.block.entity.NewRadioBlockEntity;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.SoundEventRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class NewRadioBlock extends BaseEntityBlock {
 
@@ -45,15 +47,16 @@ public class NewRadioBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty ON = BooleanProperty.create("on");
+    public static final BooleanProperty SEARCHING = BooleanProperty.create("searching");
 
-    private static final VoxelShape SHAPE = Block.box(0.125, 0, 0.3125, 0.875, 0.5, 0.6875);
+    private static final Supplier<VoxelShape> SHAPE = () -> Block.box(0.125, 0, 0.3125, 0.875, 0.5, 0.6875);
     private static final Map<Direction, VoxelShape> SHAPE_MAP = Util.make(new HashMap<>(), map -> {
         for (Direction d : Direction.Plane.HORIZONTAL.stream().toList()) {
-            map.put(d, BeachpartyUtil.rotateShape(Direction.NORTH, d, SHAPE));
+            map.put(d, BeachpartyUtil.rotateShape(Direction.NORTH, d, SHAPE.get()));
         }
     });
 
-    private final BlockState DEFAULT_PLACEMENT_BLOCKSTATE = defaultBlockState().setValue(FACING, Direction.NORTH).setValue(ON, false);
+    private final BlockState DEFAULT_PLACEMENT_BLOCKSTATE = defaultBlockState().setValue(FACING, Direction.NORTH).setValue(ON, false).setValue(SEARCHING, false);
 
     public NewRadioBlock(Properties properties) {
         super(properties);
@@ -63,16 +66,16 @@ public class NewRadioBlock extends BaseEntityBlock {
     // START BLOCKSTATE
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, ON);
+        builder.add(FACING, ON, SEARCHING);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return DEFAULT_PLACEMENT_BLOCKSTATE;
+        return DEFAULT_PLACEMENT_BLOCKSTATE.setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
         return SHAPE_MAP.get(blockState.getValue(FACING));
     }
 
