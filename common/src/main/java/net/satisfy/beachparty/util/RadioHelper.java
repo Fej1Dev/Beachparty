@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Deprecated
 @Environment(EnvType.CLIENT)
 public class RadioHelper {
     private static final Map<BlockPos, List<SimpleSoundInstance>> soundInstances = new HashMap<>();

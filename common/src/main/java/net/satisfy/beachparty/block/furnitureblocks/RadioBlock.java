@@ -41,7 +41,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 import java.util.function.Supplier;
 
-@Deprecated
+@SuppressWarnings("deprecation")
 public class RadioBlock extends Block {
     public static final BooleanProperty ON;
     public static final IntegerProperty CHANNEL;
@@ -64,10 +64,9 @@ public class RadioBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(ON, false).setValue(CHANNEL, 0).setValue(SEARCHING, false));
     }
 
-
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, ON, CHANNEL, SEARCHING);
+    public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return SHAPE.get(state.getValue(FACING));
     }
 
     @Override
@@ -78,16 +77,6 @@ public class RadioBlock extends Block {
             facing = context.getHorizontalDirection().getOpposite();
         }
         return this.defaultBlockState().setValue(FACING, facing).setValue(CHANNEL, channel);
-    }
-
-    @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-        return SHAPE.get(state.getValue(FACING));
-    }
-
-    @Override
-    public @NotNull RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
     }
 
     @Override
@@ -167,6 +156,11 @@ public class RadioBlock extends Block {
     }
 
     @Override
+    public @NotNull RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
     public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
         if (!world.isClientSide) {
             RADIO_BLOCKS.add(pos);
@@ -198,7 +192,6 @@ public class RadioBlock extends Block {
         }
     }
 
-    @Override
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (state.getValue(ON)) {
             spawnParticles(world, pos);
@@ -217,6 +210,12 @@ public class RadioBlock extends Block {
         double blue = random.nextDouble();
 
         world.addParticle(ParticleTypes.NOTE, d, e, f, red, green, blue);
+    }
+
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING, ON, CHANNEL, SEARCHING);
     }
 
     @Override

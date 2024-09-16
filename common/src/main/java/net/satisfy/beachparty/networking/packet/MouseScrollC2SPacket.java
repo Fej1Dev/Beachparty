@@ -11,7 +11,6 @@ import net.satisfy.beachparty.networking.BeachpartyMessages;
 
 import java.util.List;
 
-@Deprecated
 public class MouseScrollC2SPacket implements NetworkManager.NetworkReceiver {
 
     @Override

@@ -7,7 +7,6 @@ import net.satisfy.beachparty.networking.packet.TuneRadioS2CPacket;
 import net.satisfy.beachparty.networking.packet.TurnRadioS2CPacket;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
-@Deprecated
 public class BeachpartyMessages {
     public static final ResourceLocation MOUSE_SCROLL_C2S = new BeachpartyIdentifier("mouse_scroll");
     public static final ResourceLocation TURN_RADIO_S2C = new BeachpartyIdentifier("turn_radio");

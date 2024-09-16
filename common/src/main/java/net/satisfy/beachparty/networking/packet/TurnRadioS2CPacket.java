@@ -6,7 +6,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.satisfy.beachparty.block.furnitureblocks.RadioBlock;
 import net.satisfy.beachparty.util.RadioHelper;
 
-@Deprecated
 public class TurnRadioS2CPacket implements NetworkManager.NetworkReceiver {
 
     @Override

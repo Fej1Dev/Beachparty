@@ -33,7 +33,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     public CabinetBlockEntity(BlockPos pos, BlockState state, SoundEvent openSound, SoundEvent closeSound) {
-        super(EntityTypeRegistry.NEW_RADIO_BLOCK_ENTITY.get(), pos, state);
+        super(EntityTypeRegistry.CABINET_BLOCK_ENTITY.get(), pos, state);
         this.inventory = NonNullList.withSize(36, ItemStack.EMPTY);
         this.stateManager = new ContainerOpenersCounter() {
             @Override
