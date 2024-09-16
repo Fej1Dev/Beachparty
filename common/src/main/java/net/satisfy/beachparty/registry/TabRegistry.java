@@ -35,7 +35,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
                 out.accept(ObjectRegistry.RADIO.get());
                 out.accept(ObjectRegistry.OVERGROWN_DISC.get());
-                out.accept(ObjectRegistry.MESSAGE_IN_A_BOTTLE.get());
+                out.accept(ObjectRegistry.MESSAGE_IN_A_BOTTLE_ITEM.get());
                 out.accept(ObjectRegistry.SEASHELL.get());
                 out.accept(ObjectRegistry.SAND_BUCKET.get());
                 out.accept(ObjectRegistry.EMPTY_SAND_BUCKET.get());

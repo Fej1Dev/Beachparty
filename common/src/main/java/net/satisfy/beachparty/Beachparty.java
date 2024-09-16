@@ -16,7 +16,6 @@ public class Beachparty {
         TabRegistry.init();
         SoundEventRegistry.init();
         ScreenHandlerTypesRegistry.init();
-        PlacerTypesRegistry.init();
         CommonEvents.init();
         BeachpartyMessages.registerC2SPackets();
     }
