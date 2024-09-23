@@ -15,7 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.BeachPartyClient;
-import net.satisfy.beachparty.entity.BeachpartyBoat;
+import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 
 @Mod.EventBusSubscriber(modid = Beachparty.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -33,11 +33,9 @@ public class BeachpartyClientForge {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        for (BeachpartyBoat.Type type : BeachpartyBoat.Type.values()) {
+        for (BeachpartyBoatEntity.Type type : BeachpartyBoatEntity.Type.values()) {
             event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(Beachparty.MOD_ID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
             event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(Beachparty.MOD_ID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
         }
-        BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
-        BlockEntityRenderers.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }
 }

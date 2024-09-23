@@ -10,8 +10,6 @@ import net.satisfy.beachparty.Beachparty;
 public class ConfigFabric implements ConfigData {
 
     @ConfigEntry.Category("worldgen")
-    public boolean spawnPalms = true;
-    @ConfigEntry.Category("worldgen")
     public boolean spawnSeashells = true;
     @ConfigEntry.Category("worldgen")
     public boolean spawnSandwaves = true;

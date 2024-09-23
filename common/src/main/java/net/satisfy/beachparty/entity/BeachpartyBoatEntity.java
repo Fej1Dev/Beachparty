@@ -14,22 +14,23 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 import static net.satisfy.beachparty.registry.ObjectRegistry.*;
 
-public class BeachpartyBoat extends Boat {
+public class BeachpartyBoatEntity extends Boat {
 
-    private static final EntityDataAccessor<Integer> WOOD_TYPE = SynchedEntityData.defineId(BeachpartyBoat.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> WOOD_TYPE = SynchedEntityData.defineId(BeachpartyBoatEntity.class, EntityDataSerializers.INT);
 
-    public BeachpartyBoat(EntityType<? extends Boat> type, Level level) {
+    public BeachpartyBoatEntity(EntityType<? extends Boat> type, Level level) {
         super(type, level);
         this.blocksBuilding = true;
     }
 
-    public BeachpartyBoat(Level level, double x, double y, double z) {
+    public BeachpartyBoatEntity(Level level, double x, double y, double z) {
         this(EntityTypeRegistry.BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
@@ -75,8 +76,7 @@ public class BeachpartyBoat extends Boat {
     }
 
     public enum Type {
-        PALM("palm", () -> PALM_BOAT.get(), () -> PALM_CHEST_BOAT.get()),
-        FLOATY("floaty", () -> PALM_BOAT.get(), () -> PALM_CHEST_BOAT.get());
+        FLOATY("floaty", () -> ObjectRegistry.FLOATY.get(), () -> FLOATY_CHEST_BOAT.get());
 
 
         private final String name;

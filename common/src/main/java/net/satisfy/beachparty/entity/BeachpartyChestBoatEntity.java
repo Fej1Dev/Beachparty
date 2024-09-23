@@ -26,18 +26,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 
-public class BeachpartyChestBoat extends BeachpartyBoat implements HasCustomInventoryScreen, ContainerEntity {
+public class BeachpartyChestBoatEntity extends BeachpartyBoatEntity implements HasCustomInventoryScreen, ContainerEntity {
     private static final int CONTAINER_SIZE = 27;
     private NonNullList<ItemStack> itemStacks = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     @Nullable
     private ResourceLocation lootTable;
     private long lootTableSeed;
 
-    public BeachpartyChestBoat(EntityType<? extends Boat> entityType, Level level) {
+    public BeachpartyChestBoatEntity(EntityType<? extends Boat> entityType, Level level) {
         super(entityType, level);
     }
 
-    public BeachpartyChestBoat(Level level, double x, double y, double z) {
+    public BeachpartyChestBoatEntity(Level level, double x, double y, double z) {
         this(EntityTypeRegistry.CHEST_BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;

@@ -193,30 +193,6 @@ public class BeachpartyUtil {
         LINE_CONNECTING_TYPE = EnumProperty.create("type", LineConnectingType.class);
     }
 
-    public enum VerticalConnectingType implements StringRepresentable {
-        TOP("top"),
-        MIDDLE("middle"),
-        BOTTOM("bottom"),
-        NONE("none");
-
-        private final String name;
-
-        VerticalConnectingType(String type) {
-            this.name = type;
-        }
-
-        @Override
-        public @NotNull String getSerializedName() {
-            return this.name;
-        }
-
-        public static final EnumProperty<VerticalConnectingType> VERTICAL_CONNECTING_TYPE;
-
-        static {
-            VERTICAL_CONNECTING_TYPE = EnumProperty.create("type", VerticalConnectingType.class);
-        }
-    }
-
     public static boolean matchesRecipe(Container inventory, NonNullList<Ingredient> recipe, int startIndex, int endIndex) {
         final List<ItemStack> validStacks = new ArrayList<>();
         for (int i = startIndex; i <= endIndex; i++) {
@@ -250,5 +226,4 @@ public class BeachpartyUtil {
         }
         return ingredients;
     }
-
 }

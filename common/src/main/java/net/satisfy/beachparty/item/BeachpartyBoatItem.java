@@ -14,18 +14,18 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.satisfy.beachparty.entity.BeachpartyBoat;
-import net.satisfy.beachparty.entity.BeachpartyChestBoat;
+import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
+import net.satisfy.beachparty.entity.BeachpartyChestBoatEntity;
 
 import java.util.List;
 import java.util.function.Predicate;
 
 public class BeachpartyBoatItem extends BoatItem {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
-    private final BeachpartyBoat.Type type;
+    private final BeachpartyBoatEntity.Type type;
     private final boolean hasChest;
 
-    public BeachpartyBoatItem(boolean hasChest, BeachpartyBoat.Type type, Properties pProperties) {
+    public BeachpartyBoatItem(boolean hasChest, BeachpartyBoatEntity.Type type, Properties pProperties) {
         super(hasChest, null, pProperties);
         this.hasChest = hasChest;
         this.type = type;
@@ -53,7 +53,7 @@ public class BeachpartyBoatItem extends BoatItem {
             }
 
             if (hitresult.getType() == HitResult.Type.BLOCK) {
-                BeachpartyBoat boat = this.getBoat(pLevel, hitresult);
+                BeachpartyBoatEntity boat = this.getBoat(pLevel, hitresult);
                 boat.setWoodType(this.type);
                 boat.setYRot(pPlayer.getYRot());
                 if (!pLevel.noCollision(boat, boat.getBoundingBox())) {
@@ -76,7 +76,7 @@ public class BeachpartyBoatItem extends BoatItem {
         }
     }
 
-    private BeachpartyBoat getBoat(Level level, HitResult hitResult) {
-        return this.hasChest ? new BeachpartyChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new BeachpartyBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+    private BeachpartyBoatEntity getBoat(Level level, HitResult hitResult) {
+        return this.hasChest ? new BeachpartyChestBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new BeachpartyBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
 }

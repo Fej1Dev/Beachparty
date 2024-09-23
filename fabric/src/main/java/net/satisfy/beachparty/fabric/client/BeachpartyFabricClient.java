@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.client.BeachPartyClient;
-import net.satisfy.beachparty.entity.BeachpartyBoat;
+import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
 import net.satisfy.beachparty.fabric.client.renderer.BeachHatRenderer;
 import net.satisfy.beachparty.fabric.client.renderer.RubberRingRenderer;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
@@ -29,17 +29,13 @@ public class BeachpartyFabricClient implements ClientModInitializer {
 
         ArmorRenderer.register(new BeachHatRenderer(), BEACH_HAT.get());
         ArmorRenderer.register(new RubberRingRenderer(), RUBBER_RING_PINK.get(), RUBBER_RING_BLUE.get(), RUBBER_RING_STRIPPED.get(), RUBBER_RING_AXOLOTL.get(), RUBBER_RING_PELICAN.get());
-
-        BlockEntityRenderers.register(EntityTypeRegistry.HANGING_SIGN.get(), HangingSignRenderer::new);
-        BlockEntityRenderers.register(EntityTypeRegistry.SIGN.get(), SignRenderer::new);
     }
 
     private void registerBoatModels() {
-        for (BeachpartyBoat.Type type : BeachpartyBoat.Type.values()) {
+        for (BeachpartyBoatEntity.Type type : BeachpartyBoatEntity.Type.values()) {
             String modId = Beachparty.MOD_ID;
             EntityModelLayerRegistry.registerModelLayer(new ModelLayerLocation(new ResourceLocation(modId, type.getModelLocation()), "main"), BoatModel::createBodyModel);
             EntityModelLayerRegistry.registerModelLayer(new ModelLayerLocation(new ResourceLocation(modId, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
         }
-
     }
 }
