@@ -31,7 +31,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PALM_FENCE_GATE.get());
                 out.accept(ObjectRegistry.PALM_BUTTON.get());
                 out.accept(ObjectRegistry.CABINET.get());
-                //out.accept(ObjectRegistry.TIKI_BAR.get());
+                out.accept(ObjectRegistry.TIKI_BAR.get());
                 out.accept(ObjectRegistry.LOUNGE_CHAIR.get());
                 out.accept(ObjectRegistry.CHAIR.get());
                 out.accept(ObjectRegistry.TABLE.get());
@@ -47,7 +47,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.PALM_SAPLING.get());
                 out.accept(ObjectRegistry.PALM_TORCH_ITEM.get());
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
-                //out.accept(ObjectRegistry.MINI_FRIDGE.get());
+                out.accept(ObjectRegistry.MINI_FRIDGE.get());
                 out.accept(ObjectRegistry.RADIO.get());
                 out.accept(ObjectRegistry.OVERGROWN_DISC.get());
                 out.accept(ObjectRegistry.MESSAGE_IN_A_BOTTLE.get());
