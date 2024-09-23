@@ -7,10 +7,10 @@
   ],
   "key": {
     "S": {
-      "item": "beachparty:palm_slab"
+      "item": "minecraft:bamboo_slab"
     },
     "X": {
-      "tag": "beachparty:palm_planks"
+      "item": "minecraft:bamboo_planks"
     },
     "B": {
       "item": "minecraft:stick"
