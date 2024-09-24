@@ -85,6 +85,31 @@ public class RadioBlock extends Block {
             return InteractionResult.CONSUME;
         }
         if (hand == InteractionHand.MAIN_HAND) {
+
+            if (!world.isClientSide() && (player.isShiftKeyDown() || player.isCrouching())) {
+
+                if (state.getBlock() instanceof RadioBlock radioBlock) {
+
+                    if (!state.getValue(RadioBlock.ON) || state.getValue(RadioBlock.SEARCHING)) {
+                        return InteractionResult.PASS;
+                    }
+
+                    int channel = radioBlock.tune(world, state, pos, world.random.nextInt(1, CHANNELS));
+
+                    FriendlyByteBuf buffer = RadioBlock.createPacketBuf();
+
+                    buffer.writeBlockPos(pos);
+                    buffer.writeInt(channel);
+
+                    List<ServerPlayer> serverPlayerEntities = player.getServer().getPlayerList().getPlayers();
+                    for (ServerPlayer serverPlayer : serverPlayerEntities) {
+                        NetworkManager.sendToPlayer(serverPlayer, BeachpartyMessages.TUNE_RADIO_S2C, buffer);
+                    }
+                }
+
+                return InteractionResult.SUCCESS;
+            }
+
             boolean newState = !state.getValue(ON);
             if (newState) {
                 turnON(state, world, pos, player);
