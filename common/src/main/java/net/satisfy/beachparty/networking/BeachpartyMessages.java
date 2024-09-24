@@ -13,7 +13,7 @@ public class BeachpartyMessages {
     public static final ResourceLocation TUNE_RADIO_S2C = new BeachpartyIdentifier("tune_radio");
 
     public static void registerC2SPackets() {
-        NetworkManager.registerReceiver(NetworkManager.Side.C2S, MOUSE_SCROLL_C2S, new MouseScrollC2SPacket());
+        // NetworkManager.registerReceiver(NetworkManager.Side.C2S, MOUSE_SCROLL_C2S, new MouseScrollC2SPacket());
     }
 
     public static void registerS2CPackets() {
