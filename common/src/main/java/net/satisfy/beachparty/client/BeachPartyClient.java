@@ -17,20 +17,20 @@ import net.satisfy.beachparty.client.model.RubberRingPelicanModel;
 import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
-import net.satisfy.beachparty.registry.ObjectRegistry;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
+
+import static net.satisfy.beachparty.registry.ObjectRegistry.*;
 
 @Environment(EnvType.CLIENT)
 public class BeachPartyClient {
     public static void initClient() {
-        RenderTypeRegistry.register(RenderType.cutout(), ObjectRegistry.TABLE.get(), ObjectRegistry.CHAIR.get(),
-                ObjectRegistry.TIKI_CHAIR.get(),
-                ObjectRegistry.PALM_TORCH.get(), ObjectRegistry.PALM_WALL_TORCH.get(), ObjectRegistry.PALM_TALL_TORCH.get(),
-                ObjectRegistry.MELON_COCKTAIL.get(), ObjectRegistry.COCONUT_COCKTAIL.get(), ObjectRegistry.HONEY_COCKTAIL.get(),
-                ObjectRegistry.SWEETBERRIES_COCKTAIL.get(), ObjectRegistry.PUMPKIN_COCKTAIL.get(), ObjectRegistry.COCOA_COCKTAIL.get(),
-                ObjectRegistry.SANDCASTLE.get(), ObjectRegistry.MESSAGE_IN_A_BOTTLE.get(), ObjectRegistry.BEACH_TOWEL.get(),
-                ObjectRegistry.DECK_CHAIR.get(), ObjectRegistry.SEASHELL_BLOCK.get()
+        RenderTypeRegistry.register(RenderType.cutout(), TABLE.get(), CHAIR.get(), TIKI_CHAIR.get(),
+                PALM_TORCH.get(), PALM_WALL_TORCH.get(), PALM_TALL_TORCH.get(), THATCH.get(), THATCH_SLAB.get(),
+                MELON_COCKTAIL.get(), COCONUT_COCKTAIL.get(), HONEY_COCKTAIL.get(), THATCH_STAIRS.get(),
+                SWEETBERRIES_COCKTAIL.get(), PUMPKIN_COCKTAIL.get(), COCOA_COCKTAIL.get(),
+                SANDCASTLE.get(), MESSAGE_IN_A_BOTTLE.get(), BEACH_TOWEL.get(),
+                DECK_CHAIR.get(), SEASHELL_BLOCK.get(), REFRESHING_DRINK.get()
         );
 
         MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), TikiBarGui::new);
@@ -39,10 +39,10 @@ public class BeachPartyClient {
 
         BeachpartyMessages.registerS2CPackets();
 
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
-        BeachpartyUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);    }
+        BeachpartyUtil.registerColorArmor(TRUNKS.get(), 16715535);
+        BeachpartyUtil.registerColorArmor(BIKINI.get(), 987135);
+        BeachpartyUtil.registerColorArmor(CROCS.get(), 1048335);
+        BeachpartyUtil.registerColorArmor(POOL_NOODLE.get(), 1017855);    }
 
     public static void preInitClient() {
         registerEntityRenderers();

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "beachparty:block/thatch_slab"
+    },
+    "type=double": {
+      "model": "beachparty:block/thatch"
+    },
+    "type=top": {
+      "model": "beachparty:block/thatch_slab_top"
+    }
+  }
+}

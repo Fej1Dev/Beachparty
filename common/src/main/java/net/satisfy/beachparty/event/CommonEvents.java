@@ -6,20 +6,33 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootDataManager;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.phys.Vec3;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.furnitureblocks.RadioBlock;
+import net.satisfy.beachparty.effect.NeverMeltEffect;
+import net.satisfy.beachparty.registry.MobEffectRegistry;
+import net.satisfy.beachparty.registry.ObjectRegistry;
 import org.jetbrains.annotations.Nullable;
+import dev.architectury.event.EventResult;
 
 public class CommonEvents {
 
     public static void init() {
         LootEvent.MODIFY_LOOT_TABLE.register(CommonEvents::onModifyLootTable);
         PlayerEvent.PLAYER_JOIN.register(CommonEvents::onPlayerJoin);
+        PlayerEvent.ATTACK_ENTITY.register(CommonEvents::onPlayerAttack);
     }
 
     public static void onModifyLootTable(@Nullable LootDataManager lootDataManager, ResourceLocation id, LootEvent.LootTableModificationContext ctx, boolean b) {
@@ -53,9 +66,8 @@ public class CommonEvents {
             return LootTableReference.lootTableReference(table);
         }
     }
-
+    
     private static void onPlayerJoin(ServerPlayer player) {
-
         ServerLevel world = player.serverLevel();
         for (BlockPos pos : RadioBlock.getAllRadioBlocks()) {
             BlockState state = world.getBlockState(pos);
@@ -63,5 +75,30 @@ public class CommonEvents {
                 RadioBlock.sendPacket(state, world, pos, true);
             }
         }
+    }
+
+    private static EventResult onPlayerAttack(Player player, Level level, Entity entity, InteractionHand hand, @Nullable EntityHitResult result) {
+        ItemStack itemInHand = player.getItemInHand(hand);
+
+        if (itemInHand.getItem() == ObjectRegistry.POOL_NOODLE.get()) {
+            Vec3 knockbackDirection = new Vec3(
+                    entity.getX() - player.getX(),
+                    0.2,
+                    entity.getZ() - player.getZ()
+            ).normalize().scale(1.5);
+
+            entity.push(knockbackDirection.x, knockbackDirection.y, knockbackDirection.z);
+
+            return EventResult.interruptTrue(); 
+        }
+
+        if (player.hasEffect(MobEffectRegistry.NEVERMELT.get())) {
+            MobEffectInstance effect = player.getEffect(MobEffectRegistry.NEVERMELT.get());
+            if (effect != null && effect.getEffect() instanceof NeverMeltEffect neverMeltEffect) {
+                neverMeltEffect.onPlayerHurt(player, level.damageSources().generic(), 0);
+            }
+        }
+
+        return EventResult.pass();
     }
 }

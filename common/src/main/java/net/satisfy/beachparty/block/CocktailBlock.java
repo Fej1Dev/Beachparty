@@ -18,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class CocktailBlock extends Block {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
-    private static final VoxelShape SHAPE = Shapes.box(0.125, 0, 0.125, 0.875, 0.875, 0.875);
 
     public CocktailBlock(BlockBehaviour.Properties settings) {
         super(settings);

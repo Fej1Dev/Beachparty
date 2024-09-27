@@ -14,6 +14,7 @@ public class Beachparty {
         ObjectRegistry.init();
         EntityTypeRegistry.init();
         TabRegistry.init();
+        MobEffectRegistry.init();
         SoundEventRegistry.init();
         ScreenHandlerTypesRegistry.init();
         CommonEvents.init();
