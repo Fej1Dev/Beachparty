@@ -28,8 +28,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.THATCH_STAIRS.get());
                 out.accept(ObjectRegistry.THATCH_SLAB.get());
                 out.accept(ObjectRegistry.SANDWAVES.get());
-                out.accept(ObjectRegistry.PALM_TORCH_ITEM.get());
-                out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
+                out.accept(ObjectRegistry.TIKI_TORCH_ITEM.get());
+                out.accept(ObjectRegistry.TALL_TIKI_TORCH.get());
                 out.accept(ObjectRegistry.MINI_FRIDGE.get());
                 out.accept(ObjectRegistry.RADIO.get());
                 out.accept(ObjectRegistry.OVERGROWN_DISC.get());
@@ -48,10 +48,10 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.SWEETBERRY_MILKSHAKE.get());
                 out.accept(ObjectRegistry.COCONUT_MILKSHAKE.get());
                 out.accept(ObjectRegistry.CHOCOLATE_MILKSHAKE.get());
-                out.accept(ObjectRegistry.REFRESHING_DRINK.get());
                 out.accept(ObjectRegistry.SWEETBERRY_SUNDAE.get());
                 out.accept(ObjectRegistry.COCONUT_SUNDAE.get());
                 out.accept(ObjectRegistry.CHOCOLATE_SUNDAE.get());
+                out.accept(ObjectRegistry.REFRESHING_DRINK.get());
                 out.accept(ObjectRegistry.ICECREAM_COCONUT.get());
                 out.accept(ObjectRegistry.ICECREAM_CACTUS.get());
                 out.accept(ObjectRegistry.ICECREAM_CHOCOLATE.get());

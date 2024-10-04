@@ -20,7 +20,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.phys.Vec3;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.block.furnitureblocks.RadioBlock;
+import net.satisfy.beachparty.block.furniture.RadioBlock;
 import net.satisfy.beachparty.effect.NeverMeltEffect;
 import net.satisfy.beachparty.registry.MobEffectRegistry;
 import net.satisfy.beachparty.registry.ObjectRegistry;

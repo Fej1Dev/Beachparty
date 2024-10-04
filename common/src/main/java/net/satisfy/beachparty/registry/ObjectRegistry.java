@@ -20,7 +20,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.beachparty.Beachparty;
 import net.satisfy.beachparty.block.*;
-import net.satisfy.beachparty.block.furnitureblocks.*;
+import net.satisfy.beachparty.block.furniture.*;
 import net.satisfy.beachparty.entity.BeachpartyBoatEntity;
 import net.satisfy.beachparty.item.*;
 import net.satisfy.beachparty.item.armor.BeachpartyArmorItem;
@@ -44,7 +44,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> LOUNGE_CHAIR = registerWithItem("lounge_chair", () -> new LoungeChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> CHAIR = registerWithItem("chair", () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).pushReaction(PushReaction.IGNORE)));
     public static final RegistrySupplier<Block> TABLE = registerWithItem("table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
-    public static final RegistrySupplier<Block> BEACH_CHAIR = registerWithItem("beach_chair", () -> new BeachChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
+    public static final RegistrySupplier<Block> BEACH_CHAIR = registerWithItem("beach_chair", () -> new BenchBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> DECK_CHAIR = registerWithItem("deck_chair", () -> new DeckChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> TIKI_CHAIR = registerWithItem("tiki_chair", () -> new TikiChairBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final RegistrySupplier<Block> TIKI_BAR = registerWithItem("tiki_bar", () -> new TikiBarBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
@@ -71,15 +71,13 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> PUMPKIN_COCKTAIL = registerCocktail("pumpkin_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.FIRE_RESISTANCE);
     public static final RegistrySupplier<Block> HONEY_COCKTAIL = registerCocktail("honey_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DIG_SPEED);
     public static final RegistrySupplier<Block> MELON_COCKTAIL = registerCocktail("melon_cocktail", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.LUCK);
-    //TODO: Add a 3D Model, then register as Cocktail & Cocktailblock
-    public static final RegistrySupplier<Block> SWEETBERRY_MILKSHAKE = registerCocktail("sweetberry_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
-    public static final RegistrySupplier<Block> COCONUT_MILKSHAKE = registerCocktail("coconut_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
-    public static final RegistrySupplier<Block> CHOCOLATE_MILKSHAKE = registerCocktail("chocolate_milkshake", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
-    public static final RegistrySupplier<Block> REFRESHING_DRINK = registerCocktail("refreshing_drink", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffects.DAMAGE_BOOST);
-    public static final RegistrySupplier<Item> SWEETBERRY_SUNDAE = registerItem("sweetberry_sundae", () -> new IceCreamItem(getSettings().food(Foods.SWEET_BERRIES)));
-    public static final RegistrySupplier<Item> COCONUT_SUNDAE = registerItem("coconut_sundae", () -> new IceCreamItem(getSettings().food(Foods.SWEET_BERRIES)));
-    public static final RegistrySupplier<Item> CHOCOLATE_SUNDAE = registerItem("chocolate_sundae", () -> new IceCreamItem(getSettings().food(Foods.SWEET_BERRIES)));
-    //END
+    public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
+    public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
+    public static final RegistrySupplier<Item> CHOCOLATE_MILKSHAKE = registerItem("chocolate_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
+    public static final RegistrySupplier<Block> REFRESHING_DRINK = registerCocktail("refreshing_drink", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
+    public static final RegistrySupplier<Block> SWEETBERRY_SUNDAE = registerCocktail("sweetberry_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
+    public static final RegistrySupplier<Block> COCONUT_SUNDAE = registerCocktail("coconut_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
+    public static final RegistrySupplier<Block> CHOCOLATE_SUNDAE = registerCocktail("chocolate_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
     public static final RegistrySupplier<Item> ICECREAM_COCONUT = registerItem("icecream_coconut", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> ICECREAM_MELON = registerItem("icecream_melon", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> ICECREAM_CACTUS = registerItem("icecream_cactus", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
@@ -101,10 +99,10 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> RUBBER_RING_AXOLOTL = registerItem("rubber_ring_axolotl", () -> new BeachpartyArmorItem(ArmorMaterialRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/models/armor/rubber_ring_axolotl.png")));
     public static final RegistrySupplier<Item> POOL_NOODLE = registerItem("pool_noodle", () -> new PoolNoodleItem(Tiers.WOOD, 0, -1.4F, getSettings()));
     public static final RegistrySupplier<Block> BEACH_PARASOL = registerWithItem("beach_parasol", () -> new ParasolBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
-    public static final RegistrySupplier<Block> PALM_TORCH = registerWithoutItem("palm_torch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
-    public static final RegistrySupplier<Block> PALM_WALL_TORCH = registerWithoutItem("palm_wall_torch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD).dropsLike(PALM_TORCH.get()), ParticleTypes.FLAME));
-    public static final RegistrySupplier<Item> PALM_TORCH_ITEM = registerItem("palm_torch_item", () -> new StandingAndWallBlockItem(ObjectRegistry.PALM_TORCH.get(), ObjectRegistry.PALM_WALL_TORCH.get(), getSettings(), Direction.DOWN));
-    public static final RegistrySupplier<Block> PALM_TALL_TORCH = registerWithItem("palm_tall_torch", () -> new TallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
+    public static final RegistrySupplier<Block> TIKI_TORCH = registerWithoutItem("tiki_torch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
+    public static final RegistrySupplier<Block> TIKI_WALL_TORCH = registerWithoutItem("tiki_wall_torch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD).dropsLike(TIKI_TORCH.get()), ParticleTypes.FLAME));
+    public static final RegistrySupplier<Item> TIKI_TORCH_ITEM = registerItem("tiki_torch_item", () -> new StandingAndWallBlockItem(ObjectRegistry.TIKI_TORCH.get(), ObjectRegistry.TIKI_WALL_TORCH.get(), getSettings(), Direction.DOWN));
+    public static final RegistrySupplier<Block> TALL_TIKI_TORCH = registerWithItem("tall_tiki_torch", () -> new TallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
     public static final RegistrySupplier<Block> SANDCASTLE = registerWithoutItem("sandcastle", () -> new SandCastleBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistrySupplier<Block> SANDWAVES = registerWithItem("sandwaves", () -> new SandBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
     public static final Supplier<Item> FLOATY = registerItem("floaty", () -> new BeachpartyBoatItem(false, BeachpartyBoatEntity.Type.FLOATY, new Item.Properties().stacksTo(1)));

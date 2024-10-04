@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "beachparty:dried_wheat_block",
-    "beachparty:dried_wheat_slab",
-    "beachparty:dried_wheat_stairs"
+    "beachparty:thatch",
+    "beachparty:thatch_slab",
+    "beachparty:thatch_stairs"
   ]
 }

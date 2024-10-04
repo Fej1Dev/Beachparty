@@ -1,0 +1,14 @@
+{
+  "type": "beachparty:mini_fridge_mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "result": {
+    "item": "beachparty:sweetberry_sundae"
+  }
+}

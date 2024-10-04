@@ -26,11 +26,11 @@ import static net.satisfy.beachparty.registry.ObjectRegistry.*;
 public class BeachPartyClient {
     public static void initClient() {
         RenderTypeRegistry.register(RenderType.cutout(), TABLE.get(), CHAIR.get(), TIKI_CHAIR.get(),
-                PALM_TORCH.get(), PALM_WALL_TORCH.get(), PALM_TALL_TORCH.get(), THATCH.get(), THATCH_SLAB.get(),
+                TIKI_TORCH.get(), TIKI_WALL_TORCH.get(), TALL_TIKI_TORCH.get(), THATCH.get(), THATCH_SLAB.get(),
                 MELON_COCKTAIL.get(), COCONUT_COCKTAIL.get(), HONEY_COCKTAIL.get(), THATCH_STAIRS.get(),
-                SWEETBERRIES_COCKTAIL.get(), PUMPKIN_COCKTAIL.get(), COCOA_COCKTAIL.get(),
-                SANDCASTLE.get(), MESSAGE_IN_A_BOTTLE.get(), BEACH_TOWEL.get(),
-                DECK_CHAIR.get(), SEASHELL_BLOCK.get(), REFRESHING_DRINK.get()
+                SWEETBERRIES_COCKTAIL.get(), PUMPKIN_COCKTAIL.get(), COCOA_COCKTAIL.get(), COCONUT_SUNDAE.get(),
+                SANDCASTLE.get(), MESSAGE_IN_A_BOTTLE.get(), BEACH_TOWEL.get(), CHOCOLATE_SUNDAE.get(),
+                DECK_CHAIR.get(), SEASHELL_BLOCK.get(), REFRESHING_DRINK.get(), SWEETBERRY_SUNDAE.get()
         );
 
         MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.TIKI_BAR_GUI_HANDLER.get(), TikiBarGui::new);

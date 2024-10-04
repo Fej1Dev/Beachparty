@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.satisfy.beachparty.Beachparty;
-import net.satisfy.beachparty.block.furnitureblocks.BeachTowelBlock;
+import net.satisfy.beachparty.block.furniture.BeachTowelBlock;
 import net.satisfy.beachparty.forge.registry.BeachpartyConfig;
 import net.satisfy.beachparty.platform.forge.PlatformHelperImpl;
 import net.satisfy.beachparty.registry.CompostablesRegistry;
