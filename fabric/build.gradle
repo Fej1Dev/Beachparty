@@ -48,6 +48,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    modImplementation "curse.maven:trinkets-341284:5173501"
 }
 
 loom {
