@@ -74,10 +74,12 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> SWEETBERRY_MILKSHAKE = registerItem("sweetberry_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Item> COCONUT_MILKSHAKE = registerItem("coconut_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Item> CHOCOLATE_MILKSHAKE = registerItem("chocolate_milkshake", () -> new IceCreamItem(getSettings().food(Foods.COOKED_BEEF)));
-    public static final RegistrySupplier<Block> REFRESHING_DRINK = registerCocktail("refreshing_drink", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
-    public static final RegistrySupplier<Block> SWEETBERRY_SUNDAE = registerCocktail("sweetberry_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
-    public static final RegistrySupplier<Block> COCONUT_SUNDAE = registerCocktail("coconut_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
-    public static final RegistrySupplier<Block> CHOCOLATE_SUNDAE = registerCocktail("chocolate_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()), MobEffectRegistry.NEVERMELT.get());
+    public static final RegistrySupplier<Block> REFRESHING_DRINK = registerCocktail(
+            "refreshing_drink",
+            () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak())
+    );    public static final RegistrySupplier<Block> SWEETBERRY_SUNDAE = registerCocktail("sweetberry_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()));
+    public static final RegistrySupplier<Block> COCONUT_SUNDAE = registerCocktail("coconut_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()));
+    public static final RegistrySupplier<Block> CHOCOLATE_SUNDAE = registerCocktail("chocolate_sundae", () -> new CocktailBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().instabreak()));
     public static final RegistrySupplier<Item> ICECREAM_COCONUT = registerItem("icecream_coconut", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> ICECREAM_MELON = registerItem("icecream_melon", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
     public static final RegistrySupplier<Item> ICECREAM_CACTUS = registerItem("icecream_cactus", () -> new IceCreamItem(getSettings().food(Foods.CARROT)));
@@ -126,10 +128,9 @@ public class ObjectRegistry {
 
     private static FoodProperties cocktailFoodComponent(MobEffect effect) {
         FoodProperties.Builder component = new FoodProperties.Builder().nutrition(1).saturationMod(1);
-        if (effect != null) component.effect(new MobEffectInstance(effect, 45 * 20), 1.0f);
+        if (effect != null) component.effect(new MobEffectInstance(effect, 900), 1.0f);
         return component.build();
     }
-    
 
     public static void init() {
         ITEMS.register();
@@ -138,10 +139,21 @@ public class ObjectRegistry {
 
     private static <T extends Block> RegistrySupplier<T> registerCocktail(String name, Supplier<T> block, MobEffect effect) {
         RegistrySupplier<T> toReturn = registerWithoutItem(name, block);
-        registerItem(name, () -> new DrinkBlockItem(toReturn.get(), getSettings(settings -> settings.food(cocktailFoodComponent(effect)))));
+        registerItem(name, () -> new DrinkBlockItem(
+                toReturn.get(),
+                getSettings(settings -> settings.food(cocktailFoodComponent(effect)))
+        ));
         return toReturn;
     }
 
+    private static <T extends Block> RegistrySupplier<T> registerCocktail(String name, Supplier<T> block) {
+        RegistrySupplier<T> toReturn = registerWithoutItem(name, block);
+        registerItem(name, () -> new DrinkBlockItem(
+                toReturn.get(),
+                getSettings(settings -> settings.food(cocktailFoodComponent(MobEffectRegistry.NEVERMELT.get())))
+        ));
+        return toReturn;
+    }
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(String name, Supplier<T> block) {
         return BeachpartyUtil.registerWithItem(BLOCKS, BLOCK_REGISTRAR, ITEMS, ITEM_REGISTRAR, new BeachpartyIdentifier(name), block);
