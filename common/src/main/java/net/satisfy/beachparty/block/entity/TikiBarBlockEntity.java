@@ -6,11 +6,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -19,9 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 import net.satisfy.beachparty.client.gui.handler.TikiBarGuiHandler;
 import net.satisfy.beachparty.recipe.TikiBarRecipe;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
@@ -32,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
+public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer, MenuProvider {
     private static final int[] SLOTS_FOR_SIDE = new int[]{2};
     private static final int[] SLOTS_FOR_UP = new int[]{1};
     private static final int[] SLOTS_FOR_DOWN = new int[]{0};
@@ -73,10 +69,6 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
         this.inventory = NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
     }
 
-    public void dropExperience(ServerLevel world, Vec3 pos) {
-        ExperienceOrb.award(world, pos, (int) experience);
-    }
-
     @Override
     public void load(CompoundTag nbt) {
         super.load(nbt);
@@ -94,33 +86,34 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
         nbt.putShort("ShakingTime", (short) this.shakingTime);
     }
 
-    @Override
-    public void tick(Level world, BlockPos pos, BlockState state, TikiBarBlockEntity blockEntity) {
+    public static void tick(Level world, BlockPos pos, BlockState state, TikiBarBlockEntity blockEntity) {
         if (world.isClientSide) return;
+
         boolean dirty = false;
-        final var recipeType = world.getRecipeManager()
+        TikiBarRecipe recipe = world.getRecipeManager()
                 .getRecipeFor(RecipeRegistry.TIKI_BAR_RECIPE_TYPE.get(), blockEntity, world)
                 .orElse(null);
-        assert level != null;
-        RegistryAccess access = level.registryAccess();
-        if (canCraft(recipeType, access)) {
-            this.shakingTime++;
+        RegistryAccess access = world.registryAccess();
 
-            if (this.shakingTime == this.totalShakingTime) {
-                this.shakingTime = 0;
-                craft(recipeType, access);
+        if (blockEntity.canCraft(recipe, access)) {
+            blockEntity.shakingTime++;
+
+            if (blockEntity.shakingTime >= blockEntity.totalShakingTime) {
+                blockEntity.shakingTime = 0;
+                blockEntity.craft(recipe, access);
                 dirty = true;
             }
         } else {
-            this.shakingTime = 0;
-        }
-        if (dirty) {
-            setChanged();
+            blockEntity.shakingTime = 0;
         }
 
+        if (dirty) {
+            blockEntity.setChanged();
+            world.sendBlockUpdated(pos, state, state, 3);
+        }
     }
 
-    private boolean canCraft(TikiBarRecipe recipe, RegistryAccess access) {
+    private boolean canCraft(@Nullable TikiBarRecipe recipe, RegistryAccess access) {
         if (recipe == null) return false;
 
         ItemStack recipeResultItem = recipe.getResultItem(access);
@@ -185,11 +178,6 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
         return ItemStack.EMPTY;
     }
 
-//    @Override
-//    public NonNullList<ItemStack> getItems() {
-//        return inventory;
-//    }
-
     @Override
     public int @NotNull [] getSlotsForFace(Direction side) {
         if (side.equals(Direction.UP)) {
@@ -198,11 +186,6 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
             return SLOTS_FOR_DOWN;
         } else return SLOTS_FOR_SIDE;
     }
-
-
-
-
-
 
     @Override
     public boolean canPlaceItemThroughFace(int i, ItemStack itemStack, @Nullable Direction direction) {
@@ -213,8 +196,6 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
     public boolean canTakeItemThroughFace(int i, ItemStack itemStack, Direction direction) {
         return false;
     }
-    // todo: @satisfy from jason - what was the original implementation?
-
 
     @Override
     public int getContainerSize() {
@@ -227,25 +208,19 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
     }
 
     @Override
-    public ItemStack getItem(int i) {
+    public @NotNull ItemStack getItem(int i) {
         return this.inventory.get(i);
     }
 
     @Override
-    public ItemStack removeItem(int i, int j) {
+    public @NotNull ItemStack removeItem(int i, int j) {
         return ContainerHelper.removeItem(this.inventory, i, j);
     }
 
     @Override
-    public ItemStack removeItemNoUpdate(int i) {
+    public @NotNull ItemStack removeItemNoUpdate(int i) {
         return this.inventory.remove(i);
     }
-
-
-
-
-
-
 
     @Override
     public void setItem(int slot, ItemStack stack) {
@@ -266,11 +241,14 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
 
     @Override
     public boolean stillValid(Player player) {
-        assert this.level != null;
+        if (this.level == null) return false;
         if (this.level.getBlockEntity(this.worldPosition) != this) {
             return false;
         } else {
-            return player.distanceToSqr((double) this.worldPosition.getX() + 0.5, (double) this.worldPosition.getY() + 0.5, (double) this.worldPosition.getZ() + 0.5) <= 64.0;
+            return player.distanceToSqr(
+                    (double) this.worldPosition.getX() + 0.5,
+                    (double) this.worldPosition.getY() + 0.5,
+                    (double) this.worldPosition.getZ() + 0.5) <= 64.0;
         }
     }
 
@@ -287,6 +265,6 @@ public class TikiBarBlockEntity extends BlockEntity implements WorldlyContainer,
 
     @Override
     public void clearContent() {
-
+        this.inventory.clear();
     }
 }

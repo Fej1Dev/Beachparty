@@ -25,6 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.satisfy.beachparty.block.entity.TikiBarBlockEntity;
+import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.util.BeachpartyUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -117,14 +118,10 @@ public class TikiBarBlock extends BaseEntityBlock implements EntityBlock {
         return new TikiBarBlockEntity(pos, state);
     }
 
-    @Nullable
     @Override
+    @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return (theWorld, pos, theState, blockEntity) -> {
-            if (blockEntity instanceof BlockEntityTicker<?>) {
-                ((BlockEntityTicker) blockEntity).tick(theWorld, pos, theState, blockEntity);
-            }
-        };
+        return BaseEntityBlock.createTickerHelper(type, EntityTypeRegistry.TIKI_BAR_BLOCK_ENTITY.get(), TikiBarBlockEntity::tick);
     }
 
     public boolean isPathfindable(BlockState arg, BlockGetter arg2, BlockPos arg3, PathComputationType arg4) {
