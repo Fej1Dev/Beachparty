@@ -11,12 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArmorRegistry {
-    private static final Map<Item, BeachHatModel<?>> hatmodels = new HashMap<>();
-    private static final Map<Item, RubberRingModel> ringmodels = new HashMap<>();
+    private static final Map<Item, HatModel> hatModel = new HashMap<>();
+    private static final Map<Item, ChestplateModel> chestplateModel = new HashMap<>();
+    private static final Map<Item, LeggingsModel> leggingsModel = new HashMap<>();
 
-    public static Model getBodyModel(Item item, ModelPart baseBody) {
+    public static Model chestplateModel(Item item, ModelPart baseBody, ModelPart leftArm, ModelPart rightArm) {
         EntityModelSet modelSet = Minecraft.getInstance().getEntityModels();
-        RubberRingModel model = ringmodels.computeIfAbsent(item, key -> {
+        ChestplateModel model = chestplateModel.computeIfAbsent(item, key -> {
             if (key == ObjectRegistry.RUBBER_RING_BLUE.get()) {
                 return new RubberRingColoredModel<>(modelSet.bakeLayer(RubberRingColoredModel.LAYER_LOCATION));
             } else if (key == ObjectRegistry.RUBBER_RING_PINK.get()) {
@@ -27,6 +28,10 @@ public class ArmorRegistry {
                 return new RubberRingAxolotlModel<>(modelSet.bakeLayer(RubberRingAxolotlModel.LAYER_LOCATION));
             } else if (key == ObjectRegistry.RUBBER_RING_PELICAN.get()) {
                 return new RubberRingPelicanModel<>(modelSet.bakeLayer(RubberRingPelicanModel.LAYER_LOCATION));
+            } else if (key == ObjectRegistry.BIKINI.get()) {
+                return new BikiniModel<>(modelSet.bakeLayer(BikiniModel.LAYER_LOCATION));
+            } else if (key == ObjectRegistry.SWIM_WINGS.get()) {
+                return new SwimWingsModel<>(modelSet.bakeLayer(SwimWingsModel.LAYER_LOCATION));
 
             } else {
                 return null;
@@ -35,26 +40,46 @@ public class ArmorRegistry {
 
         assert model != null;
 
-        model.copyBody(baseBody);
+        model.copyBody(baseBody, leftArm, rightArm);
 
         return (Model) model;
     }
 
-    public static Model getHatModel(Item item, ModelPart baseHead) {
+    public static Model HelmetModel(Item item, ModelPart baseHead) {
         EntityModelSet modelSet = Minecraft.getInstance().getEntityModels();
-        BeachHatModel<?> model = hatmodels.computeIfAbsent(item, key -> {
+        HatModel model = hatModel.computeIfAbsent(item, key -> {
             if (key == ObjectRegistry.BEACH_HAT.get()) {
                 return new BeachHatModel<>(modelSet.bakeLayer(BeachHatModel.LAYER_LOCATION));
+            } else if (key == ObjectRegistry.SUNGLASSES.get()) {
+                return new SunglassesModel<>(modelSet.bakeLayer(SunglassesModel.LAYER_LOCATION));
             } else {
                 return null;
             }
         });
-        if (model == null) {
-            return null;
-        }
+
+        assert model != null;
 
         model.copyHead(baseHead);
-        return model;
+
+        return (Model) model;
     }
 
+    public static Model LeggingsModel(Item item, ModelPart baseBody, ModelPart leftLeg, ModelPart rightLeg) {
+        EntityModelSet modelSet = Minecraft.getInstance().getEntityModels();
+        LeggingsModel model = leggingsModel.computeIfAbsent(item, key -> {
+            if (key == ObjectRegistry.TRUNKS.get()) {
+                return new TrunksModel<>(modelSet.bakeLayer(TrunksModel.LAYER_LOCATION));
+            } else if (key == ObjectRegistry.CROCS.get()) {
+                return new CrocsModel<>(modelSet.bakeLayer(CrocsModel.LAYER_LOCATION));
+            } else {
+                return null;
+            }
+        });
+
+        assert model != null;
+
+        model.copyBody(baseBody, leftLeg, rightLeg);
+
+        return (Model) model;
+    }
 }

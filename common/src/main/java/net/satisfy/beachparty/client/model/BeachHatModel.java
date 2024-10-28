@@ -11,7 +11,7 @@ import net.minecraft.world.entity.Entity;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 @SuppressWarnings("unused")
-public class BeachHatModel<T extends Entity> extends EntityModel<T> {
+public class BeachHatModel<T extends Entity> extends EntityModel<T> implements HatModel {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BeachpartyIdentifier("beach_hat"), "main");
     private final ModelPart beach_hat;
 

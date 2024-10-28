@@ -11,7 +11,7 @@ import net.minecraft.world.entity.Entity;
 import net.satisfy.beachparty.util.BeachpartyIdentifier;
 
 @SuppressWarnings("unused")
-public class RubberRingPelicanModel<T extends Entity> extends EntityModel<T> implements RubberRingModel {
+public class RubberRingPelicanModel<T extends Entity> extends EntityModel<T> implements ChestplateModel {
 
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BeachpartyIdentifier("rubber_ring_pelican"), "main");
     private final ModelPart rubber_ring;
@@ -45,7 +45,7 @@ public class RubberRingPelicanModel<T extends Entity> extends EntityModel<T> imp
     }
 
     @Override
-    public void copyBody(ModelPart model) {
+    public void copyBody(ModelPart model, ModelPart leftArm, ModelPart rightArm) {
         rubber_ring.copyFrom(model);
     }
 }

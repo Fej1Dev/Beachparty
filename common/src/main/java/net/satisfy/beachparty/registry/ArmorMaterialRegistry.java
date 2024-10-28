@@ -30,8 +30,7 @@ public class ArmorMaterialRegistry {
             @Override
             public int getDefenseForType(ArmorItem.Type type) {
                 return switch (type) {
-                    case HELMET, LEGGINGS, BOOTS -> 1;
-                    case CHESTPLATE -> 1;
+                    case HELMET, LEGGINGS, BOOTS, CHESTPLATE -> 1;
                 };
             }
 

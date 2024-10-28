@@ -10,11 +10,9 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.satisfy.beachparty.client.gui.MiniFridgeGui;
 import net.satisfy.beachparty.client.gui.TikiBarGui;
-import net.satisfy.beachparty.client.model.BeachHatModel;
-import net.satisfy.beachparty.client.model.RubberRingAxolotlModel;
-import net.satisfy.beachparty.client.model.RubberRingColoredModel;
-import net.satisfy.beachparty.client.model.RubberRingPelicanModel;
+import net.satisfy.beachparty.client.model.*;
 import net.satisfy.beachparty.client.renderer.BeachpartyBoatRenderer;
+import net.satisfy.beachparty.client.renderer.ChairRenderer;
 import net.satisfy.beachparty.networking.BeachpartyMessages;
 import net.satisfy.beachparty.registry.EntityTypeRegistry;
 import net.satisfy.beachparty.registry.ScreenHandlerTypesRegistry;
@@ -42,7 +40,9 @@ public class BeachPartyClient {
         BeachpartyUtil.registerColorArmor(TRUNKS.get(), 16715535);
         BeachpartyUtil.registerColorArmor(BIKINI.get(), 987135);
         BeachpartyUtil.registerColorArmor(CROCS.get(), 1048335);
-        BeachpartyUtil.registerColorArmor(POOL_NOODLE.get(), 1017855);    }
+        BeachpartyUtil.registerColorArmor(SWIM_WINGS.get(), 0xFFD700);
+        BeachpartyUtil.registerColorArmor(POOL_NOODLE.get(), 1017855);
+    }
 
     public static void preInitClient() {
         registerEntityRenderers();
@@ -50,6 +50,7 @@ public class BeachPartyClient {
     }
 
     public static void registerEntityRenderers() {
+        EntityRendererRegistry.register(EntityTypeRegistry.CHAIR, ChairRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.COCONUT, ThrownItemRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.BOAT, context -> new BeachpartyBoatRenderer<>(context, false));
         EntityRendererRegistry.register(EntityTypeRegistry.CHEST_BOAT, context -> new BeachpartyBoatRenderer<>(context, true));
@@ -57,9 +58,14 @@ public class BeachPartyClient {
 
     public static void registerEntityModelLayers() {
         EntityModelLayerRegistry.register(BeachHatModel.LAYER_LOCATION, BeachHatModel::createBodyLayer);
+        EntityModelLayerRegistry.register(SunglassesModel.LAYER_LOCATION, SunglassesModel::createBodyLayer);
         EntityModelLayerRegistry.register(RubberRingColoredModel.LAYER_LOCATION, RubberRingColoredModel::createBodyLayer);
         EntityModelLayerRegistry.register(RubberRingAxolotlModel.LAYER_LOCATION, RubberRingAxolotlModel::createBodyLayer);
         EntityModelLayerRegistry.register(RubberRingPelicanModel.LAYER_LOCATION, RubberRingPelicanModel::createBodyLayer);
+        EntityModelLayerRegistry.register(BikiniModel.LAYER_LOCATION, BikiniModel::createBodyLayer);
+        EntityModelLayerRegistry.register(SwimWingsModel.LAYER_LOCATION, SwimWingsModel::createBodyLayer);
+        EntityModelLayerRegistry.register(TrunksModel.LAYER_LOCATION, TrunksModel::createBodyLayer);
+        EntityModelLayerRegistry.register(CrocsModel.LAYER_LOCATION, CrocsModel::createBodyLayer);
 
     }
 }

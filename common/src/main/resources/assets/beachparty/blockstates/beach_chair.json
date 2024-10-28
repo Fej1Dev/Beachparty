@@ -35,14 +35,14 @@
       "y": 180
     },
     "facing=east,half=lower,type=left": {
-      "model": "beachparty:block/beach_chair_bottom_side_left",
+      "model": "beachparty:block/beach_chair_bottom_side_right",
       "y": 270
     },
     "facing=south,half=lower,type=left": {
       "model": "beachparty:block/beach_chair_bottom_side_left"
     },
     "facing=west,half=lower,type=left": {
-      "model": "beachparty:block/beach_chair_bottom_side_left",
+      "model": "beachparty:block/beach_chair_bottom_side_right",
       "y": 90
     },
     "facing=north,half=lower,type=right": {
@@ -50,14 +50,14 @@
       "y": 180
     },
     "facing=east,half=lower,type=right": {
-      "model": "beachparty:block/beach_chair_bottom_side_right",
+      "model": "beachparty:block/beach_chair_bottom_side_left",
       "y": 270
     },
     "facing=south,half=lower,type=right": {
       "model": "beachparty:block/beach_chair_bottom_side_right"
     },
     "facing=west,half=lower,type=right": {
-      "model": "beachparty:block/beach_chair_bottom_side_right",
+      "model": "beachparty:block/beach_chair_bottom_side_left",
       "y": 90
     },
     "facing=north,half=upper,type=none": {
@@ -95,14 +95,14 @@
       "y": 180
     },
     "facing=east,half=upper,type=left": {
-      "model": "beachparty:block/beach_chair_top_side_left",
+      "model": "beachparty:block/beach_chair_top_side_right",
       "y": 270
     },
     "facing=south,half=upper,type=left": {
       "model": "beachparty:block/beach_chair_top_side_left"
     },
     "facing=west,half=upper,type=left": {
-      "model": "beachparty:block/beach_chair_top_side_left",
+      "model": "beachparty:block/beach_chair_top_side_right",
       "y": 90
     },
     "facing=north,half=upper,type=right": {
@@ -110,14 +110,14 @@
       "y": 180
     },
     "facing=east,half=upper,type=right": {
-      "model": "beachparty:block/beach_chair_top_side_right",
+      "model": "beachparty:block/beach_chair_top_side_left",
       "y": 270
     },
     "facing=south,half=upper,type=right": {
       "model": "beachparty:block/beach_chair_top_side_right"
     },
     "facing=west,half=upper,type=right": {
-      "model": "beachparty:block/beach_chair_top_side_right",
+      "model": "beachparty:block/beach_chair_top_side_left",
       "y": 90
     }
   }

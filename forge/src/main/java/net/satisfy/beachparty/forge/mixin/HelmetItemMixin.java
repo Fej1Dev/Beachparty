@@ -18,21 +18,21 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 
 @Mixin(BeachpartyArmorItem.class)
-public abstract class BeachpartyArmorItemMixin extends ArmorItem {
-    @Shadow @Final
-    private ResourceLocation getTexture;
+public abstract class HelmetItemMixin extends ArmorItem {
+    @Shadow
+    @Final
+    private ResourceLocation hatTexture;
+
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(
                 new IClientItemExtensions() {
                     @Override
-                    public @NotNull Model getGenericArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original)
-                    {
-                        return Objects.requireNonNull(ArmorRegistry.getHatModel(itemStack.getItem(), original.getHead()));
+                    public @NotNull Model getGenericArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
+                        return ArmorRegistry.HelmetModel(itemStack.getItem(), original.getHead());
                     }
                 }
         );
@@ -40,10 +40,10 @@ public abstract class BeachpartyArmorItemMixin extends ArmorItem {
 
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return getTexture.toString();
+        return hatTexture.toString();
     }
 
-    private BeachpartyArmorItemMixin(ArmorMaterial arg, Type arg2, Properties arg3) {
-        super(arg, arg2, arg3);
+    private HelmetItemMixin(ArmorMaterial armorMaterial, Type armorType, Properties itemProperties) {
+        super(armorMaterial, armorType, itemProperties);
     }
 }
